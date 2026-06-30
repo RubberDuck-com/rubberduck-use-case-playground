@@ -1,35 +1,34 @@
-# Tutorial — UC-07: Generate Code That Fits (codegen)
+# Tutorial — UC-08: Check Code Logic
 
-> Branch `uc-07-generate-code` — public playground for [RubberDuck](https://rubberduck.com) workflows.
+> Branch `uc-08-check-code-logic` — public playground for [RubberDuck](https://rubberduck.com) workflows.
 
 ## When to use
 
-You need to write code that fits seamlessly into an existing codebase.
+Verify correctness of complex logic — conditions, gaps, control flow.
 
 ## Setup
 
 1. Complete [SETUP.md](../SETUP.md) (MCP token + index this repo).
-2. **Focus files:** `demoapp/ext/github.py` — extend with `gitlab.py` + test
+2. **Focus files:** `demoapp/builders/html.py` — `get_outdated_docs`
 3. Optional upstream repo: see [docs/recommended-repos.md](docs/recommended-repos.md)
 
 ## Prompt
 
 ```
-I need to implement a :gitlab: role for linking to GitLab issues, similar to demoapp/ext/github.py.
+Verify demoapp/builders/html.py StandaloneHTMLBuilder.get_outdated_docs():
 
-Using RubberDuck, generate code that fits this codebase:
-1. Find similar patterns (use search_code, analyze_code)
-2. Identify the right location (use symbols_overview, find_files)
-3. Check dependencies (use call_chain, trace_variable on similar functions)
-4. Generate minimal code that reuses existing patterns and naming
-5. Generate a matching test
+1. read_source on get_outdated_docs
+2. trace_variable on template_mtime, build_info, buildinfo
+3. call_chain on get_outdated_docs
+4. control_guards on each branch condition line
+5. search_code for other builders' get_outdated_docs implementations
 
-Show me the diff and explain design choices.
+Report all branches, gaps (static/theme/css/extension changes), with formal evidence.
 ```
 
 ## Expected RubberDuck tool flow
 
-`search_code → read_source → symbols_overview → call_chain → analyze_code`
+`load_repo → read_source → trace_variable → call_chain → control_guards → search_code`
 
 ## Success criteria
 
@@ -39,4 +38,4 @@ Show me the diff and explain design choices.
 
 ## More detail
 
-See [docs/uc-07.md](docs/uc-07.md)
+See [docs/uc-08.md](docs/uc-08.md)
