@@ -1,39 +1,35 @@
-# Tutorial — UC-02: Codebase Audit
+# Tutorial — UC-03: Localize and Fix Bugs
 
-> Branch `uc-02-codebase-audit` — public playground for [RubberDuck](https://rubberduck.com) workflows.
+> Branch `uc-03-localize-and-fix-bugs` — public playground for [RubberDuck](https://rubberduck.com) workflows.
 
 ## When to use
 
-You want to check for security vulnerabilities or quality issues in your code.
+You have a bug report, traceback, or unexpected behavior and need to find the root cause.
 
 ## Setup
 
 1. Complete [SETUP.md](../SETUP.md) (MCP token + index this repo).
-2. **Focus files:** `demoapp/config.py` — `eval_config_file`, `from_pickle`
+2. **Focus files:** `demoapp/db/query.py` — `get_aggregation`, `rewrite_cols`
 3. Optional upstream repo: see [docs/recommended-repos.md](docs/recommended-repos.md)
 
 ## Prompt
 
 ```
-Using RubberDuck semantic intelligence tools, perform a security-sensitive path audit on my loaded code:
+I have unexpected aggregation behavior in demoapp/db/query.py get_aggregation().
 
-1. First, find all entry points that accept external input (use search_code to find HTTP handlers, API endpoints, form handlers, user input processing)
-2. For each entry point, trace the data flow of the input variable (use trace_variable)
-3. Search for dangerous sinks: exec, eval, subprocess, SQL queries, file operations, shell commands (use search_code with regex patterns)
-4. For any dangerous sink found, check if user input can reach it (use call_chain to trace the path from entry to sink)
+Using RubberDuck semantic tools:
+1. load_repo on demoapp/db/query.py
+2. trace_variable on annotation_select_mask, inner_query, col_cnt, has_existing_annotations
+3. call_chain on rewrite_cols and get_aggregation
+4. search_code for annotation_select_mask assignments
+5. read_source on rewrite_cols and get_aggregation
 
-Focus ONLY on the loaded code scope. If no dangerous path is found in the loaded files, say so honestly — do not speculate about code outside the loaded scope.
-
-Report findings as:
-- Entry point (file, line)
-- Data flow path
-- Sink (file, line, type of danger)
-- Risk level (high/medium/low)
+Find all interacting bugs and propose a minimal fix with tests. Base conclusions only on tool evidence.
 ```
 
 ## Expected RubberDuck tool flow
 
-`codebase_audit → load_repo → search_code → read_source → trace_variable → call_chain`
+`load_repo → trace_variable → call_chain → control_guards → search_code → read_source`
 
 ## Success criteria
 
@@ -43,4 +39,4 @@ Report findings as:
 
 ## More detail
 
-See [docs/uc-02.md](docs/uc-02.md)
+See [docs/uc-03.md](docs/uc-03.md)
