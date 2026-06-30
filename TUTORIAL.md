@@ -1,43 +1,35 @@
-# Tutorial — UC-06: Plan a New Feature
+# Tutorial — UC-07: Generate Code That Fits (codegen)
 
-> Branch `uc-06-plan-new-feature` — public playground for [RubberDuck](https://rubberduck.com) workflows.
+> Branch `uc-07-generate-code` — public playground for [RubberDuck](https://rubberduck.com) workflows.
 
 ## When to use
 
-You want to add a new feature, preferably tests-first.
+You need to write code that fits seamlessly into an existing codebase.
 
 ## Setup
 
 1. Complete [SETUP.md](../SETUP.md) (MCP token + index this repo).
-2. **Focus files:** `demoapp/builders/html.py` — `write_doc`, parallel patterns
+2. **Focus files:** `demoapp/ext/github.py` — extend with `gitlab.py` + test
 3. Optional upstream repo: see [docs/recommended-repos.md](docs/recommended-repos.md)
 
 ## Prompt
 
 ```
-I want to add a --parallel-write flag for parallel file writing in demoapp builders.
+I need to implement a :gitlab: role for linking to GitLab issues, similar to demoapp/ext/github.py.
 
-Using RubberDuck, help me plan tests-first:
+Using RubberDuck, generate code that fits this codebase:
+1. Find similar patterns (use search_code, analyze_code)
+2. Identify the right location (use symbols_overview, find_files)
+3. Check dependencies (use call_chain, trace_variable on similar functions)
+4. Generate minimal code that reuses existing patterns and naming
+5. Generate a matching test
 
-Step 1 — Understand existing patterns:
-1. Search for similar functionality (use search_code, analyze_code)
-2. Find test directory and patterns
-3. Identify where this feature belongs (use symbols_overview)
-
-Step 2 — Design tests first:
-Write test cases BEFORE implementation, following existing conventions.
-
-Step 3 — Implementation plan:
-- Which files to modify
-- What new code to add
-- What NOT to add (keep minimal)
-
-Do NOT generate implementation code yet — only tests and plan.
+Show me the diff and explain design choices.
 ```
 
 ## Expected RubberDuck tool flow
 
-`search_code → symbols_overview → read_source → call_chain → analyze_code`
+`search_code → read_source → symbols_overview → call_chain → analyze_code`
 
 ## Success criteria
 
@@ -47,4 +39,4 @@ Do NOT generate implementation code yet — only tests and plan.
 
 ## More detail
 
-See [docs/uc-06.md](docs/uc-06.md)
+See [docs/uc-07.md](docs/uc-07.md)
