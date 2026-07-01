@@ -1,0 +1,22 @@
+Copy the blocks below into GitHub: Repository → Settings → General (or the About pencil on the repo home page).
+Requires Admin on the repository. Contributors with push-only access cannot set these fields via API.
+
+=== DESCRIPTION (paste into About) ===
+
+Official hands-on training for RubberDuck. Ten runnable labs with verify scripts, a shared Python demo app, MCP prompts, and per-use-case branches. Practice codebase audit, bug fixing, PR review, impact analysis, and codegen. Quick start: python scripts/run-lab.py --uc 02 --verify. Full guide: GUIDE.md in the repo.
+
+=== WEBSITE ===
+
+https://rubberduck.com/#docs
+
+=== TOPICS (add each as a topic) ===
+
+rubberduck
+mcp
+developer-tools
+security
+training
+cursor
+code-analysis
+hands-on-labs
+python

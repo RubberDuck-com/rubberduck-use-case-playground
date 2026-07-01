@@ -1,10 +1,31 @@
 # Rubber Duck Playground
 
-**Hands-on training for every RubberDuck workflow.**
+## About this project
 
-This repository is the official playground for learning how RubberDuck works in real projects. You get runnable labs, a shared demo application, copy-paste MCP prompts, and guided branches for all ten use cases from the [RubberDuck documentation](https://rubberduck.com/#docs).
+**Rubber Duck Playground** is the official hands-on training repository for [RubberDuck](https://rubberduck.com). It teaches all ten documented RubberDuck workflows through **runnable code**, not slides.
 
-> **New here?** Start with **[GUIDE.md](GUIDE.md)** — it walks you through setup, your first lab, and how to use RubberDuck MCP end to end.
+**What you do here**
+
+1. **Clone** this repository and pick a use case (UC 01 through UC 10).
+2. **Run the lab locally** with one command (`python scripts/run-lab.py --uc 02 --verify`) so you see real behavior before involving AI.
+3. **Connect RubberDuck MCP** in Cursor, Claude Code, or Codex (see [SETUP.md](SETUP.md)).
+4. **Index this repo** in RubberDuck and **paste the matching prompt** from `docs/` or from the lab launcher output.
+5. **Compare** what you found manually with what RubberDuck reports (file, line, evidence).
+
+**What is inside**
+
+- A shared **demo application** (`demoapp/`) with deliberate security issues, ORM bugs, PR fixtures, and extension tasks.
+- **Ten lab folders** under `labs/`, each with a verify script or tests.
+- **Copy-paste MCP prompts** aligned with [rubberduck.com documentation](https://rubberduck.com/#docs).
+- **Ten Git branches** (`uc-01` … `uc-10`) with a focused tutorial per workflow.
+
+**Who it is for**
+
+- Engineers learning how RubberDuck fits into real development.
+- Team leads running a 90-second live demo in standup.
+- Onboarding programs that assign one use case per week.
+
+**Start here:** [GUIDE.md](GUIDE.md) for the full walkthrough, or run UC 02 below for a one-minute smoke test.
 
 ---
 
