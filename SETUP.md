@@ -1,8 +1,10 @@
-# RubberDuck MCP setup (5 minutes)
+# Rubber Duck Playground — MCP setup (5 minutes)
 
 ## 1. Get a token
 
 Sign up at [rubberduck.com](https://rubberduck.com) and copy your API token from the dashboard.
+
+For the full playground walkthrough, see **[GUIDE.md](GUIDE.md)**.
 
 ## 2. Connect Cursor (or Claude Code / Codex)
 
@@ -39,7 +41,7 @@ Respond only with "healthy" or "unhealthy."
 **GitHub (recommended for team demos):**
 
 ```
-Index my GitHub repo: https://github.com/oussama-rubberduck/rubberduck-use-case-playground
+Index my GitHub repo: https://github.com/RubberDuck-com/rubberduck-use-case-playground
 ```
 
 **Local project:**

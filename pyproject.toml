@@ -1,7 +1,7 @@
 [project]
 name = "rubberduck-use-case-playground"
 version = "0.2.0"
-description = "Runnable labs for RubberDuck UC-01 through UC-10"
+description = "Rubber Duck Playground — runnable labs for RubberDuck UC-01 through UC-10"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
