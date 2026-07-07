@@ -1,18 +1,25 @@
 """UC-02: start API and hit endpoints."""
+import os
 import subprocess
 import sys
 import time
+from pathlib import Path
 
 import httpx
 
+ROOT = Path(__file__).resolve().parents[2]
 BASE = "http://127.0.0.1:8080"
 
 
 def main() -> None:
+  env = os.environ.copy()
+  env["PYTHONPATH"] = str(ROOT) + os.pathsep + env.get("PYTHONPATH", "")
   proc = subprocess.Popen(
       [sys.executable, "-m", "uvicorn", "demoapp.api.server:app", "--host", "127.0.0.1", "--port", "8080"],
       stdout=subprocess.DEVNULL,
       stderr=subprocess.DEVNULL,
+      env=env,
+      cwd=str(ROOT),
   )
   try:
       for _ in range(30):

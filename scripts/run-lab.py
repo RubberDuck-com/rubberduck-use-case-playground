@@ -59,24 +59,36 @@ def run_verify(lab: dict) -> None:
 
 
 def read_prompt(uc_id: str) -> str:
+    """Extract the pre-filled Playground prompt from docs/uc-XX.md."""
     path = ROOT / "docs" / f"uc-{uc_id}.md"
     if not path.exists():
         return ""
     text = path.read_text(encoding="utf-8")
-    if "```" in text:
-        block = text.split("```", 2)[1]
-        if block.startswith("\n"):
-            block = block[1:]
-        return block.split("```", 1)[0].strip()
+    marker = "## Playground prompt"
+    if marker not in text:
+        return ""
+    rest = text.split(marker, 1)[1]
+    for fence in ("````", "```"):
+        if fence in rest:
+            block = rest.split(fence, 2)[1]
+            if block.startswith("\n"):
+                block = block[1:]
+            return block.split(fence, 1)[0].strip()
     return ""
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Run a RubberDuck UC lab")
+    parser = argparse.ArgumentParser(
+        description="Run a RubberDuck UC lab: demo + copy-paste prompt",
+        epilog="Default: run the live demo and print the Cursor prompt. "
+        "Use --verify for pytest smoke tests, --server for UC-02 API.",
+    )
     parser.add_argument("--uc", required=True, help="Use case number 01-10")
     parser.add_argument("--setup-only", action="store_true", help="Install venv only")
-    parser.add_argument("--verify", action="store_true", help="Run lab verify script")
-    parser.add_argument("--start-server", action="store_true", help="Start lab server if defined")
+    parser.add_argument("--verify", action="store_true", help="Run lab verify script (pytest)")
+    parser.add_argument("--no-run", action="store_true", help="Skip the live demo (prompt only)")
+    parser.add_argument("--server", "--start-server", dest="start_server", action="store_true",
+                        help="Start lab server (UC-02 API on :8080)")
     args = parser.parse_args()
 
     uc_key = args.uc.zfill(2)
@@ -93,16 +105,18 @@ def main() -> int:
     repo_path = str(ROOT.resolve())
     print("=" * 60)
     print(f"UC-{uc_key}: {lab['title']}")
-    print(f"Branch: {lab['slug']}")
     print(f"Lab folder: {lab['project_dir']}")
     print("=" * 60)
 
-    lab_readme = ROOT / lab["project_dir"] / "README.md"
-    if lab_readme.exists():
-        print(f"\nSee: {lab_readme.relative_to(ROOT)}\n")
+    if not args.no_run and not args.start_server:
+        print("\n--- Step 1: Live demo (terminal) ---\n")
+        subprocess.check_call([python_exe(), "scripts/demo.py", uc_key], cwd=ROOT, env=lab_env())
+        print()
 
     if args.verify and lab.get("verify"):
+        print("--- Verify (pytest smoke test) ---\n")
         run_verify(lab)
+        print()
 
     if args.start_server and lab.get("start"):
         cmd = lab["start"]
@@ -114,14 +128,14 @@ def main() -> int:
         return 0
 
     prompt = read_prompt(uc_key)
-    print("--- RubberDuck: index this repo ---\n")
+    print("--- Step 2: Index in RubberDuck (once per session) ---\n")
     print(data["setup"]["index_prompt"].format(repo_path=repo_path))
-    print("\n--- Copy this prompt into your IDE ---\n")
-    print(prompt or f"(see docs/uc-{uc_key}.md)")
+    print("\n--- Step 3: Copy this prompt into Cursor chat ---\n")
+    print(prompt or f"(open docs/uc-{uc_key}.md and copy the Playground prompt block)")
     print("\n--- Focus files ---\n")
     for p in lab.get("focus_paths", []):
         print(f"  - {p}")
-    print("\nDone. Use --verify to smoke-test, --start-server for UC-02 API.")
+    print("\nFull guide: docs/HOW_TO_TEST.md")
     return 0
 
 

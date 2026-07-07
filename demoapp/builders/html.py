@@ -60,6 +60,25 @@ class StandaloneHTMLBuilder(Builder):
             "toc": self.render_partial({"text": "toc"})["fragment"],
         }
 
+    def handle_page(self, docname: str) -> None:
+        context = self.get_doc_context(docname)
+        outfile = self.get_outfilename(docname)
+        os.makedirs(os.path.dirname(outfile), exist_ok=True)
+        project = self.globalcontext.get("project", "demo")
+        version = self.globalcontext.get("version", "0.0.0")
+        html = (
+            "<!DOCTYPE html>\n"
+            f"<html>\n<head><title>{project}: {docname}</title></head>\n"
+            "<body>\n"
+            f"<h1>{context['title']}</h1>\n"
+            f"<nav>{context['toc']}</nav>\n"
+            f"<footer>{project} v{version}</footer>\n"
+            "</body>\n</html>\n"
+        )
+        with open(outfile, "w", encoding="utf-8") as handle:
+            handle.write(html)
+        self.last_outfile = outfile
+
     def write_doc_serialized(self, docname: str) -> dict[str, str]:
         return {"title": self.render_partial({"text": docname})["fragment"]}
 

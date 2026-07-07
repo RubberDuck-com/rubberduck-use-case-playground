@@ -1,4 +1,9 @@
 """UC-04: PR review lab checks compiler distinguishes annotation_select."""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 from demoapp.db.query import Compiler, Query
 
 

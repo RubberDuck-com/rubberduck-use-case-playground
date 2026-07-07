@@ -1,6 +1,10 @@
 # Rubber Duck Playground — Complete Guide
 
-Welcome to **Rubber Duck Playground**, the hands-on companion to [RubberDuck](https://rubberduck.com). This guide explains what the repository contains, how to run each lab, and how to pair local exercises with RubberDuck MCP in your IDE.
+Welcome to **Rubber Duck Playground**, the hands-on companion to [RubberDuck](https://rubberduck.com).
+
+**Start here instead if you want the short version:** [docs/HOW_TO_TEST.md](docs/HOW_TO_TEST.md)
+
+This guide goes deeper: repo layout, MCP setup, demos, and troubleshooting.
 
 ---
 
@@ -31,7 +35,7 @@ The goal is simple: **run something locally, then ask RubberDuck to do the same 
 
 ```mermaid
 flowchart LR
-  A[Clone repo] --> B[Run lab verify]
+  A[Clone repo] --> B[Run lab demo]
   B --> C[Index in RubberDuck]
   C --> D[Paste UC prompt]
   D --> E[Compare MCP vs your notes]
@@ -66,21 +70,23 @@ cd rubberduck-use-case-playground
 ### 2. Run the lab launcher
 
 ```bash
-python scripts/run-lab.py --uc 02 --verify
+python scripts/run-lab.py --uc 02
 ```
 
-On Windows you can use:
+On Windows:
 
 ```powershell
-.\scripts\setup.ps1 -Uc 02 -Verify
+.\scripts\setup.ps1 -Uc 02
 ```
 
 The script will:
 
 1. Create `.venv` and install dependencies (only on first run)
-2. Execute the UC 02 verify script
+2. **Run real demo code** (shows SQL built from user input)
 3. Print an **index command** for RubberDuck
-4. Print the **UC 02 prompt** from `docs/uc-02.md`
+4. Print the **pre-filled UC 02 prompt** from `docs/uc-02.md`
+
+Optional: add `--verify` for pytest smoke tests only.
 
 ### 3. Start the API (optional but recommended)
 
@@ -235,16 +241,9 @@ Look for `eval`, pickle loads, and unvalidated input paths.
 
 ## Branches and tutorials
 
-`main` contains **all labs together** — best for development and CI.
+**Use `main` only.** The `uc-NN-*` Git branches are **stale** (created before labs were added) and are missing current files. All ten exercises live on `main` under `labs/` and `docs/`.
 
-Each `uc-NN-*` branch adds a focused **TUTORIAL.md** for that workflow only:
-
-```bash
-git checkout uc-07-generate-code
-cat TUTORIAL.md
-```
-
-Use branches when onboarding someone on a single workflow. Use `main` when you want the full playground in one checkout.
+Legacy branches may still have a `TUTORIAL.md` — ignore them for hands-on work. See [docs/HOW_TO_TEST.md](docs/HOW_TO_TEST.md).
 
 ---
 

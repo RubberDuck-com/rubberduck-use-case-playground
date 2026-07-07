@@ -13,6 +13,6 @@ Set-Location (Join-Path $PSScriptRoot "..")
 
 $args = @("scripts/run-lab.py", "--uc", $Uc)
 if ($Verify) { $args += "--verify" }
-if ($StartServer) { $args += "--start-server" }
+if ($StartServer) { $args += "--server" }
 
 python @args

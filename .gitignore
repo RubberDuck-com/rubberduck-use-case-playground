@@ -10,3 +10,4 @@ venv/
 .vscode/
 *.log
 .rubberduck/
+sampledocs/_build/

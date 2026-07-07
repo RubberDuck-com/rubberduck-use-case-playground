@@ -6,4 +6,5 @@ from demoapp.application import Application
 def test_parallel_write_flag_exists():
     app = Application(srcdir=".")
     builder = StandaloneHTMLBuilder(app)
-    assert hasattr(builder, "parallel_write_safe") or getattr(builder, "parallel_write", False)
+    # Fails on purpose until --parallel-write is implemented (UC-06 tests-first).
+    assert getattr(builder, "parallel_write_safe", False) is True

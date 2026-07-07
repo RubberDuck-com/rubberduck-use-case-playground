@@ -9,6 +9,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from uc_metadata import META, fill_playground_prompt
+
 ROOT = Path(__file__).resolve().parent.parent
 
 USE_CASES = [
@@ -359,18 +361,37 @@ def write_uc_docs() -> None:
     docs = ROOT / "docs"
     docs.mkdir(exist_ok=True)
     for uc in USE_CASES:
-        path = docs / f"uc-{uc['id']}.md"
+        uc_id = uc["id"]
+        meta = META[uc_id]
+        playground_prompt = fill_playground_prompt(uc_id, uc["prompt"].strip())
+        path = docs / f"uc-{uc_id}.md"
         path.write_text(
-            f"# UC-{uc['id']}: {uc['title']}\n\n"
-            f"**When to use:** {uc['when']}\n\n"
-            f"**Focus in this repo:** {uc['focus']}\n\n"
-            f"**Typical MCP workflow:** {uc['workflow']}\n\n"
-            f"> Prompt below is the official RubberDuck Guided Prompt Library prompt. "
-            f"Edit only the input fields (repo, branch/ref, commit, and the task/bug/question).\n\n"
-            f"## Prompt (copy into Cursor / Claude Code)\n\n"
+            f"# UC-{uc_id}: {uc['title']} ({meta['website_name']})\n\n"
+            f"## What this does\n\n"
+            f"{meta['plain']}\n\n"
+            f"## What you gain\n\n"
+            f"{meta['gain']}\n\n"
+            f"## How to test (2 steps)\n\n"
+            f"**Step 1 — Terminal** (see the real behavior):\n\n"
+            f"```bash\n"
+            f"python scripts/run-lab.py --uc {uc_id}\n"
+            f"```\n\n"
+            f"{meta['demo_note']}\n\n"
+            f"**Step 2 — Cursor** (paste the prompt below into chat after RubberDuck MCP is connected):\n\n"
+            f"- Index once: `Index my local project at: <path-to-this-repo>`\n"
+            f"- **Edit only:** {meta['edit']}\n"
+            f"- Copy the entire **Playground prompt** block below\n\n"
+            f"## What a good answer looks like\n\n"
+            f"{meta['expect']}\n\n"
+            f"Must include: repo name, branch/ref, **pinned commit SHA**, and **file:line** evidence.\n\n"
+            f"**Focus files in this repo:** {uc['focus']}\n\n"
+            f"---\n\n"
+            f"## Playground prompt (copy ALL of this into Cursor)\n\n"
+            f"````\n{playground_prompt}\n````\n\n"
+            f"<details>\n<summary>Official library prompt (reference — unfilled placeholders)</summary>\n\n"
             f"````\n{uc['prompt'].strip()}\n````\n\n"
-            f"Full narrative and with/without MCP comparison: "
-            f"[rubberduck.com documentation](https://rubberduck.com/#docs)\n",
+            f"</details>\n\n"
+            f"More: [HOW_TO_TEST.md](HOW_TO_TEST.md) · [rubberduck.com docs](https://rubberduck.com/#docs)\n",
             encoding="utf-8",
         )
 
