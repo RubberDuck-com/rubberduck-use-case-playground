@@ -1,5 +1,7 @@
 # Playground Test Report
 
+> **For the complete record** (every step, every prompt pasted into Cursor, every RubberDuck output): see **[FULL_SESSION_LOG.md](FULL_SESSION_LOG.md)**.
+
 **Date:** 2026-07-07
 **Tester role:** simulated end user (running the repo exactly as the docs instruct)
 **Environment:** Windows 10, PowerShell, Python (system + repo `.venv`)

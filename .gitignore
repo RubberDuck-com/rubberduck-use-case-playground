@@ -11,3 +11,5 @@ venv/
 *.log
 .rubberduck/
 sampledocs/_build/
+docs/_capture_terminal.txt
+docs/_prompts.json
