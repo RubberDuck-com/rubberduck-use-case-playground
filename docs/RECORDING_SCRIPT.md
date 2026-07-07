@@ -3,7 +3,8 @@
 Use this on camera for Piermatteo's ask: *how to trigger each use case, what to do, and what we expect.*
 
 **Repo:** https://github.com/RubberDuck-com/rubberduck-use-case-playground  
-**Prompts:** copy from `docs/uc-01.md` … `docs/uc-10.md` (official Guided Prompt Library text). Edit only the input fields (repo, branch/ref, commit, bug/question/diff).
+**Branch:** stay on **`main`** (the `uc-*` Git branches are stale — do not use them).  
+**Prompts:** copy from `docs/uc-01.md` … `docs/uc-10.md` → **Playground prompt** block (pre-filled for this repo).
 
 ---
 
@@ -17,18 +18,18 @@ Use this on camera for Piermatteo's ask: *how to trigger each use case, what to 
 
 **Say once on camera:** website names vs repo branch names are the same 10 use cases with different labels.
 
-| # | Website / PDF | Repo name | Branch |
-|---|---------------|-----------|--------|
-| 01 | Codebase Atlas | Understand Your Code | `uc-01-understand-your-code` |
-| 02 | Security Audit | Codebase Audit | `uc-02-codebase-audit` |
-| 03 | Bug Localization | Localize and Fix Bugs | `uc-03-localize-and-fix-bugs` |
-| 04 | Full-Repo PR Review | Code Review | `uc-04-code-review` |
-| 05 | Change Impact | Change Impact Analysis | `uc-05-change-impact-analysis` |
-| 06 | Feature Planning | Plan a New Feature | `uc-06-plan-new-feature` |
-| 07 | CodeGen | Generate Code That Fits | `uc-07-generate-code` |
-| 08 | Business Logic Check | Check Code Logic | `uc-08-check-code-logic` |
-| 09 | Compare Versions | Compare Versions | `uc-09-compare-versions` |
-| 10 | Quick Check | Quick Check | `uc-10-quick-check` |
+| # | Website / PDF | Repo name |
+|---|---------------|-----------|
+| 01 | Codebase Atlas | Understand Your Code |
+| 02 | Security Audit | Codebase Audit |
+| 03 | Bug Localization | Localize and Fix Bugs |
+| 04 | Full-Repo PR Review | Code Review |
+| 05 | Change Impact | Change Impact Analysis |
+| 06 | Feature Planning | Plan a New Feature |
+| 07 | CodeGen | Generate Code That Fits |
+| 08 | Business Logic Check | Check Code Logic |
+| 09 | Compare Versions | Compare Versions |
+| 10 | Quick Check | Quick Check |
 
 **Good answer rule:** every RubberDuck result must name repo, branch/ref, **pinned SHA**, `file:line` evidence. Missing that = incomplete, rerun.
 
@@ -48,10 +49,10 @@ Use this on camera for Piermatteo's ask: *how to trigger each use case, what to 
 
 **DO:**
 ```bash
-python scripts/run-lab.py --uc 02 --verify
+python scripts/run-lab.py --uc 02
 ```
 
-**EXPECT:** Venv installs (first run), verify passes, launcher prints index hint + prompt.
+**EXPECT:** Live demo runs (SQL injection output), then launcher prints index hint + pre-filled prompt.
 
 **SAY:** Now I index the repo once in RubberDuck.
 

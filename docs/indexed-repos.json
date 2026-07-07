@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "description": "Repos and commits to cache for RubberDuck semantic graph. Hand this file to Ahsan for graph pre-indexing.",
+  "notes": [
+    "Playground repo is pinned to current main for all built-in demoapp UCs.",
+    "Upstream django/sphinx entries are placeholders until SWE-bench base commit is confirmed.",
+    "UC-03 Django ORM bug needs the SWE-bench base commit SHA (not HEAD) — blocked on user input."
+  ],
+  "repos": [
+    {
+      "use_cases": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10"],
+      "repo": "RubberDuck-com/rubberduck-use-case-playground",
+      "branch": "main",
+      "commit": "f837210c246d81e4e63a2397edae270a412131c9",
+      "scope": "whole repo",
+      "focus_paths": ["demoapp/", "labs/", "fixtures/"],
+      "purpose": "Built-in playground — self-contained demos for all 10 UCs",
+      "status": "ready_for_cache"
+    },
+    {
+      "use_cases": ["03", "04"],
+      "repo": "django/django",
+      "branch": "main",
+      "commit": "PENDING_SWE_BENCH_BASE_COMMIT",
+      "scope": "django/db/models/sql/",
+      "focus_paths": ["django/db/models/sql/query.py", "django/db/models/sql/compiler.py"],
+      "purpose": "Real upstream ORM bug (UC-03) and compiler PR review (UC-04)",
+      "status": "blocked_needs_swe_bench_sha",
+      "swe_bench_instance": "PENDING — e.g. django__django-XXXXX"
+    },
+    {
+      "use_cases": ["01", "02", "05", "06", "07", "08", "09", "10"],
+      "repo": "sphinx-doc/sphinx",
+      "branch": "main",
+      "commit": "PENDING_PIN_COMMIT",
+      "scope": "sphinx/",
+      "focus_paths": [
+        "sphinx/cmd/build.py",
+        "sphinx/application.py",
+        "sphinx/config.py",
+        "sphinx/builders/html.py",
+        "sphinx/ext/"
+      ],
+      "purpose": "Optional upstream repos matching rubberduck.com docs",
+      "status": "optional_not_pinned_yet"
+    }
+  ]
+}
