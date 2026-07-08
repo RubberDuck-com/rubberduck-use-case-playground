@@ -1,0 +1,88 @@
+
+
+.page-titles {
+    padding: 0.9375rem 0;
+    background: transparent;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    margin-top: -20px;
+    @at-root [data-theme-version="dark"] & {
+        background: transparent;
+    }
+
+    @include respond('phone-land') {
+        margin-#{$dz-pos-left}: -15px!important;
+        margin-#{$dz-pos-right}: -15px!important;
+        margin-bottom: 0;
+        padding: 15px 0;
+		margin-top: -15px;
+    }
+
+    .justify-content-sm-end{
+        align-items: center;
+    }
+
+    h4 {
+        margin-bottom: 0;
+        margin-top: 0;
+        color: $primary;
+        font-size: 1.25rem;
+        span {
+            font-size: 0.875rem;
+            font-weight: 400;
+        }
+    }
+    .breadcrumb {
+        margin-bottom: 0;
+        padding: 0;
+        background: transparent;
+        li {
+            margin-top: 0;
+            margin-bottom: 0;
+            a{
+               color: $l-ctl; 
+            }
+            &.active{
+                color:$primary;
+				font-weight: 600;
+				a{
+					color:$primary;
+				}
+            }
+        }
+        
+        .breadcrumb-item + .breadcrumb-item {
+            &:before {
+				color:$primary;
+            }
+        }
+
+        &-datepicker{
+            font-size: 0.75rem;
+            color: $muted;
+
+            &__icon{
+                font-size: 0.875rem;
+            }
+        }
+    }
+
+    .breadcrumb-widget{
+        .border-dark{
+            border-color: $gray-300!important;
+        }
+        h4{
+            color: $strong;
+            font-weight: 600;
+        }
+        @include respond('phone') {
+            text-align: $dz-pos-left!important;
+            margin-bottom: 0.9375rem;
+        }
+    }
+    
+}
+
+.breadcrumb-item + .breadcrumb-item::before{
+	float: $dz-pos-left;
+}

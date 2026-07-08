@@ -1,0 +1,456 @@
+.email-left-box {
+	margin-bottom: 20px;
+	@include respond ('phone'){
+		margin-top:20px;
+	}
+    .intro-title{
+        background: rgba($primary, .1);
+        padding: 1rem;
+        margin: 1.875rem 0 1.25rem 0;
+
+        h5{
+            margin-bottom: 0;
+            color: #000;
+            font-size: 14px;
+
+            i{
+                font-size: 0.75rem;
+                position: relative;
+                bottom: 1px;
+            }
+        }
+
+        i{
+            color: $primary;
+
+        }
+    }
+}
+
+@include respond ('phone'){
+  .email-left-body {
+    width: 18rem;
+    position: fixed;
+    height: 100vh;
+    z-index: 2;
+    overflow-y: scroll!important;
+    scroll-behavior: smooth;
+    transition: all 0.5s;
+    #{$dz-pos-left}: -22rem;
+    top: 0px;
+    z-index: 999; }
+    .email-left-body.active {
+		overflow-y: scroll!important;
+		scroll-behavior: smooth;
+      #{$dz-pos-left}: 0;
+      background: #fff;
+      transition: all 0.5s; 
+		@at-root [data-theme-version="dark"] & {
+			background:$d-bg;
+		}
+	} 
+}
+.toolbar {
+    .btn-group {
+        .btn {
+            border: 0;
+          
+        }
+        input{
+            position: relative;
+            top: 2px;
+        }
+    }
+}
+
+.read-content {
+    textarea {
+        height:150px;
+		padding: 15px 20px;
+    }
+
+    &-email{
+        font-size: 0.875rem;
+    }
+
+    h5{
+        color: #6a707e;
+    }
+
+    p{
+
+        strong{
+            color: #6a707e;
+        }
+    }
+
+    &-body{
+
+        p{
+            margin-bottom: 1.875rem;
+        }
+    }
+
+    &-attachment{
+        padding: 0.5rem 0;
+
+        h6{
+            font-size: 1.125rem;
+            i{
+                padding-#{$dz-pos-right}: 0.3125rem;
+            }
+        }
+
+        .attachment{
+			&>div:not(:last-child){
+				border-#{$dz-pos-right}: 1px solid #DDDFE1;
+			}
+        }
+    }
+}  
+
+.compose-content {
+    .wysihtml5-toolbar {
+        border-color: $l-border;
+    }
+    .dropzone {
+        background: $l-bg!important;
+    }
+
+    h5{
+        font-size: 1.0625rem;
+        color: #6a707e;
+
+        i{
+            font-size: 1.125rem;
+            transform: rotate(90deg);
+        }
+    }
+
+    .dropzone{
+        border: 1px dashed #DDDFE1;
+        min-height: 13.125rem;
+        position: relative;
+    }
+}
+
+.email-list {
+    display: block;
+    padding-#{$dz-pos-left}: 0;
+
+    .message {
+        position: relative;
+        display: block;
+        height: 3.125rem;
+        line-height: 3.125rem;
+        cursor: default;
+        transition-duration: 0.3s;
+        a {
+            color: $l-ctl;
+        }
+
+        &-single{
+            .custom-checkbox{
+                margin-top: 2px;
+            }
+
+            i{
+                color: $muted;
+                font-size: 1.125rem;
+                padding-#{$dz-pos-left}: .4rem;
+            }
+        }
+        &:hover {
+            transition-duration: 0.05s;
+            background: rgba(152, 166, 173, 0.15);
+        }
+
+        .col-mail {
+            float: $dz-pos-left;
+            position: relative;
+        }
+
+        .col-mail-1 {
+            width: 5.625rem;
+            .star-toggle {
+                display: block;
+                float: $dz-pos-left;
+                margin-top: 1.125rem;
+                font-size: 1rem;
+                margin-#{$dz-pos-left}: 0.3125rem;
+            }
+
+            .email-checkbox {
+                display: block;
+                float: $dz-pos-left;
+                margin: 0.9375rem 0.625rem 0 1.25rem;
+            }
+
+            .dot {
+                display: block;
+                float: $dz-pos-left;
+                border: .4rem solid transparent;
+                border-radius: 6.25rem;
+                margin: 1.375rem 1.625rem 0;
+                height: 0;
+                width: 0;
+                line-height: 0;
+                font-size: 0;
+            }
+			
+        }
+
+        .col-mail-2 {
+            position: absolute;
+            top: 0;
+            #{$dz-pos-left}: 5.625rem;
+            #{$dz-pos-right}: 0;
+            bottom: 0;
+			float: #{$dz-pos-left};
+            .subject {
+                position: absolute;
+                top: 0;
+                #{$dz-pos-left}: 0;
+                #{$dz-pos-right}: 5.5rem;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .date {
+                position: absolute;
+                top: 0;
+                #{$dz-pos-right}: 0;
+            }
+        }
+    }
+}
+
+.email-checkbox {
+    cursor: pointer;
+    height: 0.9375rem;
+    width: 0.9375rem;
+    position: relative;
+    display: inline-block;
+    border-radius: .1rem;
+    position: relative;
+    top: 0.3125rem;
+    box-shadow: inset 0 0 0 .1rem $l-ctl;
+
+    input {
+        opacity: 0;
+        cursor: pointer;
+
+        &:checked {
+            label {
+                opacity: 1;
+            }
+        }
+    }
+
+    label {
+        position: absolute;
+        top: .3rem;
+        #{$dz-pos-left}: .3rem;
+        #{$dz-pos-right}: .3rem;
+        bottom: .3rem;
+        cursor: pointer;
+        opacity: 0;
+        margin-bottom: 0 !important;
+        transition-duration: 0.05s;
+    }
+}
+
+.mail-list {
+
+    a {
+        vertical-align: middle;
+        padding: 0.625rem 0.9375rem;
+        display: block;
+        background: transparent;
+        color: $l-ctd;
+        font-weight: 600;
+    }
+
+    .list-group-item{
+        color: #6a707e;
+        padding: 0.75rem 1.0625rem;
+
+        i{
+            font-size: 1rem;
+            padding-#{$dz-pos-right}: 0.625rem;
+            color: #cccccc;
+        }
+
+        &.active{
+            color: $white;
+			background-color:$primary;
+            i{
+                color: $white;
+            }
+        }
+		&:first-child{
+			border-top-left-radius: $radius;
+			border-top-right-radius: $radius;
+		}
+		&:last-child{
+			border-bottom-left-radius: $radius;
+			border-bottom-right-radius: $radius;
+		}
+    }
+}
+
+.chat-wrap{
+    padding: 1.0625rem 1.875rem;
+
+    .media{
+
+        .media-body{
+
+            h6{
+                font-size: 1.0625rem;
+                color: #6a707e;
+            }
+
+            p{
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
+
+.email-filter{
+    @media (min-width: 648px){
+        padding-#{$dz-pos-left}: 1.25rem;
+    }
+    @media(min-width: 1700px){
+        padding-#{$dz-pos-left}: 1.875rem;
+    }
+    .input-group{
+        &-prepend{
+            i{
+                font-size: 0.875rem;
+                color: $muted;
+            }
+            .input-group-text{
+                border: 0;
+                border-bottom: 1px solid #DDDFE1 !important;
+                background: transparent;
+            }
+        }
+
+        .form-control{
+            padding: 0 0 0 0.3125rem;
+            border: 0;
+            font-size: 0.875rem;
+            height: 1.875rem;
+            color: $muted;
+            border-bottom: 1px solid #DDDFE1;
+
+            &::placeholder{
+                font-size: 0.875rem;
+                color: $muted;
+            }
+        }
+
+        & > .form-control{
+            min-height: 1.875rem;
+        }
+    }
+}
+
+.single-mail{
+    display: block;
+    padding: 1.5625rem 0;
+
+    .media{
+        padding-#{$dz-pos-left}: 1.25rem;
+        padding-#{$dz-pos-right}: 1.25rem;
+
+        @media(min-width: 1700px){
+            padding-#{$dz-pos-left}: 1.875rem;
+            padding-#{$dz-pos-right}: 1.875rem;
+        }
+
+        img{
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            margin-#{$dz-pos-right}: 0.9375rem;
+
+            @media(min-width: 1700px){
+                margin-#{$dz-pos-right}: 1.875rem;
+            }
+        }
+
+        &-body{
+            h6{
+                color: #abafb3;
+            }
+            h4{
+                font-size: 1rem;
+                color: #6a707e;
+                button{
+
+                    i{
+                        font-size: 1.125rem;
+                        color: #abafb3;
+                        font-weight: bold;
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+            p{
+                font-size: 0.875rem;
+                color: #abafb3;
+            }
+        }
+    }
+
+    &.active{
+        background: $primary;
+
+        h6,h4,p,i{
+            color: $white !important;
+        }
+    }
+}
+
+.icon-warning{
+	i{
+		color:$danger !important;
+	}
+}
+.icon-primary{
+	i{
+		color:$primary !important;
+	}
+}
+.icon-success{
+	i{
+		color:$success !important;
+	}
+}
+.icon-dpink{
+	i{
+		color:$info !important;
+	}
+}
+.email-list .message-single i.yellow{
+	color:$warning!important;
+}
+
+
+.dropzone .dz-message {
+    margin: 4rem 0 !important;
+	text-align:center;
+}
+
+
+
+
+
+
+
+
+

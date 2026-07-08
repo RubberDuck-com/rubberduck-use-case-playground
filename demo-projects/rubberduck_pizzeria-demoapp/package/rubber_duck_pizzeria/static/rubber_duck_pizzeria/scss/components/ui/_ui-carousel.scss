@@ -1,0 +1,53 @@
+.carousel-custom{
+
+    &-prev, &-next{
+        width: 2.5rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        display: inline-block;
+        border-radius: 50%;
+        background: $white;
+        text-align: center;
+
+        i{
+            font-size: 1rem;
+        }
+
+        &:hover{
+            background: linear-gradient(to right, rgba(245, 60, 121, 0.99) 0%, rgba(246, 104, 47, 0.99) 100%);
+            color: $white;
+        }
+    }
+
+    &-next{
+        position: absolute;
+        top: 50%;
+        #{$dz-pos-right}: 30px;
+        transform: translateY(-50%);
+    }
+
+    &-prev{
+        position: absolute;
+        top: 50%;
+        #{$dz-pos-left}: 30px;
+        transform: translateY(-50%);
+    }
+}
+
+
+.carousel-caption{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.78);
+	z-index:1;
+	background: rgba($black,0.6);
+    h5{
+        color: $white;
+        font-size: 1.8rem;
+    }
+
+    p{
+        margin-bottom: 0;
+    }
+}
+.carousel-indicators{
+    z-index:1;
+}

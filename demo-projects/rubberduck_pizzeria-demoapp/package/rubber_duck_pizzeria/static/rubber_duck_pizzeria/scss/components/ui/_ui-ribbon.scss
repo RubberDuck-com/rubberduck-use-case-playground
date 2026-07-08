@@ -1,0 +1,145 @@
+.ribbon {
+    position: absolute;
+    z-index: 1;
+    text-transform: uppercase;
+
+    &__one {
+        top: 15px;
+        #{$dz-pos-left}: -11px;
+        min-height: 20px;
+        min-width: 52px;
+        text-align: center;
+        padding: 3px 10px;
+        background: #3AB54B;
+        color: #fff;
+        font-size: 0.625rem;
+
+        &::after {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 10px solid #239132;
+            border-#{$dz-pos-left}: 11px solid transparent;
+            #{$dz-pos-left}: 0;
+            content: "";
+            bottom: -10px;
+        }
+    }
+
+    &__two {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        background: $warning;
+        line-height: 50px;
+        text-align: center;
+        font-size: 16px;
+        color: $white;
+        right: 15px;
+        top: 15px;
+        border-radius: 3px;
+    }
+
+    &__three {
+        #{$dz-pos-left}: -1.875rem;
+        top: 0.875rem;
+        width: 6.875rem;
+        height: 1.5625rem;
+        background-color: $danger;
+        clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        transform: rotate(-45deg);
+        color: $white;    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    &__four {
+        #{$dz-pos-left}: 8px;
+        top: -8px;
+        width: 110px;
+        height: 50px;
+        background-color: $primary;
+        z-index: auto;
+        color: $white;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        &:after {
+            #{$dz-pos-right}: -5px;
+        }
+
+        &:before {
+            #{$dz-pos-left}: -5px;
+        }
+
+
+        &:after, &:before {
+            z-index: -1;
+            background-color: lighten($color: $primary, $amount: 20%);
+            top: 3px;
+            transform: rotate(45deg);
+            content: "";
+            height: 10px;
+            width: 10px;
+            position: absolute;
+        }
+    }
+
+    &__five {
+        #{$dz-pos-left}: -1.875rem;
+        top: 0.625rem;
+        width: 6.875rem;
+        height: 1.875rem;
+        background-color: $primary;
+        transform: rotate(-45deg);
+        font-size: 0.75rem;
+        color: $white;
+        padding-bottom: 0.3125rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 50px 50px 50px;
+            border-color: transparent transparent $primary transparent;
+            #{$dz-pos-left}: 0.25rem;
+            top: -2.8125rem;
+        }
+    }
+
+    &__six {
+        #{$dz-pos-left}: 0;
+        top: 1.125rem;
+        width: 6.875rem;
+        height: 2.375rem;
+        background-color: $primary;
+        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 0, 85% 50%, 100% 100%, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 0, 85% 50%, 100% 100%, 100% 100%, 0 100%);
+        display: flex;
+        font-size: 1.25rem;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+    }
+
+    &-curve {
+        position: absolute;
+        top: 0;
+        #{$dz-pos-right}: -6px;
+        width: 10px;
+        height: 11px;
+        border-top: 11px solid #3AB54B;
+        border-bottom: 10px solid #3AB54B;
+        border-#{$dz-pos-right}: 5px solid transparent;
+    }
+}

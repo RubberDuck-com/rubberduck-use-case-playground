@@ -1,0 +1,75 @@
+.social-icon{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    text-align: center;
+    background: $body-bg;
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+
+    i{
+        color: $white
+    }
+    &.youtube{
+        background: $youtube;
+    }
+    &.facebook{
+        background: $facebook;
+    }
+    &.twitter{
+        background: $twitter;
+    }
+}
+
+
+.social-icon2{
+    a{
+        border: .1rem solid $primary;
+        display: block;
+        padding: 1rem;
+        margin-top: 1.5rem;
+        margin-bottom: .5rem;
+        border-radius: .3rem;
+        font-size: 1.6rem;
+    }
+
+    i{
+        font-size: 12px;
+        color: $primary;
+    }
+}
+
+.social-icon3{
+    ul{
+        li{
+            display: inline-block;
+            a{
+                display: block;
+                i{
+                    font-size: 1.4rem;
+                    padding: 1rem .7rem;
+                    color: $l-ctd;
+                }
+                &:hover{
+                    i{
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.social-icons-muted{
+    ul li a i{
+        color: $muted;
+    }
+}
+
+.social-links {
+    a {
+        padding: .5rem;
+    }
+}

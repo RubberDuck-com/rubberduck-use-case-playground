@@ -1,0 +1,31 @@
+
+.crypto-ticker{
+    background: rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 3px;
+    box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
+
+    @at-root [data-theme-version="dark"] & {
+        background: $dark-card;
+    }
+    
+}
+
+#webticker-big {
+    font: inherit !important;
+    font-size: inherit !important;
+    font-weight: normal !important;
+    li{
+        i{
+            font-size: 18px;
+            margin-right: 7px;
+        }
+        p{
+            margin-bottom: 0px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+    }
+}
+

@@ -1,0 +1,27 @@
+
+.jqvmap-zoomin, .jqvmap-zoomout
+{
+	position: absolute;
+	#{$dz-pos-left}: 10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #000000;
+	padding: 3px;
+	color: white;
+	width: 17px;
+	height: 17px;
+	cursor: pointer;
+	line-height: 10px;
+	text-align: center;
+}
+.jqvmap-zoomin
+{
+	top: 10px;
+}
+.jqvmap-zoomout
+{
+	top: 30px;
+}
+
+

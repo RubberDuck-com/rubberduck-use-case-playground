@@ -1,0 +1,109 @@
+.tdl-holder {
+  margin: 0 auto;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    background-color: $white;
+    border-bottom: 1px solid $border;
+    list-style: none none;
+    margin: 0;
+    padding: 0;
+    span {
+      margin-#{$dz-pos-left}: 35px;
+      font-size: 1rem;
+      vertical-align: middle;
+      transition: all 0.2s linear;
+
+    }
+  }
+  label {
+    cursor: pointer;
+    display: block;
+    line-height: 50px;
+    padding-#{$dz-pos-left}: 1.5rem;
+    position: relative;
+    margin: 0 !important;
+
+    &:hover {
+      background-color: #eef1f6;
+      color: $dark;
+      a {
+        color: $danger;
+      }
+      
+    }
+    a {
+      color: $white;
+      display: inline-block;
+      line-height: normal;
+      height: 100%;
+      text-align: center;
+      text-decoration: none;
+      width: 50px;
+      -webkit-transition: all .2s linear;
+      -moz-transition: all .2s linear;
+      -o-transition: all .2s linear;
+      transition: all 0.2s linear;
+      padding: 18px 0px;
+      font-size: 18px;
+      position: absolute;
+      #{$dz-pos-right}: 0;
+	  #{$dz-pos-left}: auto;
+    }
+  }
+  input {
+    &[type=checkbox] {
+      cursor: pointer;
+      opacity: 0;
+      position: absolute;
+      + i {
+        background-color: #fff;
+        border: 1px solid #e7e7e7;
+        display: block;
+        height: 20px;
+        position: absolute;
+        top: 15px;
+        width: 20px;
+        z-index: 1;
+        border-radius: 00px;
+		font-size: 11px;
+		border-radius: 4px;
+      }
+      &:checked {
+        + i {
+          background: $primary;
+          border-color: transparent;
+		  
+        }
+
+        + i::after {
+          content: "\f00c";
+          font-family: 'fontAwesome';
+          display: block;
+          #{$dz-pos-left}: 2px;
+          position: absolute;
+          top: -14px;
+          z-index: 2;
+          color: $white;
+        }
+        ~ span {
+          text-decoration: line-through;
+          position: relative;
+        }
+      }
+    }
+    &[type=text] {
+      background-color: $white;
+      height: 50px;
+      margin-top: 29px;
+      border-radius: 3px;
+
+      &::placeholder {
+        color: $dark;
+       }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.footer {
+    padding-#{$dz-pos-left}: 345px;
+    background-color: $body-bg;
+    font-size: 13px;
+    .copyright {
+        padding: 0.9375rem;
+        p {
+            text-align: center;
+            margin: 0;
+        }
+
+        a{
+            color: $primary;
+        }
+    }
+}
+
+

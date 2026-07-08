@@ -1,0 +1,38 @@
+.rtl{	
+	[direction="rtl"] {
+		&[data-theme-version="dark"] {
+			.border, .border-left, .border-right {
+				border-color: $d-border !important;
+			}
+		}
+		.text-right {
+			text-align: left !important;
+		}
+		.text-left {
+			text-align: right !important;
+		}
+		.border-right {
+			border-left: 1px solid $border !important;
+			border-right: 0 !important;
+		}
+		.border-left {
+			border-right: 1px solid $border !important; 
+			border-left: 0 !important;
+		}
+		.dropdown-menu {
+			left: auto;
+		}
+		.dropdown-menu-end {
+			left: 0;
+			right: auto;
+			
+			@include respond('phone') {
+				left: 15px;
+			}
+		}
+		.notification_dropdown .dropdown-menu-right .media > span{
+			margin-left: 10px;
+			margin-right: 0;
+		}
+	}
+}

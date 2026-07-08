@@ -1,0 +1,610 @@
+
+[data-theme-version="dark"]{
+    .dropdown-menu {
+        background-color: $d-bg;
+		box-shadow: 0px 0px 0px 1px rgba(255, 255, 255,0.1);
+		
+		.dropdown-item {
+			&.selected,
+			&.selected.active,
+			&.active,
+			&:hover, 
+			&:focus {
+				background-color: $dark-card;
+				color: $body-color;
+			}
+		}
+    }
+	.dz-demo-panel .note-text{
+		background-color: $dark-card;
+	}
+	.btn-link g [fill]{
+		fill: #fff;
+	}
+	.btn-light:active, 
+	.btn-light:focus, 
+	.btn-light:hover{
+		color:#000;
+	}
+    .form-control {
+        background-color: $d-bg;
+        border-color: $d-border;
+    }
+    .card {
+        background-color: $dark-card;
+		box-shadow:none;
+    }
+	.btn-outline-dark:hover{
+		background-color: $d-bg;
+		border-color: $d-bg;
+	}
+	.tdl-holder input[type=text],
+	.tdl-holder li{
+	    background-color: $dark-card;
+		border-color:$d-border;
+	}
+	.tdl-holder input[type=text]{
+		&::placeholder {
+			color: $d-ctl;
+		}
+	}
+    .tdl-holder label:hover {
+		background-color: $d-border;
+		color: $white;
+	}
+	.text-muted {
+		color: $d-ctl !important;
+	}
+	.modal-content{
+		background:$dark-card;
+	}
+	.modal-footer,
+	.modal-header{
+		border-color: $d-border;
+	}
+	.close{
+	    font-weight: 400;
+		color: $white;
+		text-shadow: none;
+		
+		&:hover{
+			color: $white;
+		}
+	}
+	.header-left .dashboard_bar,
+	.star-review span,
+	.table strong {
+		color: #fff;
+	}
+	.text-dark {
+		color: $d-ctl !important;
+	}
+	.star-rating .product-review,
+	.new-arrival-content .item{
+		color: $white;
+	}
+	.custom-dropdown .dropdown-menu{
+		border-color: $d-border;
+	}
+	.widget-stat .media > span{
+	    background: $d-border;
+	    border-color: $d-border;
+		color:$white;
+	}
+	.plus-minus-input .custom-btn{
+		background: $d-bg;
+	    border-color: $d-border;
+	}
+	.dropdown-divider,
+	.size-filter ul li{
+		border-color: $d-border;
+	}
+	.custom-select{
+	    border-color: $d-border;
+		color: $d-ctl;
+		background:$d-bg;
+	}
+	.nav-tabs{
+		border-color: $d-border;
+		.nav-link{
+			&.active{
+				background: $primary;
+				color:$white;
+			}
+		}
+	}
+	.mail-list .list-group-item.active i {
+		color: $white;
+	}
+	hr{
+		border-color: $d-border;
+	}
+	.grid-col{
+		background:$d-bg;
+	}
+	
+	.noUi-target{
+		border-color:$d-border;
+		border-radius: 8px;
+		box-shadow: none;
+		
+		.noUi-connects{
+			background:$d-border;
+		}
+	}
+	.noUi-marker-large,
+	.noUi-marker{
+		background:$d-border;
+	}
+	.input-group-text{
+		background:$d-border;
+		color:$body-color;
+	}
+	.note-editor.note-frame{
+		border-color:$d-border;
+		.btn{
+			color:$white;
+		}
+		.note-editing-area .note-editable{
+			color:$white;
+		}
+	}
+	.widget-media .timeline .timeline-panel{
+		border-color:$d-border; 
+	}
+	.notification_dropdown .dropdown-menu-right .all-notification{
+		border-color:$d-border; 
+	}
+	#user-activity .nav-tabs .nav-link{
+		border-color:$d-border; 
+        &.active{
+            background:$d-bg;
+            color:$white;
+        }
+	}
+	.list-group-item-action{
+		color:$body-color;
+	}
+	.list-group-item-action:focus, 
+	.list-group-item-action:hover, 
+	.list-group-item-action:focus{
+		background-color:$d-bg; 
+		border-color:$d-bg; 
+	}
+	.list-group-item.active{
+		color:$white;
+		border-color:$primary;
+		&:focus, 
+		&:hover, 
+		&:focus{
+			background-color:$primary; 
+			border-color:$primary; 
+			color:$white;
+		}
+	}
+	.swal2-popup{
+		background:$dark-card;
+	}	
+	.form-head .btn-outline-primary{
+		border-color:$d-border;
+	}
+	.form-head .btn-outline-primary:hover{
+		border-color:$primary;
+	}
+	.review-tab.nav-pills li a.nav-link{
+		background:lighten($dark-card, 5);
+	}
+	.review-tab.nav-pills li a.nav-link{
+		background:lighten($dark-card, 5);
+		&.active{
+			color:$white;
+			background:$primary;
+		}
+	}
+	.header-right .header-profile > a.nav-link .header-info span,
+	.review-table .media-body p,
+	.iconbox small,
+	.doctor-info-details .media-body p{
+		color:$white;
+	}
+	.iconbox p,
+	.doctor-info-details .media-body span{
+		color:rgba(255,255,255,0.7);
+	}
+	.best-doctor .timeline .timeline-panel{
+		background:$dark-card !important;
+	}
+	.doctor-list .accordion__header-line{
+		background:$d-border;
+	}
+	.review-table .disease,
+	.review-table,
+	.review-box{
+		border-color:$d-border;
+	}
+	.form-head .search-area{ 
+		.form-control{
+			border:1px solid $d-border;
+		}
+		.input-group-append .input-group-text{
+			background:$d-border;
+		}
+	}
+	.patient-activity tbody tr{
+	    box-shadow: 0 1px 0 0 $d-border;
+	}
+	.plus-box{
+	    background: rgba(255,255,255,0.05);
+		color: #fff;
+	}
+	.default-select{
+		&.style-1{
+			.btn{
+				color:$white!important;
+			}
+		}
+	}
+	.text-black{
+		color:$white!important;
+	}
+	.new-arrival-content {
+		 h4 {
+			a{
+				color:$white;
+			}
+		 }
+	}
+	.abilities-chart .ct-chart .ct-label{
+		fill:$white;
+	}
+	.apexcharts-legend-text{
+		color:$white!important;
+	}
+	.morris_chart_height text tspan{
+		fill:$white!important;
+	}
+	.toggle-switch.text-right .custom-control-label:before{
+		background-color:#ffffff29;
+	}
+	.toggle-switch .custom-control-input:checked ~ .custom-control-label:before{
+		background-color:$white;
+	}
+	.btn-link{
+		color:$white;
+		svg{
+			path{
+				stroke: $white;
+			}
+		}
+	}
+	.amount-bx .form-control{
+		background-color:transparent;
+		color:$white;
+		&::placeholder{
+			color:$white;
+		}
+	}
+	.table{
+		&.bg-info-hover{
+			td{
+				color:#757878;
+			}
+		}
+		&.bg-primary-hover{
+			td{
+				color:#757878;
+			}
+		}
+		&.bg-warning-hover{
+			td{
+				color:#757878;
+			}
+		}
+		&.bg-secondary-hover{
+			td{
+				color:#757878;
+			}
+		}
+	}
+	.order-bg{
+		background:$d-bg;
+	}
+	.deznav .metismenu > li.mm-active > a:after{
+		border-color:$primary;
+	}
+	.detault-daterange .input-group-text{
+		background:$d-bg;
+		color:$white;
+	}
+	.form-wrapper{
+		.input-group{
+			background:$d-bg;
+			border:0;
+			.input-group-prepend .input-group-text{
+				color:$white;
+			}
+		}
+	}
+	.search-area-2{
+		.form-control{
+			background-color:$dark-card;
+		}
+		.input-group-append{
+			.input-group-text{
+				background-color:$dark-card;
+			}
+		}
+	}
+	.dataTablesCard{
+		background-color:$dark-card;
+	}
+
+	.compose-content .dropzone{
+		background:$d-bg!important;
+		.dz-message .dz-button{
+			color:$white;
+		}
+	}
+	.daterangepicker{
+		background:$d-bg;
+		border-color:$primary;
+		.calendar-table{
+			border-color:$primary;
+			background:$d-bg;
+			.table-condensed{
+				td{
+					&:hover{
+						background-color:$primary;
+						color:$white;
+					}
+				}
+			}
+		}
+        &:after{
+            border-bottom: 6px solid $d-bg;
+        }
+	}
+    
+    .daterangepicker select.hourselect
+    , .daterangepicker select.minuteselect
+    , .daterangepicker select.secondselect
+    , .daterangepicker select.ampmselect{
+            background: $d-bg;
+            border: 1px solid $d-border;
+            color:$white;
+    }
+    
+	.daterangepicker td.off, 
+	.daterangepicker td.off.in-range,
+	.daterangepicker td.off.start-date, 
+	.daterangepicker td.off.end-date{
+		background-color:$dark-card;
+		&:hover{
+			background-color:$primary;
+			color:$white;			
+		}
+	}
+	
+	.app-fullcalendar{
+		.fc-button{
+			background-color:$d-bg;
+			border-color:$primary;
+			color:$white;
+			text-shadow:none;
+			&:hover,&.fc-stat-hover{
+				background-color:$primary!important;
+			}
+		}
+	}
+	.fc-theme-standard td, .fc-theme-standard th,.fc .fc-button-group > .fc-button,.fc-theme-standard .fc-scrollgrid.fc-scrollgrid-liquid, .fc-scrollgrid, table{
+		border-color:$d-border;
+	}
+	.fc-daygrid-dot-event{
+		background-color:$d-bg;
+		border-color:$d-border;
+	}
+	.swal2-popup .swal2-styled:focus {
+		outline: 0;
+		box-shadow: 0 0 0 2px $d-border, 0 0 0 4px rgba($primary,0.1);
+	}
+	.dd-handle{
+		border-color:$d-border;
+	}
+	.menu-toggle .deznav .metismenu li > ul{
+		background:$dark-card!important;
+	}
+	.header-right .notification_dropdown .nav-link{
+		border-color:$d-border;
+	}
+	.nav-tabs .nav-link{
+		&:hover,&.active{
+			border-color:$d-border;
+		}
+	}
+	.clockpicker-popover .popover-content{
+		background-color:$dark-card;
+	}
+	.clockpicker-plate{
+		background-color:$d-bg;
+	}
+	.clockpicker-popover .popover-title{
+		background-color:$d-bg;
+		color:$white;
+	}
+	.form-wizard .nav-wizard li .nav-link span{
+		background-color:$d-bg;
+	}
+	.form-wizard .nav-wizard li .nav-link:after{
+		background:$d-bg!important;
+	}
+	.form-wizard .nav-wizard li .nav-link.active:after,.form-wizard .nav-wizard li .nav-link.done:after{
+		background:$primary!important;
+	}
+	.form-wizard .nav-wizard li .nav-link.active span
+	,.form-wizard .nav-wizard li .nav-link.done span{
+		background:$primary!important;
+	}
+    
+    .amount-bx{
+        border-top: 1px solid $d-border;
+        border-bottom: 1px solid $d-border;
+    }
+    
+    .bar-chart{
+        line{
+            stroke:$d-border;
+            stroke-dasharray: 6;
+        }
+    }
+    #lineChart{
+        line{
+            stroke:$d-border;
+            stroke-dasharray: 6;
+        }
+    }
+    .activity-icon{
+        border-color: #f0f0f063;
+    }
+    .check-switch .custom-control-label:after
+    , .check-switch .custom-control-label:before{
+        border-color:$primary;
+    }
+    .fc-unthemed .fc-today{
+        background:$d-bg!important;
+    }
+    .fc-unthemed .fc-divider, .fc-unthemed .fc-list-heading td, .fc-unthemed .fc-popover .fc-header{
+        background: $d-border;
+    }
+    .picker__box{
+        background:$d-bg;
+        .picker__button--clear
+        , .picker__button--close
+        , .picker__button--today{
+            background:$dark-card;
+            color:$white;
+            &:hover{
+                &:before{
+                    color:$white;
+                }
+            }
+        }
+    }
+    .picker{
+        color:#999;
+    }
+    .dtp > .dtp-content{
+        background:$d-bg;
+    }
+    .dtp table.dtp-picker-days tr > td > a{
+       color: #68686a; 
+       &.selected{
+           color:$white;
+       }
+    }
+	.order-request tbody tr{
+		border-color:$d-border;
+		background-color:$dark-card;
+	}
+	#customerMap,#customerMap2,#customerMap3{
+		line{
+			stroke:$d-border;
+		}
+	}
+	.header-right .header-profile > a.nav-link{
+		border-color:$d-border!important;
+	}
+	
+	#radialChart{
+		.apexcharts-tracks #apexcharts-radialbarTrack-0{
+			stroke:$d-bg;
+		}
+		 circle{
+			fill:$d-bg;
+		}
+		.apexcharts-datalabels-group text{
+			fill:$white;
+		}
+	}
+	.chatbox .type_msg .form-control{
+		background-color:transparent;
+	}
+	.default-select.style-2 .btn{
+		background:$dark-card!important;
+		border:1px solid $d-border;
+	}
+	.table-tabs .nav-tabs{
+		background:$dark-card;
+	}
+	#revenueMap,#customerMapkm{
+		line{
+			stroke:$d-border;
+		}
+	}
+	.sidebar-right .tab-content,.dz-demo-panel .dz-demo-inner{
+		background:$dark-card;
+	}
+	.sidebar-right .tab-content .tab-pane .admin-settings > h4{
+		border-color:$d-border;
+	}
+	.dz-demo-panel .dz-demo-bx{
+		border-color:$d-border;
+		&.demo-active{
+			border-color:$secondary;
+		}
+	}
+	.sidebar-right .tab-content .tab-pane .admin-settings p{
+		color:$white;
+	}
+	.sidebar-right .sidebar-right-inner > h4{
+		background:$dark-card;
+	}
+	.map-card{
+		.text-black{
+			color:$black!important;
+		}
+	}
+	
+	.apexcharts-tooltip.apexcharts-theme-light{
+		background: $d-bg;
+	}
+	.apexcharts-xaxistooltip.apexcharts-theme-light{
+		background: $dark-card !important;
+		color:$white!important;
+	}
+	.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title{
+		background: $dark-card !important;
+	}
+	.apexcharts-xaxistooltip.apexcharts-theme-light:after {
+		border-bottom-color: $d-bg !important;
+	}
+	.btn-close{
+		background:transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath fill='white' d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+	}
+	.accordion-danger-solid .accordion-button{
+		border-color: $danger;
+		
+	}
+	--bs-border-color:  #3E3E3E;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

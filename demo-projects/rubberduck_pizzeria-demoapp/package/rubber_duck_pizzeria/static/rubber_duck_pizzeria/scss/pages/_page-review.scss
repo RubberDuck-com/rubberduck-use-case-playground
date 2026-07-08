@@ -1,0 +1,102 @@
+.review-table{
+	padding: 25px;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid #eee;
+	height: auto;
+    margin-bottom: 0;
+	
+	.disease {
+		border-#{$dz-pos-left}: 1px solid #eee;
+		padding-#{$dz-pos-left}: 20px;
+		@include respond('tab-port') {
+			border-#{$dz-pos-left}: 0;
+			padding-#{$dz-pos-left}: 0;	
+			margin-#{$dz-pos-right}:10px !important;
+			margin-#{$dz-pos-left}:0;
+		}
+	}
+	.star-review i{
+		font-size:20px;
+		@include respond('tab-port') {
+			font-size:216x;
+		}
+	}
+	.media-body{
+		p{
+			color:#3e4954;
+			font-size:18px;
+			line-height:1.5;
+			@include respond('tab-port') {
+				font-size:14px;
+			}
+		}
+	}
+	.media-footer{
+		min-width:500px;
+		@include respond('laptop') {
+			min-width:300px;
+			margin-#{$dz-pos-left}:10px;
+		}
+		@include respond('tab-port') {
+			margin-#{$dz-pos-left}:0;
+			margin-top:25px;
+		}
+	}
+	img{
+		@include respond('tab-port') {
+			float:$dz-pos-left;
+			width: 80px;
+		}
+	}
+	.media{
+		width:310px;
+		@media only screen and (max-width: 1024px){
+			width:275px;
+		}
+		@include respond('tab-port') {
+			width:100%;
+		}
+	}
+	@include respond('tab-land') {
+		.custom-control{
+			float:$dz-pos-right;
+		}
+			
+	}
+	@include respond('tab-port') {
+		padding: 15px;
+	}
+}
+.review-tab.nav-pills{
+	margin-bottom:0;
+	li{
+		display:inline-block;
+		
+		a.nav-link{
+			color: #6b6b6b;
+			background: #e9e9e9;
+			box-shadow: none;
+			border-radius: 0;
+			font-weight: 600;
+			font-size: 16px;
+			padding: 15px 40px;
+			margin-#{$dz-pos-right}: 1px;
+			&.active{
+				color: $primary;
+				background: $white;
+			}
+			@include respond('tab-port') {
+				font-size: 14px;
+				padding: 10px 15px;
+			}
+		}
+		&:first-child a.nav-link{
+			border-radius:$radius 0 0 0;
+		}
+		&:last-child a.nav-link{
+			border-radius:0 $radius 0 0;
+		}
+		
+	}
+}

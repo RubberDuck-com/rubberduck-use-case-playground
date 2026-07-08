@@ -1,0 +1,61 @@
+.gradient_one {
+    @extend %gradient_one;
+}
+
+
+.gradient {
+    &-1 {
+        @extend %gradient-1;
+    }
+    &-2 {
+        @extend %gradient-2;
+    }
+    &-3 {
+        @extend %gradient-3;
+    }
+    &-4 {
+        @extend %gradient-4;
+    }
+    &-5 {
+        @extend %gradient-5;
+    }
+    &-6 {
+        @extend %gradient-6;
+    }
+    &-7 {
+        @extend %gradient-7;
+    }
+    &-8 {
+        @extend %gradient-8;
+    }
+    &-9 {
+        @extend %gradient-9;
+    }
+    &-10 {
+        @extend %gradient-10;
+    }
+    &-11 {
+        @extend %gradient-11;
+    }
+    &-12 {
+        @extend %gradient-12;
+    }
+    &-13 {
+        @extend %gradient-13;
+    }
+    &-14 {
+        @extend %gradient-14;
+    }
+    &-15 {
+        @extend %gradient-15;
+    }
+    &-16 {
+        @extend %gradient-16;
+    }
+    &-17 {
+        @extend %gradient-17;
+    }
+    &-18 {
+        @extend %gradient-18;
+    }
+}

@@ -1,0 +1,32 @@
+
+.weather-one {
+    i {
+        font-size: 8rem;
+        position : relative;
+        top      : .5rem;
+    }
+
+    h2 {
+        display  : inline-block;
+        float    : $dz-pos-right;
+        font-size: 4.8rem;
+    }
+
+    .city {
+        position  : relative;
+        text-align: $dz-pos-right;
+        top       : -2.5rem;
+    }
+
+    .currently {
+        font-size  : 1.6rem;
+        font-weight: 400;
+        position   : relative;
+        top        : 2.5rem;
+    }
+
+    .celcious {
+        text-align: $dz-pos-right;
+        font-size : 2rem;
+    }
+}

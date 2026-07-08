@@ -1,0 +1,61 @@
+.toast {
+    &-success {
+        background-color: $primary;
+    }
+
+    &-info {
+        background-color: $info;
+    }
+
+    &-warning {
+        background-color: $warning;
+    }
+
+    &-error {
+        background-color: $danger;
+    }
+}
+
+#toast-container {
+
+    &>div {
+        box-shadow: none;
+        border-radius: 0;
+        width: auto;
+        max-width: 250px;
+        opacity: 1;
+
+        @at-root [direction="rtl"] & {
+            padding: 15px 50px 15px 15px;
+            background-position: calc(100% - 15px);
+            text-align: $dz-pos-right;
+        }
+        &:hover {
+            box-shadow: none;
+        }
+    }
+    .toast-title {
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .toast-message {
+        font-size: 12px;
+    }
+
+    .toast-close-button {
+        opacity: 1;
+        font-size: 20px;
+        font-weight: normal;
+        text-shadow: none;
+    }
+
+
+}
+
+[direction="rtl"] {
+    .toast-top-right.demo_rtl_class {
+        left: 12px;
+        right: auto;
+    }
+}

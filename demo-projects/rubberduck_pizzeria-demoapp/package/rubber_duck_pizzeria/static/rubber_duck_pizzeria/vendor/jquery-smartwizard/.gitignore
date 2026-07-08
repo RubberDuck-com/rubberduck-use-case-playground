@@ -1,0 +1,19 @@
+/ref.txt
+/node_modules/
+/bower_components/
+/vendor/
+/public/
+
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+.vscode/*
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/nbproject/private/

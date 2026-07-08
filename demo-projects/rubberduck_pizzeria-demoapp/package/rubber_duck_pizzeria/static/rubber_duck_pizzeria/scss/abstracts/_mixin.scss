@@ -1,0 +1,102 @@
+//MEDIA QUERY MANAGER
+
+
+@mixin respond($breakpoint) {
+
+	@if($breakpoint == "phone") { 
+
+		@media only screen and (max-width: 575px) { @content; } 
+    } 
+    
+    @if($breakpoint == "phone-land") {
+
+        @media only screen and (max-width: 767px) { @content; }
+    }
+
+	@if($breakpoint == "tab-port") {
+
+		@media only screen and (max-width: 991px) { @content; } 
+	}
+
+	@if($breakpoint == "tab-land") {
+
+		@media only screen and (max-width: 1199px) { @content; } 
+    }
+    
+	@if ($breakpoint == "laptop") {
+        @media only screen and (max-width: 1400px) { @content; }
+    }
+	
+    @if ($breakpoint == "desktop") {
+        
+        @media only screen and (min-width: 1200px) { @content; }
+    }
+	
+	@if($breakpoint == "big-desktop") {
+
+		@media only screen and (min-width: 1800px) { @content; } 
+	}
+
+}
+
+
+
+//don't use it untill you need this too much
+@mixin custommq($min: null, $max: null) {
+    @if ($min != null and $max != null) {
+        @media only screen and (min-width: $min) and (max-width: $max) { @content; }
+    }
+
+    @if ($min == null and $max != null) {
+        @media only screen and (max-width: $max) { @content; }
+    }
+
+    @if ($min != null and $max == null) {
+        @media only screen and (min-width: $min) { @content; }
+    }
+}
+
+// transition
+@mixin transitionSlow{
+	-webkit-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
+}
+@mixin transitionMedium{
+	-webkit-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	transition: all 0.5s;
+}
+@mixin transitionFast{
+	-webkit-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+@mixin transformScale{
+	transform:scale(1);
+	-moz-transform:scale(1);
+	-webkit-transform:scale(1);
+	-ms-transform:scale(1);
+	-o-transform:scale(1);
+}
+@mixin transformScaleXS{
+	transform:scale(0.8);
+	-moz-transform:scale(0.8);
+	-webkit-transform:scale(0.8);
+	-ms-transform:scale(0.8);
+	-o-transform:scale(0.8);
+}
+@mixin transformScaleSM{
+	transform:scale(1.2);
+	-moz-transform:scale(1.2);
+	-webkit-transform:scale(1.2);
+	-ms-transform:scale(1.2);
+	-o-transform:scale(1.2);
+}
+@mixin transformScaleMD{
+	transform:scale(1.5);
+	-moz-transform:scale(1.5);
+	-webkit-transform:scale(1.5);
+	-ms-transform:scale(1.5);
+	-o-transform:scale(1.5);
+}

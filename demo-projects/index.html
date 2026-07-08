@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rubber Duck — Demo Projects Hub</title>
+  <link rel="icon" type="image/png" href="https://rubberduck.com/images/rubberduck-logo-72.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --bg-elev: #111113;
+      --bg-card: #17171a;
+      --border: #27272a;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --yellow: #facc15;
+      --yellow-dim: rgba(250, 204, 21, 0.08);
+      --yellow-border: rgba(250, 204, 21, 0.25);
+      --ok: #22c55e;
+      --pending: #eab308;
+      --off: #3f3f46;
+      --err: #ef4444;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { background: var(--bg); color: var(--text); font-family: Inter, "Segoe UI", system-ui, sans-serif; min-height: 100vh; }
+    ::selection { background: rgba(250,204,21,0.25); color: #fafafa; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0b; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 3px; }
+    a { color: var(--yellow); text-decoration: none; }
+
+    nav.top {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(10,10,11,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; height: 60px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    .brand img { width: 30px; height: 30px; object-fit: contain; }
+    .brand span {
+      font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 18px;
+      color: var(--yellow); letter-spacing: -0.02em;
+    }
+    .nav-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+    .nav-tabs button {
+      background: transparent; border: 1px solid transparent; color: var(--muted);
+      padding: 6px 14px; border-radius: 6px; font-size: 13px; cursor: pointer; transition: 0.2s;
+      font-family: Inter, sans-serif;
+    }
+    .nav-tabs button:hover { color: var(--text); }
+    .nav-tabs button.active {
+      background: var(--bg-elev); border-color: var(--border); color: var(--text);
+    }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+    .eyebrow {
+      display: inline-block; padding: 4px 12px; font-size: 11px;
+      font-family: "JetBrains Mono", monospace; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--yellow); border: 1px solid #a16207; border-radius: 4px; background: var(--yellow-dim);
+    }
+    h1 {
+      font-family: "JetBrains Mono", monospace; font-size: 36px; font-weight: 800;
+      letter-spacing: -0.03em; margin: 16px 0 8px;
+    }
+    .lede { color: var(--muted); font-size: 15px; line-height: 1.6; max-width: 640px; }
+
+    .panel { display: none; animation: fade 0.35s ease; }
+    .panel.active { display: block; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    .grid-demos {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px; margin-top: 32px;
+    }
+    .demo-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 20px; transition: border-color 0.2s, transform 0.2s;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .demo-card:hover { border-color: var(--yellow-border); transform: translateY(-1px); }
+    .demo-card.selected { border-color: var(--yellow); box-shadow: 0 0 0 1px rgba(250,204,21,0.2); }
+    .demo-card h3 {
+      font-family: "JetBrains Mono", monospace; font-size: 15px; font-weight: 700;
+    }
+    .demo-card p { color: var(--muted); font-size: 13px; line-height: 1.5; flex: 1; }
+    .meta-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .pill {
+      font-family: "JetBrains Mono", monospace; font-size: 11px; padding: 3px 8px;
+      border-radius: 999px; border: 1px solid var(--border); color: var(--muted);
+    }
+    .pill.live { color: var(--ok); border-color: rgba(34,197,94,0.4); background: rgba(34,197,94,0.08); }
+    .pill.warn { color: var(--pending); border-color: rgba(234,179,8,0.4); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 18px; border-radius: 6px; border: none; cursor: pointer;
+      font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 13px;
+      letter-spacing: 0.02em; transition: 0.2s;
+    }
+    .btn-primary { background: var(--yellow); color: #0a0a0b; }
+    .btn-primary:hover { filter: brightness(1.05); }
+    .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn-ghost {
+      background: transparent; border: 1px solid var(--border); color: var(--muted);
+    }
+    .btn-ghost:hover { color: var(--text); border-color: #3f3f46; }
+    .btn-danger {
+      background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.35); color: #fca5a5;
+    }
+    .btn-sm { padding: 8px 14px; font-size: 12px; }
+
+    .toolbar {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      margin: 28px 0 16px;
+    }
+    select.rd-select {
+      background: var(--bg-elev); color: var(--text); border: 1px solid var(--border);
+      border-radius: 6px; padding: 10px 14px; font-family: "JetBrains Mono", monospace;
+      font-size: 12px; min-width: 240px; outline: none;
+    }
+    select.rd-select:focus { border-color: var(--yellow); }
+
+    .launch-layout {
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; margin-top: 8px;
+    }
+    @media (max-width: 900px) {
+      .launch-layout { grid-template-columns: 1fr; }
+      h1 { font-size: 28px; }
+    }
+
+    .console {
+      background: #09090b; border: 1px solid var(--border); border-radius: 12px;
+      min-height: 360px; max-height: 520px; overflow: auto; padding: 14px 16px;
+      font-family: "JetBrains Mono", monospace; font-size: 12px; line-height: 1.65; color: #a1a1aa;
+    }
+    .console .line-ok { color: #86efac; }
+    .console .line-err { color: #fca5a5; }
+    .console .line-dim { color: #71717a; }
+    .console-head {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 10px; gap: 8px;
+    }
+    .console-head h3 {
+      font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700;
+    }
+
+    .steps-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 20px;
+    }
+    .steps-card h3 {
+      font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; margin-bottom: 16px;
+    }
+    .step {
+      display: flex; align-items: flex-start; gap: 12px; padding: 12px 0;
+      border-bottom: 1px solid rgba(39,39,42,0.8);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-icon {
+      width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+      display: grid; place-items: center; font-size: 11px; font-weight: 700;
+      border: 1.5px solid var(--off); color: var(--off); background: transparent;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .step-icon.off { border-color: var(--off); color: var(--off); }
+    .step-icon.pending {
+      border-color: var(--pending); color: var(--pending);
+      animation: pulse 1.2s ease infinite;
+    }
+    .step-icon.ok { border-color: var(--ok); color: #0a0a0b; background: var(--ok); }
+    .step-icon.error { border-color: var(--err); color: #fff; background: var(--err); }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.45; }
+    }
+    .step-body strong {
+      display: block; font-size: 13px; font-weight: 600; margin-bottom: 2px;
+    }
+    .step-body span { font-size: 12px; color: var(--muted); }
+
+    .callout {
+      margin-top: 16px; padding: 14px 16px; border-radius: 10px;
+      background: var(--yellow-dim); border: 1px solid var(--yellow-border);
+      font-size: 13px; color: var(--text); display: none; align-items: center;
+      justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    .callout.show { display: flex; }
+
+    .uc-layout { display: grid; grid-template-columns: 240px 1fr; gap: 24px; margin-top: 24px; }
+    @media (max-width: 800px) { .uc-layout { grid-template-columns: 1fr; } }
+    .uc-nav {
+      display: flex; flex-direction: column; gap: 2px;
+      position: sticky; top: 76px; align-self: start;
+    }
+    .uc-nav button {
+      text-align: left; padding: 10px 14px; background: transparent;
+      border: none; border-left: 2px solid transparent; border-radius: 0 6px 6px 0;
+      color: var(--muted); cursor: pointer; font-family: "JetBrains Mono", monospace;
+      font-size: 12px; transition: 0.15s;
+    }
+    .uc-nav button:hover { color: var(--text); }
+    .uc-nav button.active {
+      background: var(--yellow-dim); border-left-color: var(--yellow);
+      color: var(--yellow); font-weight: 600;
+    }
+    .uc-detail {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 24px; min-height: 420px;
+    }
+    .uc-detail h2 {
+      font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 700; margin-bottom: 8px;
+    }
+    .uc-detail .summary { color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 18px; }
+    .copy-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .copy-row .btn.active {
+      border-color: var(--yellow); background: var(--yellow-dim); color: var(--yellow);
+    }
+    pre.prompt-box {
+      background: #09090b; border: 1px solid var(--border); border-radius: 8px;
+      padding: 16px; font-family: "JetBrains Mono", monospace; font-size: 12.5px;
+      color: #a1a1aa; line-height: 1.7; white-space: pre-wrap; word-break: break-word;
+      max-height: 480px; overflow: auto;
+    }
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      background: var(--yellow); color: #0a0a0b; font-family: "JetBrains Mono", monospace;
+      font-weight: 700; font-size: 12px; padding: 10px 16px; border-radius: 8px;
+      opacity: 0; pointer-events: none; transition: 0.25s; transform: translateY(8px);
+    }
+    .toast.show { opacity: 1; transform: none; }
+
+    .empty {
+      color: var(--muted); font-size: 14px; padding: 32px; text-align: center;
+      border: 1px dashed var(--border); border-radius: 12px; margin-top: 24px;
+    }
+    .section-title {
+      font-family: "JetBrains Mono", monospace; font-size: 18px; font-weight: 700;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <div class="nav-inner">
+      <div class="brand" onclick="showTab('welcome')">
+        <img src="https://rubberduck.com/images/rubberduck-logo.png" alt="" />
+        <span>rubber duck</span>
+      </div>
+      <div class="nav-tabs">
+        <button type="button" class="active" data-tab="welcome" onclick="showTab('welcome')">Welcome</button>
+        <button type="button" data-tab="launch" onclick="showTab('launch')">Launch</button>
+        <button type="button" data-tab="prompts" onclick="showTab('prompts')">Generate prompts</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- WELCOME -->
+    <section id="tab-welcome" class="panel active">
+      <span class="eyebrow">Demo Projects Hub</span>
+      <h1>Pick a playground</h1>
+      <p class="lede">
+        Launch RubberDuck lab demos, watch setup in real time, then copy ready-made use-case prompts into Cursor or Claude.
+      </p>
+      <div id="demo-grid" class="grid-demos"></div>
+      <div id="welcome-empty" class="empty" style="display:none;">No demos found. Add a folder with <code>setup_and_run.py</code> under <code>demo-projects/</code>.</div>
+    </section>
+
+    <!-- LAUNCH -->
+    <section id="tab-launch" class="panel">
+      <span class="eyebrow">Runtime</span>
+      <h1 class="section-title">Launch console</h1>
+      <p class="lede">Select a project, hit Launch, and watch venv → deps → DB → API → UI come online.</p>
+
+      <div class="toolbar">
+        <select id="launch-select" class="rd-select" aria-label="Select demo"></select>
+        <button class="btn btn-primary" id="btn-launch" type="button">Launch</button>
+        <button class="btn btn-danger btn-sm" id="btn-stop" type="button">Stop</button>
+        <a class="btn btn-ghost btn-sm" id="open-app" href="#" target="_blank" rel="noopener" style="display:none;">Open app ↗</a>
+      </div>
+
+      <div class="launch-layout">
+        <div>
+          <div class="console-head">
+            <h3>Live log</h3>
+            <span id="run-status" class="pill">stopped</span>
+          </div>
+          <div id="console" class="console"><div class="line-dim">Idle — nothing launched yet. All steps start OFF.</div></div>
+        </div>
+        <div class="steps-card">
+          <h3>Health diagram</h3>
+          <div id="steps"></div>
+          <div class="callout" id="ready-callout">
+            <span>Demo is up. Open the app or generate use-case prompts.</span>
+            <button class="btn btn-primary btn-sm" type="button" onclick="showTab('prompts')">Prompts →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMPTS -->
+    <section id="tab-prompts" class="panel">
+      <span class="eyebrow">Use cases</span>
+      <h1 class="section-title">Generate prompts</h1>
+      <p class="lede">Choose a demo project — prompts switch with the project. Copy into Cursor Chat or Claude Code.</p>
+
+      <div class="toolbar">
+        <label for="prompt-project" style="font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;">Project</label>
+        <select id="prompt-project" class="rd-select" aria-label="Prompt project"></select>
+      </div>
+
+      <div class="uc-layout">
+        <nav class="uc-nav" id="uc-nav"></nav>
+        <div class="uc-detail" id="uc-detail">
+          <p class="summary">Select a project with prompts to begin.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Copied</div>
+
+  <script>
+    const STEP_META = [
+      { key: "venv", title: "Virtualenv", desc: "Create or reuse package/.venv" },
+      { key: "deps", title: "Dependencies", desc: "pip install -r requirements.txt" },
+      { key: "db", title: "SQLite database", desc: "Schema + seed data" },
+      { key: "api", title: "Kitchen API", desc: "/api/* health check" },
+      { key: "frontend", title: "Frontend UI", desc: "http://127.0.0.1:5000/" },
+    ];
+
+    let demos = [];
+    let selectedId = null;
+    let promptProjectId = null;
+    let usecases = [];
+    let activeUc = 0;
+    let logCursor = 0;
+    let pollTimer = null;
+    let pollBusy = false;
+    let lastDemoRefresh = 0;
+    let copyTarget = "cursor";
+    const POLL_FAST_MS = 1000;
+    const POLL_SLOW_MS = 5000;
+    const DEMO_REFRESH_MS = 8000;
+
+    function toast(msg) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.classList.add("show");
+      setTimeout(() => el.classList.remove("show"), 1600);
+    }
+
+    function showTab(name) {
+      document.querySelectorAll(".panel").forEach((p) => p.classList.remove("active"));
+      document.querySelectorAll(".nav-tabs button").forEach((b) => {
+        b.classList.toggle("active", b.dataset.tab === name);
+      });
+      document.getElementById("tab-" + name).classList.add("active");
+      if (name === "launch" && selectedId) {
+        document.getElementById("launch-select").value = selectedId;
+      }
+      if (name === "prompts" && selectedId) {
+        const sel = document.getElementById("prompt-project");
+        if ([...sel.options].some((o) => o.value === selectedId)) {
+          sel.value = selectedId;
+          loadPrompts(selectedId);
+        }
+      }
+    }
+
+    function stepIcon(state) {
+      if (state === "ok") return "✓";
+      if (state === "pending") return "…";
+      if (state === "error") return "!";
+      return "○";
+    }
+
+    function renderSteps(steps) {
+      const host = document.getElementById("steps");
+      host.innerHTML = STEP_META.map((s) => {
+        const st = (steps && steps[s.key]) || "off";
+        return (
+          `<div class="step">` +
+          `<div class="step-icon ${st}">${stepIcon(st)}</div>` +
+          `<div class="step-body"><strong>${s.title}</strong><span>${s.desc} · ${st.toUpperCase()}</span></div>` +
+          `</div>`
+        );
+      }).join("");
+
+      const allOk = STEP_META.every((s) => steps && steps[s.key] === "ok");
+      document.getElementById("ready-callout").classList.toggle("show", allOk);
+    }
+
+    function statusPill(status) {
+      const el = document.getElementById("run-status");
+      el.textContent = status || "stopped";
+      el.className = "pill";
+      if (status === "running") el.classList.add("live");
+      else if (status === "starting") el.classList.add("warn");
+    }
+
+    function appendConsole(lines) {
+      const box = document.getElementById("console");
+      if (!lines || !lines.length) return;
+      if (box.querySelector(".line-dim") && box.children.length === 1) box.innerHTML = "";
+      lines.forEach((line) => {
+        const div = document.createElement("div");
+        const low = line.toLowerCase();
+        if (low.includes("error") || low.includes("failed") || low.includes("traceback")) div.className = "line-err";
+        else if (low.includes("db ready") || low.includes("running on") || low.includes("ok")) div.className = "line-ok";
+        div.textContent = line;
+        box.appendChild(div);
+      });
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function renderDemoCards() {
+      const grid = document.getElementById("demo-grid");
+      const empty = document.getElementById("welcome-empty");
+      if (!demos.length) {
+        grid.innerHTML = "";
+        empty.style.display = "block";
+        return;
+      }
+      empty.style.display = "none";
+      grid.innerHTML = demos.map((d) => {
+        const sel = d.id === selectedId ? " selected" : "";
+        const live = d.status === "running" || d.status === "starting";
+        return (
+          `<article class="demo-card${sel}" data-id="${d.id}">` +
+          `<div class="meta-row">` +
+          `<span class="pill${live ? " live" : ""}">${d.status}</span>` +
+          `<span class="pill">${d.usecase_count} use cases</span>` +
+          `</div>` +
+          `<h3>${d.name}</h3>` +
+          `<p><code style="color:#facc15;font-size:11px">${d.id}</code><br/>Self-contained lab with setup, DB, API, and UI.</p>` +
+          `<div class="meta-row">` +
+          `<button class="btn btn-primary btn-sm" data-action="select-launch" data-id="${d.id}">Select &amp; launch</button>` +
+          `<button class="btn btn-ghost btn-sm" data-action="select-prompts" data-id="${d.id}">Prompts</button>` +
+          `</div></article>`
+        );
+      }).join("");
+
+      grid.querySelectorAll(".demo-card").forEach((card) => {
+        card.addEventListener("click", (e) => {
+          if (e.target.closest("button")) return;
+          selectDemo(card.dataset.id);
+        });
+      });
+      grid.querySelectorAll("button[data-action]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const id = btn.dataset.id;
+          selectDemo(id);
+          if (btn.dataset.action === "select-launch") {
+            showTab("launch");
+            launchSelected();
+          } else {
+            showTab("prompts");
+          }
+        });
+      });
+    }
+
+    function fillSelects() {
+      const launchSel = document.getElementById("launch-select");
+      const promptSel = document.getElementById("prompt-project");
+      launchSel.innerHTML = demos.map((d) => `<option value="${d.id}">${d.name}</option>`).join("");
+      promptSel.innerHTML = demos
+        .filter((d) => d.has_prompts)
+        .map((d) => `<option value="${d.id}">${d.name}</option>`)
+        .join("") || `<option value="">No prompts yet</option>`;
+      if (selectedId) launchSel.value = selectedId;
+      if (promptProjectId) promptSel.value = promptProjectId;
+    }
+
+    function selectDemo(id) {
+      selectedId = id;
+      promptProjectId = id;
+      renderDemoCards();
+      fillSelects();
+      const d = demos.find((x) => x.id === id);
+      if (d) {
+        renderSteps(d.steps);
+        statusPill(d.status);
+        const open = document.getElementById("open-app");
+        if (d.status === "running") {
+          open.href = d.url;
+          open.style.display = "inline-flex";
+        }
+      }
+    }
+
+    async function refreshDemos() {
+      const res = await fetch("/api/demos");
+      const data = await res.json();
+      demos = data.demos || [];
+      if (!selectedId && demos.length) selectedId = demos[0].id;
+      if (!promptProjectId && demos.length) promptProjectId = demos.find((d) => d.has_prompts)?.id || demos[0].id;
+      renderDemoCards();
+      fillSelects();
+      const current = demos.find((d) => d.id === selectedId);
+      if (current) renderSteps(current.steps);
+    }
+
+    async function pollLogs() {
+      if (!selectedId || pollBusy) return;
+      pollBusy = true;
+      try {
+        const res = await fetch(`/api/logs/${encodeURIComponent(selectedId)}?after=${logCursor}`);
+        const data = await res.json();
+        appendConsole(data.lines || []);
+        logCursor = data.next || logCursor;
+        statusPill(data.status);
+        if (data.steps) renderSteps(data.steps);
+        const open = document.getElementById("open-app");
+        const d = demos.find((x) => x.id === selectedId);
+        if (data.status === "running" && d) {
+          open.href = d.url;
+          open.style.display = "inline-flex";
+        }
+        // Refresh demo cards infrequently — not on every log tick.
+        const now = Date.now();
+        if (now - lastDemoRefresh > DEMO_REFRESH_MS) {
+          lastDemoRefresh = now;
+          await refreshDemosQuiet();
+        }
+        // Slow down once healthy; stay responsive while starting.
+        const steps = data.steps || {};
+        const healthy =
+          data.status === "running" &&
+          ["venv", "deps", "db", "api", "frontend"].every((k) => steps[k] === "ok");
+        armPolling(healthy ? POLL_SLOW_MS : data.status === "stopped" || data.status === "error" ? POLL_SLOW_MS : POLL_FAST_MS);
+      } catch (_) {
+      } finally {
+        pollBusy = false;
+      }
+    }
+
+    async function refreshDemosQuiet() {
+      try {
+        const res = await fetch("/api/demos");
+        const data = await res.json();
+        demos = data.demos || [];
+        renderDemoCards();
+      } catch (_) {}
+    }
+
+    function armPolling(ms) {
+      if (pollTimer) clearInterval(pollTimer);
+      pollTimer = setInterval(pollLogs, ms);
+    }
+
+    function startPolling() {
+      armPolling(POLL_FAST_MS);
+    }
+
+    async function launchSelected() {
+      const id = document.getElementById("launch-select").value || selectedId;
+      if (!id) return;
+      selectDemo(id);
+      logCursor = 0;
+      document.getElementById("console").innerHTML = "";
+      appendConsole(["Starting launch…"]);
+      renderSteps({ venv: "pending", deps: "off", db: "off", api: "off", frontend: "off" });
+      statusPill("starting");
+      const res = await fetch(`/api/launch/${encodeURIComponent(id)}`, { method: "POST" });
+      const data = await res.json();
+      if (!data.ok) {
+        appendConsole([`ERROR: ${data.error || "launch failed"}`]);
+        statusPill("error");
+        return;
+      }
+      toast("Launch started");
+      startPolling();
+    }
+
+    async function stopSelected() {
+      const id = document.getElementById("launch-select").value || selectedId;
+      if (!id) return;
+      await fetch(`/api/stop/${encodeURIComponent(id)}`, { method: "POST" });
+      statusPill("stopped");
+      renderSteps({ venv: "off", deps: "off", db: "off", api: "off", frontend: "off" });
+      appendConsole(["Stop requested."]);
+      document.getElementById("open-app").style.display = "none";
+      toast("Stopped");
+      refreshDemos();
+    }
+
+    async function loadPrompts(projectId) {
+      promptProjectId = projectId;
+      if (!projectId) {
+        usecases = [];
+        renderUc();
+        return;
+      }
+      const res = await fetch(`/api/prompts?project=${encodeURIComponent(projectId)}`);
+      if (!res.ok) {
+        usecases = [];
+        renderUc();
+        return;
+      }
+      const data = await res.json();
+      usecases = data.usecases || [];
+      activeUc = 0;
+      renderUc();
+    }
+
+    function renderUc() {
+      const nav = document.getElementById("uc-nav");
+      const detail = document.getElementById("uc-detail");
+      if (!usecases.length) {
+        nav.innerHTML = "";
+        detail.innerHTML = `<p class="summary">No use-case prompts for this project yet.</p>`;
+        return;
+      }
+      nav.innerHTML = usecases
+        .map(
+          (u, i) =>
+            `<button type="button" class="${i === activeUc ? "active" : ""}" data-i="${i}">${u.id}: ${u.title.split("(")[0].trim()}</button>`
+        )
+        .join("");
+      nav.querySelectorAll("button").forEach((b) => {
+        b.addEventListener("click", () => {
+          activeUc = Number(b.dataset.i);
+          renderUc();
+        });
+      });
+
+      const u = usecases[activeUc];
+      const prompt = adaptPrompt(u.prompt, copyTarget);
+      detail.innerHTML =
+        `<h2>${u.id} — ${u.title}</h2>` +
+        `<p class="summary">${u.summary || ""}</p>` +
+        `<div class="copy-row">` +
+        `<button type="button" class="btn btn-ghost btn-sm ${copyTarget === "cursor" ? "active" : ""}" data-t="cursor">Cursor</button>` +
+        `<button type="button" class="btn btn-ghost btn-sm ${copyTarget === "claude" ? "active" : ""}" data-t="claude">Claude Code</button>` +
+        `<button type="button" class="btn btn-primary btn-sm" id="copy-prompt">Copy prompt</button>` +
+        `<button type="button" class="btn btn-ghost btn-sm" id="copy-all">Copy all 10</button>` +
+        `</div>` +
+        `<p style="font-size:13px;color:var(--muted);margin-bottom:10px;">Copied text is the use-case prompt only (no paste instructions). Target: <strong style="color:var(--text)">${copyTarget === "cursor" ? "Cursor" : "Claude Code"}</strong>.</p>` +
+        `<pre class="prompt-box" id="prompt-text"></pre>`;
+
+      document.getElementById("prompt-text").textContent = prompt;
+      detail.querySelectorAll("button[data-t]").forEach((b) => {
+        b.addEventListener("click", () => {
+          copyTarget = b.dataset.t;
+          renderUc();
+        });
+      });
+      document.getElementById("copy-prompt").addEventListener("click", async () => {
+        await navigator.clipboard.writeText(prompt);
+        toast("Copied for " + (copyTarget === "cursor" ? "Cursor" : "Claude"));
+      });
+      document.getElementById("copy-all").addEventListener("click", async () => {
+        const all = usecases
+          .map((x) => `===== ${x.id}: ${x.title} =====\n\n${adaptPrompt(x.prompt, copyTarget)}`)
+          .join("\n\n\n");
+        await navigator.clipboard.writeText(all);
+        toast("All 10 prompts copied");
+      });
+    }
+
+    function adaptPrompt(text, target) {
+      // Copy the raw UC prompt only — no "paste in Cursor/Claude" wrapper lines.
+      return text;
+    }
+
+    document.getElementById("btn-launch").addEventListener("click", launchSelected);
+    document.getElementById("btn-stop").addEventListener("click", stopSelected);
+    document.getElementById("launch-select").addEventListener("change", (e) => {
+      selectDemo(e.target.value);
+      logCursor = 0;
+    });
+    document.getElementById("prompt-project").addEventListener("change", (e) => {
+      loadPrompts(e.target.value);
+    });
+
+    renderSteps({ venv: "off", deps: "off", db: "off", api: "off", frontend: "off" });
+    refreshDemos().then(() => {
+      if (promptProjectId) loadPrompts(promptProjectId);
+    });
+  </script>
+</body>
+</html>

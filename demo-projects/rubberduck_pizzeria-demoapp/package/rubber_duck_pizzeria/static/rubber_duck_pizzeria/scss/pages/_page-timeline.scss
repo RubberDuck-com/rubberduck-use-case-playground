@@ -1,0 +1,253 @@
+.page-timeline{
+    .timeline {
+        list-style: none;
+        padding   : 40px 0;
+        position  : relative;
+    
+        &-workplan#{&} {
+            padding-bottom: 0;
+            margin-bottom: 0;
+    
+            &.timeline > li > .timeline-badge {
+                top: 4.5rem;
+            }
+    
+            &>li {
+                margin-bottom: 2.6rem;
+            }
+    
+            li {
+                >p{
+    
+                    @include custommq($min: 1200px, $max: 1650px) {
+                        max-width: 8rem;
+                    }
+    
+                    @include respond('tab-land') {
+                        max-width: 7rem;
+                    }
+    
+                    @include respond('tab-port') {
+                        max-width: 100%;
+                    }
+    
+                    @include respond('phone') {
+                        max-width: 7rem;
+                    }
+                }
+            }
+    
+            &::before {
+                #{$dz-pos-left}: 20%;
+                top: 6rem;
+				#{$dz-pos-right}: auto;
+            }
+    
+            .timeline-badge {
+                #{$dz-pos-left}: 21.4%;
+                height: 0.9rem;
+                width: 0.9rem;
+                background-color: $primary;
+    
+                @at-root [direction="rtl"] #{&} {
+                    right: 19.2%;
+                    left: auto;
+                }
+    
+                @include custommq($min: 1200px, $max: 1650px) {
+                    left: 22.4%;
+                }
+    
+                @include respond('tab-land') {
+                    left: 22.4%;
+                }
+    
+                @include respond('tab-port') {
+                    left: 21.7%;
+                }
+    
+                @include respond('phone-land') {
+                    left: 19.5%;
+                }
+    
+                @include respond('phone') {
+                    left: 21.4%;
+                }
+    
+                &::after {
+                    position: absolute;
+                    width: 1.9rem;
+                    height: 1.9rem;
+                    background-color: rgba($color: $primary, $alpha: .4);
+                    content: "";
+                    border-radius: 50%;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            .timeline-panel {
+                width: 70%;
+            }
+        }
+    }
+    
+    .timeline:before {
+        top             : 0;
+        bottom          : 0;
+        position        : absolute;
+        content         : " ";
+        width           : 2px;
+        background-color: #ECEFF2;
+        #{$dz-pos-left}            : 50%;
+        margin-#{$dz-pos-left}     : -1.5px;
+    }
+    
+    .timeline > li {
+        margin-bottom: 20px;
+        position     : relative;
+    }
+    
+    .timeline > li:after,
+    .timeline > li:before {
+        content: " ";
+        display: table;
+    }
+    
+    .timeline > li:after {
+        clear: both;
+    }
+    
+    .timeline > li:after,
+    .timeline > li:before {
+        content: " ";
+        display: table;
+    }
+    
+    .timeline > li:after {
+        clear: both;
+    }
+    
+    .timeline > li > .timeline-panel {
+        width             : 46%;
+        float             : $dz-pos-left;
+        border-radius     : 2px;
+        position          : relative;
+    }
+    
+    .timeline > li > .timeline-badge {
+        background-color: $l-bg;
+        border: 1px solid $iron;
+        border-radius   : 50%;
+        color           : $dark;
+        height          : 40px;
+        #{$dz-pos-left}            : 50%;
+        line-height     : 40px;
+        margin-#{$dz-pos-left}     : -13px;
+        position        : absolute;
+        text-align      : center;
+        top             : 30px;
+        width           : 40px;
+        z-index         : 1;
+        transform: translate(-25%, -3rem);
+    
+        @include media-breakpoint-up(sm){
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+        }
+    }
+    
+    .timeline > li.timeline-inverted > .timeline-panel {
+        float: right;
+    }
+    
+    .timeline > li.timeline-inverted > .timeline-panel:before {
+        border-#{$dz-pos-left}-width : 0;
+        border-#{$dz-pos-right}-width: 15px;
+        #{$dz-pos-left}              : -15px;
+        #{$dz-pos-right}             : auto;
+    }
+    
+    .timeline > li.timeline-inverted > .timeline-panel:after {
+        border-#{$dz-pos-left}-width : 0;
+        border-#{$dz-pos-right}-width: 14px;
+        #{$dz-pos-left}              : -14px;
+        #{$dz-pos-right}             : auto;
+    }
+    
+    .timeline-title {
+        margin-top: 0;
+        color     : inherit;
+    }
+    
+    .event_time {
+        font-size  : 14px;
+        font-weight: 600;
+    }
+    
+    .event_vanue {
+        font-size  : 14px;
+        margin     : 5px 0;
+        font-weight: 600;
+    }
+    
+    .timeline_img {
+        height: 100px;
+        width : 100px;
+    }
+    
+    .timeline-body > p,
+    .timeline-body > ul {
+        margin-bottom: 0;
+    }
+    @media (max-width: 767px) {
+        ul.timeline:before {
+            #{$dz-pos-left}: 40px;
+        }
+    
+        ul.timeline > li > .timeline-panel {
+            width: calc(100% - 90px);
+            width: -webkit-calc(100% - 90px);
+        }
+    
+        ul.timeline > li > .timeline-badge {
+            #{$dz-pos-left}: 28px;
+            margin-#{$dz-pos-left}: 0;
+            top        : 16px;
+    
+        }
+    
+        ul.timeline > li > .timeline-panel {
+            float: $dz-pos-right;
+        }
+    
+        ul.timeline > li > .timeline-panel:before {
+            border-#{$dz-pos-left}-width : 0;
+            border-#{$dz-pos-right}-width: 15px;
+            #{$dz-pos-left}              : -15px;
+            #{$dz-pos-right}             : auto;
+        }
+    
+        ul.timeline > li > .timeline-panel:after {
+            border-#{$dz-pos-left}-width : 0;
+            border-#{$dz-pos-right}-width: 14px;
+            #{$dz-pos-left}              : -14px;
+            #{$dz-pos-right}             : auto;
+        }
+    
+        .timeline_img {
+            height: 30%;
+            width : 30%;
+        }
+    }
+    .timeline-timestamp {
+        text-align: center;
+            
+        .badge {
+            padding: .8rem 2rem;
+            border-radius: 50px;
+            font-size: 0.8125rem;
+        }
+    }    
+}

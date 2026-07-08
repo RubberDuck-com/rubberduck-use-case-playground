@@ -1,0 +1,183 @@
+.pricing-wrapper {
+    margin-top: 7rem;
+    
+    .pricing-heading-text {
+        text-align: center;
+        margin-bottom: 6rem;
+
+        h2 {
+            font-size: 4.5rem;
+            line-height: 1.2;
+            color: $pale-sky;
+
+            span {
+                display: block;
+            }
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        a{
+            color: $pale-sky;
+            text-decoration: underline;
+        }
+
+        .plan-swither {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 3rem;
+
+            &>* {
+                margin-#{$dz-pos-left}: 1rem;
+                margin-#{$dz-pos-right}: 1rem;
+            }
+
+            .switch label {
+                margin-bottom: 0;
+            }
+            
+            .badge {
+                height: 5.5rem;
+                width: 5.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.4rem;
+            }
+
+        }
+    }
+
+    .single-pricing-table {
+        position: relative;
+        text-align: center;
+        min-height: 89rem;
+
+        .upper-border {
+            height: 1.5rem;
+            border-top-#{$dz-pos-right}-radius: .5rem;
+            border-top-#{$dz-pos-left}-radius: .5rem;
+            
+            &.style-1 {
+                @extend %gradient-1;
+            }
+
+            &.style-2 {
+                @extend %gradient-2;
+            }
+
+            &.style-3 {
+                @extend %gradient-3;
+            }
+        }
+
+        .plan-name {
+            margin-top: 2rem;
+            color: #6a707e;
+        }
+
+        .plan-price {
+            padding: 2.8rem 0;
+            margin: 3rem 0;
+            display: flex;
+            color: $white;
+            justify-content: center;
+            
+            &.style-1 {
+                @extend %gradient-1;
+            }
+
+            &.style-2 {
+                @extend %gradient-2;
+            }
+
+            &.style-3 {
+                @extend %gradient-3;
+            }
+            
+            h2 {
+                font-size: 6rem;
+                color: $white;
+                margin: 0;
+                line-height: 1;
+                font-weight: normal;
+            }
+
+            .currency-timeplan {
+                align-self: flex-end;
+            }
+        }
+
+        .plan-icon {
+            margin-top: 3rem;
+        }
+        
+        .plan-specification {
+            ul {
+                margin: 0;
+
+                li {
+                    margin: 2.5rem 0;
+
+                    del{
+                        color: $athensGray;
+                    }
+                }
+            }
+        }
+
+        .btn {
+            width: 80%;
+            margin: 0 auto;
+            border: .1rem solid $border;
+            margin-top: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: #2290ff;
+            transition: all .2s;
+            padding: 0.9rem 1.8rem;
+            font-size: 1.7rem;
+            font-weight: 600;
+
+            &:hover {
+                color: $white;
+
+                &.style-1 {
+                    @extend %gradient-1;
+                }
+
+                &.style-2 {
+                    @extend %gradient-2;
+                }
+
+                &.style-3 {
+                    @extend %gradient-3;
+                }
+            }
+        }
+    }
+
+    .pricing-footer-text {
+        margin-bottom: 7rem;
+
+        p {
+            margin-bottom: 4rem;
+
+            b{
+                border-bottom: 1px solid $sky;
+            }
+        }
+
+        .btn{
+            font-size: 1.6rem;
+            font-weight: 600;
+            padding: .95rem 2.5rem;
+
+            i{
+                padding-#{$dz-pos-right}: .5rem;
+            }
+        }
+    }
+}

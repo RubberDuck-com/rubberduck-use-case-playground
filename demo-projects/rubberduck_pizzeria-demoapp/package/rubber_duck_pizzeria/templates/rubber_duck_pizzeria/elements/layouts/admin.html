@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="admin dashboard, admin template, administration, analytics, bootstrap, cafe admin, elegant, food, health, kitchen, modern, responsive admin dashboard, restaurant dashboard">
+    <meta name="author" content="RubberDuck Team">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rubber Duck Pizzeria is a demo restaurant admin app built by the RubberDuck team to test RubberDuck’s 10 MCP use cases.">
+    <meta property="og:title" content="Rubber Duck Pizzeria - Admin Dashboard">
+    <meta property="og:description" content="Rubber Duck Pizzeria is a demo restaurant admin app built by the RubberDuck team to test RubberDuck’s 10 MCP use cases.">
+    <meta property="og:image" content="/static/rubber_duck_pizzeria/images/logo.png">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- PAGE TITLE HERE -->
+    <title>Rubber Duck Pizzeria - Admin Dashboard</title>
+    
+    <!-- FAVICONS ICON -->
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='rubber_duck_pizzeria/images/favicon.png')}}" />
+    {% block additional_css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename=  'rubber_duck_pizzeria/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename=  'rubber_duck_pizzeria/css/style.css')}}">
+    <style>
+      /* Dark mode:
+         page = dark grey, chrome = black, cards = black + gold tint */
+      [data-theme-version="dark"] {
+        background: #141414 !important;
+        color: #e8e8e8;
+      }
+      [data-theme-version="dark"] .content-body,
+      [data-theme-version="dark"] #main-wrapper {
+        background-color: #141414 !important;
+      }
+      [data-theme-version="dark"] .deznav,
+      [data-theme-version="dark"] .header,
+      [data-theme-version="dark"] .nav-header,
+      [data-theme-version="dark"] .footer,
+      [data-theme-version="dark"] .search-area .form-control,
+      [data-theme-version="dark"] .search-area .input-group-text {
+        background-color: #000 !important;
+      }
+
+      /* Cards: black base + your low-opacity gold overlay (must stack or tint is invisible) */
+      [data-theme-version="dark"] .card,
+      [data-theme-version="dark"] .card.bg-white,
+      [data-theme-version="dark"] .widget-stat,
+      [data-theme-version="dark"] .sidebar-right {
+        background-color: #000 !important;
+        background-image: linear-gradient(
+          rgba(250, 204, 21, 0.04),
+          rgba(250, 204, 21, 0.04)
+        ) !important;
+        border: 1px solid rgba(250, 204, 21, 0.14) !important;
+        box-shadow: inset 0 0 0 1px rgba(250, 204, 21, 0.04);
+      }
+      [data-theme-version="dark"] .card > .card-header,
+      [data-theme-version="dark"] .card > .card-body,
+      [data-theme-version="dark"] .card > .card-footer {
+        background-color: transparent !important;
+        background-image: none !important;
+      }
+
+      /* Selected Monthly / Weekly / Today: black + gold text (no bright yellow fill) */
+      [data-theme-version="dark"] .card-tabs .nav-tabs .nav-link.active,
+      [data-theme-version="dark"] .nav-tabs .nav-link.active {
+        background: #000 !important;
+        color: #FACC15 !important;
+        border-color: rgba(250, 204, 21, 0.35) !important;
+      }
+      [data-theme-version="dark"] .btn-primary:not(.light):not(.tp-btn):not(.tp-btn-light),
+      [data-theme-version="dark"] .btn-primary:not(.light):not(:disabled):not(.disabled).active,
+      [data-theme-version="dark"] .show > .btn-primary.dropdown-toggle {
+        background-color: #000 !important;
+        border-color: #FACC15 !important;
+        color: #FACC15 !important;
+      }
+      [data-theme-version="dark"] .btn-primary:not(.light):hover {
+        background-color: #111 !important;
+        border-color: #FACC15 !important;
+        color: #FACC15 !important;
+      }
+
+      /* Data tables – readable dark mode (no yellow header + white text) */
+      [data-theme-version="dark"] .dataTablesCard {
+        background-color: #000 !important;
+      }
+      [data-theme-version="dark"] .dataTablesCard thead tr,
+      [data-theme-version="dark"] .dataTablesCard thead.bg-primary,
+      [data-theme-version="dark"] .customer-list-tbl thead tr {
+        background-color: #000 !important;
+        background-image: linear-gradient(
+          rgba(250, 204, 21, 0.06),
+          rgba(250, 204, 21, 0.06)
+        ) !important;
+      }
+      [data-theme-version="dark"] .dataTablesCard thead th,
+      [data-theme-version="dark"] .customer-list-tbl thead tr th,
+      [data-theme-version="dark"] .customer-list-tbl thead tr th strong {
+        color: #FACC15 !important;
+      }
+      [data-theme-version="dark"] .dataTablesCard tbody td,
+      [data-theme-version="dark"] .customer-list-tbl tbody td {
+        color: #e8e8e8 !important;
+        border-color: rgba(255, 255, 255, 0.08) !important;
+      }
+      [data-theme-version="dark"] .dataTablesCard.text-black tbody td,
+      [data-theme-version="dark"] .customer-list-tbl.text-black tbody td {
+        color: #e8e8e8 !important;
+      }
+      [data-theme-version="dark"] .dataTablesCard tbody td .font-w600 {
+        color: #FACC15 !important;
+      }
+      [data-theme-version="dark"] .dataTables_wrapper .dataTables_info,
+      [data-theme-version="dark"] .dataTables_wrapper .dataTables_length label,
+      [data-theme-version="dark"] .dataTables_wrapper .dataTables_filter label {
+        color: #b8b8b8 !important;
+      }
+      [data-theme-version="dark"] .dataTables_wrapper .dataTables_paginate .paginate_button {
+        color: #FACC15 !important;
+        border-color: rgba(250, 204, 21, 0.35) !important;
+        background: transparent !important;
+      }
+      [data-theme-version="dark"] .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        background: #FACC15 !important;
+        color: #000 !important;
+        border-color: #FACC15 !important;
+      }
+      [data-theme-version="dark"] .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled) {
+        background: rgba(250, 204, 21, 0.12) !important;
+        color: #FACC15 !important;
+      }
+      [data-theme-version="dark"] .dataTablesCard svg path {
+        stroke: #b8b8b8 !important;
+      }
+
+      /* Readable text on dark pages (dashboard, analytics, orders, reviews) */
+      [data-theme-version="dark"] .content-body .text-black,
+      [data-theme-version="dark"] .content-body a.text-black,
+      [data-theme-version="dark"] .content-body .form-check-label.text-black {
+        color: #e8e8e8 !important;
+      }
+      [data-theme-version="dark"] .content-body h2.text-black,
+      [data-theme-version="dark"] .content-body h3.text-black,
+      [data-theme-version="dark"] .content-body h4.text-black,
+      [data-theme-version="dark"] .content-body h5.text-black,
+      [data-theme-version="dark"] .content-body h6.text-black {
+        color: #f5f5f5 !important;
+      }
+
+      /* Standard tables (order detail, etc.) */
+      [data-theme-version="dark"] .content-body .table thead th {
+        background-color: #000 !important;
+        background-image: linear-gradient(
+          rgba(250, 204, 21, 0.06),
+          rgba(250, 204, 21, 0.06)
+        ) !important;
+        color: #FACC15 !important;
+        border-color: rgba(255, 255, 255, 0.08) !important;
+      }
+      [data-theme-version="dark"] .content-body .table tbody td {
+        color: #e8e8e8 !important;
+        border-color: rgba(255, 255, 255, 0.08) !important;
+      }
+      [data-theme-version="dark"] .content-body .table tbody td a {
+        color: #FFD54F !important;
+      }
+
+      /* Status badges on order list */
+      [data-theme-version="dark"] .btn.text-warning.bgl-warning {
+        color: #FFD54F !important;
+        background: rgba(255, 213, 79, 0.12) !important;
+      }
+
+      /* Review stars */
+      [data-theme-version="dark"] .star-review2 {
+        background: rgba(255, 213, 79, 0.12) !important;
+        border: 1px solid rgba(255, 213, 79, 0.3);
+      }
+      [data-theme-version="dark"] .star-review2 i {
+        color: #FFD54F !important;
+      }
+
+      /* Order list action dots */
+      [data-theme-version="dark"] .dataTablesCard circle[fill="#000000"],
+      [data-theme-version="dark"] .table circle[fill="#000000"] {
+        fill: #b8b8b8 !important;
+      }
+
+      .nav-header .brand-logo .logo-abbr {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+      }
+    </style>
+</head>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+
+        {% include 'rubber_duck_pizzeria/elements/nav-header.html' %}
+
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+		
+		<!--**********************************
+            Chat box start
+        ***********************************-->
+
+        {% include 'rubber_duck_pizzeria/elements/chatbox.html' %}
+
+		<!--**********************************
+            Chat box End
+        ***********************************-->
+		
+		<!--**********************************
+            Header start
+        ***********************************-->
+
+        {% include 'rubber_duck_pizzeria/elements/header.html' %}
+
+        <!--**********************************
+            Header end 
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+
+        {% include 'rubber_duck_pizzeria/elements/sidebar.html' %}
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        {% block content %}
+        {% endblock %}
+					
+        <!--**********************************
+            Footer start
+        ***********************************-->
+
+        {% include 'rubber_duck_pizzeria/elements/footer.html' %}
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+
+	</div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/global/global.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+    {% block additional_js %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='rubber_duck_pizzeria/js/custom.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='rubber_duck_pizzeria/js/deznav-init.js')}}"></script>
+    <script src="{{ url_for('static', filename='rubber_duck_pizzeria/js/kitchen.js')}}"></script>
+
+</body>
+</html>

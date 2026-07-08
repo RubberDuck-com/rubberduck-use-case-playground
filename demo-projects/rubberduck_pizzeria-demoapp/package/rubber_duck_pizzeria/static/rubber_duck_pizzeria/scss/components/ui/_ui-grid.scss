@@ -1,0 +1,13 @@
+.grid-col {
+    padding: 0.5rem !important;
+    background:$l-bg;
+}
+
+.row.grid {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.row.grid .grid-col:first-child{
+    text-align: #{$dz-pos-left};
+}

@@ -1,0 +1,70 @@
+.pricing_table_content {
+    background        : $white;
+    text-align        : center;
+    border            : 1px solid #e7e7e7;
+    border-radius     : 3px;
+    padding           : 25px;
+    -webkit-transition: all 0.25s ease-in-out;
+    transition        : all 0.25s ease-in-out;
+
+    .package {
+        font-weight: 700;
+        font-size  : 18px;
+    }
+
+    .price {
+        font-weight: 700;
+        font-size  : 50px;
+        line-height: 100px;
+        color      : $dark;
+    }
+
+    hr {
+        margin: 0;
+    }
+
+    .price_list {
+        padding   : 30px 0;
+        text-align: $dz-pos-left;
+        max-width : 175px;
+        margin    : 0 auto;
+
+        li {
+            color      : #909093;
+            font-size  : 14px;
+            line-height: 25px;
+            padding    : 7px 0;
+
+            i {
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .price-btn {
+        padding           : 15px 50px;
+        -webkit-box-shadow: none;
+        box-shadow        : none;
+        border            : 1px solid $l-border;
+        border-radius     : 5px;
+        font-weight       : 700;
+        font-size         : 14px;
+        margin-bottom     : 25px;
+        -webkit-transition: all 0.25s ease-in-out;
+        transition        : all 0.25s ease-in-out;
+    }
+
+    &:focus,
+    &:hover {
+        -webkit-transform : scale(1.05);
+        transform         : scale(1.05);
+        -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.175);
+        box-shadow        : 0 0 10px rgba(0,0,0,0.175);
+
+        .price-btn {
+            color     : $danger;
+        }
+    }
+}
+
+

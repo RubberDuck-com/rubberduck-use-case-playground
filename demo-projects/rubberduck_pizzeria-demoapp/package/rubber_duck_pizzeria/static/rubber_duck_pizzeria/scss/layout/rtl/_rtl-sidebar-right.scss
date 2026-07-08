@@ -1,0 +1,24 @@
+[direction="rtl"] {
+	.sidebar-right{
+		right: auto;
+		left: -50rem;
+		&.show{
+			left:5.25rem;
+			right:unset;
+		}
+        .sidebar-right-trigger {
+            left: 100%;
+            right: auto;
+			border-radius: 0 5px 5px 0;
+			box-shadow: 5px 3px 5px 0px rgba(119, 119, 119, 0.15);
+        }
+		.sidebar-close-trigger{
+			right:auto;
+			left:-48px;
+		}
+	}
+	.bootstrap-select .dropdown-toggle .filter-option{
+		text-align:right;
+	}
+}
+

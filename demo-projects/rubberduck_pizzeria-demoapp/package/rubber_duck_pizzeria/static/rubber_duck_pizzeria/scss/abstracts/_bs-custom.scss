@@ -1,0 +1,145 @@
+//to ignore cli warning about deprecated mixin
+$enable-deprecation-messages: false;
+$ignore-warning             : true;
+
+// Custom class not bootstrap
+$fn:'HelveticaNeue'; // fn = font normal 
+$fm:'HelveticaNeueMed'; // fm = font Medium 
+$border-radius: 0.75rem;
+// Body
+$body-bg   : #ededed;
+$body-color: #7e7e7e;
+
+// Typography
+$font-family-base: 'Roboto',
+sans-serif;
+$headings-font-weight   : 500;
+
+
+
+
+$font-size-base     : 0.875rem !default;
+$font-weight-base   : 400 !default;
+// $line-height-base: 1.6;
+$h1-font-size       : 2.25rem;
+$h2-font-size       : 1.875rem;
+$h3-font-size       : 1.5rem;
+$h4-font-size       : 1.125rem;
+$h5-font-size       : 1rem;
+$h6-font-size       : 0.938rem;
+
+
+//
+// Color system
+//
+$white   : #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black   : #000 !default;
+
+
+$blue  : #5e72e4;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink  : #e83e8c !default;
+$red   : #EE3232;
+$orange: #ff9900 !default;
+$yellow: #FFFA6F;
+$green : #297F00;
+$teal  : #20c997 !default;
+$cyan  : #3065D0;
+
+
+
+$grays: () !default;
+$grays: map-merge((
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900),
+  $grays);
+
+
+$muted     : #89879f;
+$text-muted: #89879f;
+$mine-shaft: #262626;
+$ebony-clay: #232833;
+
+$colors: () !default;
+$colors: map-merge((
+	"blue": $blue,
+    "indigo": $indigo,
+    "purple": $purple,
+    "pink": $pink,
+    "red": $red,
+    "orange": $orange,
+    "yellow": $yellow,
+    "green": $green,
+    "teal": $teal,
+    "cyan": $cyan,
+    "white": $white,
+    "gray": $gray-600,
+    "gray-dark": $gray-800),
+  $colors);
+
+
+  
+$primary  : #FACC15 !default;
+$secondary: #AC4CBC !default;
+$success  : #68CF29 !default;
+$info     : #3A82EF !default;
+$warning  : #FFAB2D !default;
+$danger   : #f72b50 !default;
+$light    : #c8c8c8 !default;
+$dark     : #6e6e6e;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(("primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark),
+  $theme-colors);
+
+
+$heading-primary-size: 1.8rem;
+$sub-heading-size    : 1.6rem !default;
+
+$grid-gutter-width: 30px;
+
+$dropdown-lik-color: $body-color;
+
+
+$border-color  : #EEEEEE;
+$headings-color:#3d4465 !default;
+$rounded : 0.75rem ;
+
+$grid-breakpoints: (xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440);
+  
+  
+$dz-right: r;
+$dz-left: l;
+
+$dz-pos-right:right;
+$dz-pos-left:left;
+$dz-tx: -50%;

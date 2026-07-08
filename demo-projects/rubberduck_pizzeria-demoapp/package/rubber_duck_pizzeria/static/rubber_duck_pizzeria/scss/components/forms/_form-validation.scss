@@ -1,0 +1,60 @@
+.form-control.is-valid {
+    border-color: $success !important;
+    border-#{$dz-pos-right}: 0px !important;
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.form-control.is-warning {
+    border-color: $warning !important;
+    border-#{$dz-pos-right}: 0px !important;
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.form-control.is-invalid {
+    border-color: $danger !important;
+    border-#{$dz-pos-right}: 0px !important;
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.is-valid {
+    .input-group-prepend {
+        .input-group-text {
+            i {
+                color: $success;
+            }
+        }
+    }
+}
+
+.is-invalid {
+    .input-group-prepend {
+        .input-group-text {
+            i {
+                color: lighten($primary, 15%)
+            }
+        }
+    }
+}
+
+.show-pass{
+	cursor:pointer;
+	
+	.fa-eye{
+		display:none;
+	}
+	
+	&.active{
+		.fa-eye-slash{
+			display:none;
+		}
+		.fa-eye{
+			display:inline-block;
+		}
+	}
+}

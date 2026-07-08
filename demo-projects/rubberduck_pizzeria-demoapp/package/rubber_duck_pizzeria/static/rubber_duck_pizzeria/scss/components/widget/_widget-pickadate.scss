@@ -1,0 +1,129 @@
+.picker{
+	.picker__frame {
+		min-width: 450px!important;
+		max-width: 450px!important;
+		
+		.picker__box{
+			padding: 20px;
+			border: 0;
+			box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+			
+			.picker__header{
+				margin-top: 0;
+				
+				.picker__year{
+					color: $primary;
+					font-style: inherit;
+					font-size: 20px;
+				}
+			
+				.picker__nav--prev,
+				.picker__nav--next{
+					width: 40px;
+					height: 40px;
+					padding: 0;
+					line-height: 40px;
+					border-radius: 2px;
+					&:before{
+						content: none!important
+					}
+					&:after{
+						font-family: fontawesome;
+						border: 0;
+						margin: 0 auto;
+						font-size: 22px;
+					}
+					&:hover{
+						background-color: $primary;
+						color:#fff!important;
+					}
+				}
+				.picker__nav--prev{
+					#{$dz-pos-left}: 0;
+					#{$dz-pos-right}: auto;
+					&:after{
+						content: "\f0d9";
+					}
+				}
+				.picker__nav--next{
+					#{$dz-pos-right}: 0;
+					#{$dz-pos-left}: auto;
+					&:after{
+						content: "\f0da";
+					}
+				}
+			}
+			
+			.picker__table{
+				.picker__weekday {
+					padding: 10px 0;
+					font-size: 16px;
+				}
+				.picker__day {
+					width: 40px;
+					height: 40px;
+					border-radius: 50px;
+					padding: 0!important;
+					font-size: 16px;
+					line-height: 40px;
+					margin: auto;
+					border: 0!important;
+					
+					&.picker__day--today{
+						&:before {
+							content: none !important;
+						}
+					}
+					
+					&.picker__day--highlighted {
+						border: 0!important;
+						padding: 0;
+						background-color: $primary;
+						color: $white!important;
+					}
+					
+					&:hover{
+						background-color: $primary;
+						color: $white !important;
+					}
+				}
+			}
+			
+			.picker__footer{
+				.picker__button--today{
+					background-color: $primary;
+					color: $white !important;
+					
+					&:before{
+						content: none!important
+					}
+				}
+				
+				.picker__button--clear, 
+				.picker__button--close, 
+				.picker__button--today{
+					border: 0;
+					border-radius: 2px;
+					font-size: 16px;
+					&:hover{
+						background-color:$primary;
+						color: $white !important;
+					}
+				}
+			}
+			
+		}
+				
+		@include respond('phone') {
+			min-width: 100%!important;
+			max-width: 100%!important;
+			
+			.picker__box{
+				padding: 15px;
+				margin: 0 10px;
+			}
+		}
+	}
+	
+}
+

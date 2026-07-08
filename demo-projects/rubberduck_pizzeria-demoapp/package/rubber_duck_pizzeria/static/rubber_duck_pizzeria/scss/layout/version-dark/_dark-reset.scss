@@ -1,0 +1,45 @@
+@import "./../../abstracts/variable";
+
+
+
+[data-theme-version="dark"] {
+    background: $d-bg;
+    color: $d-ctl;
+	
+	
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $white !important;
+    }
+    a.link {
+        color: $d-ctd;
+    }
+    a.link:focus,
+    a.link:hover {
+        color: $info;
+    }
+
+    a {
+        &:hover {
+            color: $white;
+        }
+    }
+	
+    @each $value in $borders {
+        @if $value == "" {
+            .border {
+                border: 1px solid $d-border !important;
+            }
+        } @else {
+            .border-#{$value} {
+                border-#{$value}: 1px solid $d-border !important;
+            }
+        }
+    }
+
+
+}

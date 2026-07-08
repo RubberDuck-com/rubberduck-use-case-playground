@@ -1,0 +1,93 @@
+
+%remain-steps {
+    &:before {
+        content: counter(stepNum);
+        font-family: inherit;
+        font-weight: 400;
+    }
+
+    &:after {
+        background-color: $border;
+    }
+}
+
+.multi-steps {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+    >li {
+        counter-increment: stepNum;
+        text-align: center;
+        display: table-cell;
+        position: relative;
+        color: $primary;
+
+        @include media-breakpoint-down(xs) {
+            font-size: 0.75rem;
+        }
+
+        &:before {
+            content: '\2713';
+            display: block;
+            margin: 0 auto 4px;
+            background-color: $white;
+            width: 25px;
+            height: 25px;
+            line-height: 22px;
+            text-align: center;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+
+            @include media-breakpoint-down(xs) {
+                width: 25px;
+                height: 25px;
+                line-height: 21px;
+            }
+
+            border: {
+                width: 2px;
+                style: solid;
+                color: $primary;
+                radius: 5px;
+            }
+        }
+
+        &:after {
+            content: '';
+            height: 2px;
+            width: 100%;
+            background-color: $primary;
+            position: absolute;
+            top: 12px;
+            #{$dz-pos-left}: 50%;
+            #{$dz-pos-right}: auto;
+        }
+
+        &:last-child {
+            &:after {
+                display: none;
+            }
+        }
+
+        &.is-active {
+            @extend %remain-steps;
+
+            &:before {
+                background-color: $white;
+                border-color: $primary;
+            }
+
+            ~li {
+                color: $body-color;
+                @extend %remain-steps;
+
+                &:before {
+                    background-color: $border;
+                    border-color: $border;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+{% extends 'rubber_duck_pizzeria/elements/layouts/admin.html' %}
+      
+{% block additional_css %}
+{% endblock %}
+        
+{% block content %}
+<!--**********************************
+    Content body start
+***********************************-->
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+                    <p class="mb-0">Your business dashboard template</p>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">CkEditor</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-12 col-xxl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Form CkEditor</h4>
+                    </div>
+                    <div class="card-body custom-ekeditor">
+                        <div id="ckeditor"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+{% endblock %}
+{% block additional_js %}
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/ckeditor/ckeditor.js')}}"></script>
+{% endblock %}

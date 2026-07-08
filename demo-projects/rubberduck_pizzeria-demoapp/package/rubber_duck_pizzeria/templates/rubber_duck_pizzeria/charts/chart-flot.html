@@ -1,0 +1,132 @@
+{% extends 'rubber_duck_pizzeria/elements/layouts/admin.html' %}
+      
+{% block additional_css %}
+{% endblock %}
+        
+{% block content %}
+<!--**********************************
+    Content body start
+***********************************-->
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6  p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+                    <span>Flot Chart</span>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Charts</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Flot</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Bar Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotBar1" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Bar Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotBar2" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Line Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotLine1" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Line Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotLine3" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotArea1" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotArea2" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Realtime Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotRealtime1" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Realtime Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="flotRealtime2" class="flot-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+{% endblock %}
+{% block additional_js %}
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/flot/jquery.canvaswrapper.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/flot/jquery.colorhelpers.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/flot/jquery.flot.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/flot/jquery.flot.saturated.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/flot/jquery.flot.browser.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/flot/jquery.flot.drawSeries.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/flot/jquery.flot.uiConstants.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/flot/jquery.flot.categories.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/js/plugins-init/flot-init.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+.easy-pie-chart {
+    position: relative;
+    text-align: center;
+
+    .inner {
+        position: absolute;
+        #{$dz-pos-left}: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+    }
+
+    img {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+
+    canvas {
+        display: block;
+        margin: 0 auto;
+    }
+}

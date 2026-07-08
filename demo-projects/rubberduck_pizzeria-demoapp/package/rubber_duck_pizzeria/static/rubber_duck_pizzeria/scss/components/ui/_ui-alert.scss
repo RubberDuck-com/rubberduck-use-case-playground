@@ -1,0 +1,343 @@
+
+
+.alert{
+    border-radius: 0;
+	padding:1rem 1.5rem;
+	padding-#{$dz-pos-right}: 40px;
+	p{
+		line-height:1.5;
+	}
+}
+@at-root [data-theme-version="dark"] .alert-dismissible .btn-close{
+	color:#fff;
+	--bs-btn-close-color:#fff;
+}
+
+.alert-rounded{
+    border-radius: 30px;
+}
+
+.alert-primary{
+    background: $primary-light;
+    border-color: $primary-light;
+    color: $primary;
+	@at-root [data-theme-version="dark"] & {
+		background: $primary-opacity;
+		border-color: $primary-opacity;
+	}
+}
+
+.alert-secondary{
+    background: $secondary-light;
+    border-color: $secondary-light;
+    color: $secondary;
+	@at-root [data-theme-version="dark"] & {
+		background: $secondary-opacity;
+		border-color: $secondary-opacity;
+		color:$body-color;
+	}
+}
+
+
+.alert-success{
+    background: $success-light;
+    border-color: $success-light;
+    color: $success;
+	@at-root [data-theme-version="dark"] & {
+		background: $success-opacity;
+		border-color: $success-opacity;
+	}
+}
+
+.alert-warning{
+    background: $warning-light;
+    border-color: $warning-light;
+    color: $warning;
+	@at-root [data-theme-version="dark"] & {
+		background: $warning-opacity;
+		border-color: $warning-opacity;
+	}
+}
+
+.alert-danger{
+    background: $danger-light;
+    border-color: $danger-light;
+    color: $danger;
+	@at-root [data-theme-version="dark"] & {
+		background: $danger-opacity;
+		border-color: $danger-opacity;
+	}
+}
+
+.alert-info{
+    background: lighten($info, 30%);
+    border-color: lighten($info, 30%);
+    color: $info;
+	@at-root [data-theme-version="dark"] & {
+		background: $info-opacity;
+		border-color: $info-opacity;
+	}
+}
+
+.alert-dark{
+    background: lighten($dark, 25%);
+    border-color: lighten($dark, 25%);
+    color: $dark;
+	@at-root [data-theme-version="dark"] & {
+		background: $dark-opacity;
+		border-color: $dark-opacity;
+		color:$body-color;
+	}
+}
+.alert-light{
+    background: $light;
+    border-color: $light;
+    color: $dark;
+	
+}
+
+
+.alert-alt.alert-primary{
+    border-#{$dz-pos-left}: 4px solid $primary;
+}
+
+.alert-alt.alert-secondary{
+    border-#{$dz-pos-left}: 4px solid $secondary;
+}
+
+
+.alert-alt.alert-success{
+    border-#{$dz-pos-left}: 4px solid $success
+}
+
+.alert-alt.alert-warning{
+    border-#{$dz-pos-left}: 4px solid $warning;
+}
+
+.alert-alt.alert-danger{
+    border-#{$dz-pos-left}: 4px solid $danger;
+}
+
+.alert-alt.alert-info{
+    border-#{$dz-pos-left}: 4px solid $info;
+}
+
+.alert-alt.alert-dark{
+    border-#{$dz-pos-left}: 4px solid $dark;
+}
+.alert-alt.alert-light{
+    border-#{$dz-pos-left}: 4px solid darken($light,15%);
+}
+
+
+.alert-alt.alert-primary.solid{
+    border-#{$dz-pos-left}: 4px solid darken($primary,25%)!important;
+}
+
+.alert-alt.alert-secondary.solid{
+    border-#{$dz-pos-left}: 4px solid darken($secondary,25%)!important;
+}
+
+
+.alert-alt.alert-success.solid{
+    border-#{$dz-pos-left}: 4px solid darken($success, 25%)!important;
+}
+
+.alert-alt.alert-warning.solid{
+    border-#{$dz-pos-left}: 4px solid darken($warning,25%)!important;
+}
+
+.alert-alt.alert-danger.solid{
+    border-#{$dz-pos-left}: 4px solid darken($danger,25%)!important;
+}
+
+.alert-alt.alert-info.solid{
+    border-#{$dz-pos-left}: 4px solid darken($info,25%)!important;
+}
+
+.alert-alt.alert-dark.solid{
+    border-#{$dz-pos-left}: 4px solid darken($dark,25%)!important;
+}
+.alert-alt.alert-light.solid{
+    border-#{$dz-pos-left}: 4px solid darken($light,25%)!important;
+}
+
+
+.alert-dismissible.solid{
+    .close{
+        &:hover{
+            color: $white;
+            opacity: 1;
+        }
+    }
+}
+
+.alert-dismissible .btn-close {
+    #{$dz-pos-right}: 0;
+    #{$dz-pos-left}: auto;
+}
+
+.alert.alert-primary.solid{
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+}
+
+.alert.alert-secondary.solid{
+    background: $secondary;
+    color: $white;
+    border-color: $secondary;
+}
+.alert.alert-success.solid{
+    background: $success;
+    color: $white;
+    border-color: $success;
+}
+
+.alert.alert-warning.solid{
+    background: $warning;
+    color: $white;
+    border-color: $warning;
+}
+
+.alert.alert-danger.solid{
+    background: $danger;
+    color: $white;
+    border-color: $danger;
+}
+
+.alert.alert-info.solid{
+    background: $info;
+    color: $white;
+    border-color: $info;
+}
+
+
+.alert.alert-dark.solid{
+    background: $dark;
+    color: $white;
+    border-color: $dark;
+}
+
+
+.alert.alert-light.solid{
+    background: $light;
+    color: $dark;
+    border-color: $light;
+}
+
+
+
+
+// Alert right icon
+
+.alert-right-icon{
+    &>span i{
+        font-size: 18px;
+        margin-#{$dz-pos-right}: 5px;;
+    }
+    .close{
+        i{
+            font-size: 16px;
+        }
+    }
+}
+
+.alert.alert-outline-primary{
+    background: transparent;
+    color: $primary;
+    border-color: $primary;
+}
+
+
+.alert.alert-outline-secondary{
+    background: transparent;
+    color: $secondary;
+    border-color: $secondary;
+}
+
+
+.alert.alert-outline-success{
+    background: transparent;
+    color: $success;
+    border-color: $success;
+}
+
+
+.alert.alert-outline-info{
+    background: transparent;
+    color: $info;
+    border-color: $info;
+}
+
+
+.alert.alert-outline-warning{
+    background: transparent;
+    color: $warning;
+    border-color: $warning;
+}
+
+.alert.alert-outline-danger{
+    background: transparent;
+    color: $danger;
+    border-color: $danger;
+}
+
+.alert.alert-outline-dark{
+    background: transparent;
+    color: $body-color;
+    border-color: $dark;
+}
+
+.alert.alert-outline-light{
+    background: transparent;
+    color: $dark;
+    border-color: $light;
+}
+
+.alert-social{
+    color: $white;
+    .alert-social-icon{
+        align-self: center;
+        margin-#{$dz-pos-right}: 0.9375rem;
+        i{
+            font-size: 42px;
+        }
+    }
+    &.facebook{
+        background-color: $facebook;
+    }
+    &.twitter{
+        background-color: $twitter;
+    }
+    &.linkedin{
+        background-color: $linkedin;
+    }
+    &.google-plus{
+        background-color: $google-plus;
+    }
+    .close{
+        &:hover{
+            opacity: 1!important;
+            color: $white!important;
+        }
+    }
+}
+
+
+.left-icon-big{
+    .alert-left-icon-big{
+        align-self: center;
+        margin-#{$dz-pos-right}: 0.9375rem;
+        margin-#{$dz-pos-left}: 0;
+        i{
+            font-size: 35px;   
+			line-height: 1;
+        }
+    }
+    .media-body{
+    }
+}
+
+
+

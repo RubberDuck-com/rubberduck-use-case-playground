@@ -1,0 +1,23 @@
+
+.modal-header{
+	padding: 1rem 1.875rem;
+
+	.btn-close{
+		margin-#{$dz-pos-left}: auto;
+		margin: 0;
+	}
+}
+.modal-body{
+	padding: 1.875rem;
+}
+.modal-footer{
+	padding: 1rem 1.875rem;
+    flex-wrap: initial;
+}
+.modal-content{
+	border-radius:$radius;
+	background-color:#fff;
+}
+.modal-backdrop{
+    z-index: 10!important;
+}

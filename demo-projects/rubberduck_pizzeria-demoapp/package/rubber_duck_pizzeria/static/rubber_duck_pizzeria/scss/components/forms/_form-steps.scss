@@ -1,0 +1,200 @@
+@import "../../abstracts/variable";
+@import "../../abstracts/mixin";
+
+.form-wizard{
+	border: 0;
+	.nav-wizard{
+		box-shadow: none!important;
+		margin-bottom: 2rem;
+		li{
+			.nav-link{
+				position: relative;
+				span{
+					border-radius: 50px;
+					width: 3rem;
+					height: 3rem;
+					border: 2px solid $primary;
+					display: block;
+					line-height: 3rem;
+					color: $primary;
+					font-size: 18px;
+					margin: auto;
+					background-color: $white;
+					position: relative;
+					z-index: 1;
+				}
+				&:after{
+					position: absolute;
+					top: 50%;
+					#{$dz-pos-left}: 50%;
+					height: 3px;
+					transform: translateY(-50%);
+					background: $dark-light!important;
+					z-index: 0;
+					width: 100%;
+				}
+				&.active{
+					&:after{
+						background: $primary!important;
+					}
+					span{
+						background:$primary;
+						color:$white;
+					}
+				}
+				&.done{
+					&:after{
+						background: $primary!important;						
+					}
+					span{
+						background-color: $primary;
+						color: $white;
+					}
+					
+				} 
+			}
+			&:last-child{
+				.nav-link{
+					&:after{
+						content: none;
+					}
+				}
+			}
+		}	
+	}
+	.toolbar-bottom{
+		.btn{
+			background-color: $primary;
+			border: 0;
+			padding: 12px 18px;
+		}
+	}
+	.tab-content{
+		.tab-pane{
+			padding: 0;
+		}
+	}
+	.emial-setup {
+        label.mailclinet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: #EEF5F9;
+			text-align: center;
+			margin: auto;
+			@at-root [data-theme-version="dark"] & {
+				background-color: $d-bg;
+			}
+            @include respond(phone) {
+                width: 7rem;
+                height: 7rem;
+            }
+
+            .mail-icon {
+                font-size: 3rem;
+                display: inline-block;
+                line-height: 1;
+                margin-top: -1rem;
+
+                @include respond(phone) {
+                    font-size: 2rem;
+                }
+            }
+
+            .mail-text {
+                font-size: 1rem;
+                text-align: center;
+                margin-top: .5rem;
+
+                @include respond(phone) {
+                    font-size: 16px;
+					line-height: 20px;
+                }
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
+        }
+    }
+	
+	.emial-setup {
+        label.mailclinet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: #EEF5F9;
+			text-align: center;
+			margin: auto;
+			@at-root [data-theme-version="dark"] & {
+				background-color: $d-bg;
+			}
+
+            .mail-icon {
+                font-size: 3rem;
+                display: inline-block;
+                line-height: 1;
+                margin-top: -1rem;
+
+                @include respond(phone) {
+                    font-size: 2rem;
+                }
+            }
+            .mail-text {
+                font-size: 1rem;
+                text-align: center;
+                margin-top: .5rem;
+
+                @include respond(phone) {
+                    font-size: 16px;
+					line-height: 20px;
+                }
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
+            @include respond('tab-land') {
+				height:8rem;
+				width:8rem;
+				.mail-text {
+					font-size:12px;
+				}
+				.mail-icon {
+					font-size:40px;
+				}
+			}
+            @include respond('phone') {
+                width: 7rem;
+                height: 7rem;
+            }
+        }
+    }
+	@include respond('phone-land') {
+		.nav-wizard{
+			flex-direction: unset!important;
+		}
+		.tab-content{
+			height: 100%!important;
+		}
+	}
+	@include respond('phone') {
+		.nav-wizard{
+			li{
+				.nav-link{
+					padding: 0;
+				}
+			}
+		}
+	}
+}

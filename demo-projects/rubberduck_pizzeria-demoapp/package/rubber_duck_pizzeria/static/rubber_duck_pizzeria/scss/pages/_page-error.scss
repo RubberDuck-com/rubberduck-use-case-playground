@@ -1,0 +1,22 @@
+.error-page{
+	.error-text {
+		font-size: 150px;
+		line-height: 1;
+		@include respond('phone') {
+			font-size: 80px;
+		}
+	}
+	h4{
+		font-size: 40px;
+		margin-bottom: 5px;
+		@include respond('phone') {
+			font-size: 20px;
+		}
+	}
+	p{
+		font-size: 16px;
+		@include respond('phone') {
+			font-size: 14px;
+		}
+	}
+}

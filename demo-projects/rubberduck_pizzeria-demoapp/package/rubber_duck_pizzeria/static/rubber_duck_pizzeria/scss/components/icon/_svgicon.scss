@@ -1,0 +1,108 @@
+.svg-icons-ov {
+    @include transitionMedium;
+	align-items: center;
+    padding: 15px 15px 75px;
+    position: relative;
+    border: 1px solid $border;
+	display: flex;
+	height:100%;
+	.svg-icons-prev{
+		margin-#{$dz-pos-right}:15px;
+		svg{
+			width:30px;
+			height:30px;
+			path[fill] {
+				fill: $primary;
+			}
+		}
+		i{
+			font-size:24px;
+			color:$primary;
+			line-height:1;
+		}
+	}
+	.svg-classname{
+		font-size:14px;
+		text-align:center;
+		
+	}
+	.svg-icon-popup {
+		position: absolute;
+		bottom: 15px;
+		width: 100%;
+		display: flex;
+		#{$dz-pos-left}: 10px;
+		&.style-1{
+			#{$dz-pos-left}:0;
+			.btn{
+				width:100%;
+			}
+		}
+		
+		.btn{
+			padding: 8px;
+			background: $primary-light;
+			margin: 0 5px;
+			color: $primary;
+			font-size: 14px !important;
+			display: inline-block;
+			width: 40%;
+			min-width: 40%;
+			height: 40px;
+			&:hover{
+				background-color: $primary;
+				color: #fff;
+			}
+		}
+	}
+	&:hover{
+		border-color: $primary;
+	}
+	&.style-1{
+		padding:15px;
+		flex-direction:column;
+		cursor:pointer;
+		.svg-icons-prev{
+			display: inline-block;
+			width: 3.125rem;
+			height: 3.125rem;
+			line-height: 3.563rem;
+			text-align: center;
+			background-color:  $primary-light;
+			margin-bottom:0.688rem;
+			margin-#{$dz-pos-right}:0;
+		}
+		.svg-classname{
+			font-size:0.713rem;
+			margin-top:auto;
+		}
+		
+	}
+}
+
+[data-theme-version="dark"] .svg-icons-ov{
+	border-color:#3E3E3E;
+}
+
+
+.svg-area{
+	.row{
+		margin:0;
+	}
+	.col-md-2{
+		padding:0;
+	}
+	
+	.card-header{
+		color: #000;
+		font-size: 18px;
+		font-weight: 600;
+		padding: 0;
+		margin-top: 50px;
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+		&:first-child{
+			margin-top:0;
+		}
+	}
+}

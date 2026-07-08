@@ -1,0 +1,344 @@
+.table {
+	--bs-table-bg:#fff;
+	background-color:var(--bs-table-bg);
+	@at-root [data-theme-version="dark"] & {
+		background:$dark-card;
+		--bs-table-bg:#2B2623;
+	}
+	strong{
+		color:$dark;
+	}
+    th, td {
+        border-color: $border;
+		padding: 12px 9px;
+		
+        @at-root [data-theme-version="dark"] & {
+            border-color: $d-border;
+        }
+    }
+	tbody{
+		tr{
+			td{
+				@at-root [data-theme-version="dark"] & {
+					background-color:$dark-card;
+				}
+			}
+		}
+	}
+	&.table-striped tbody tr:nth-of-type(odd),
+	&.table-hover tr:hover{
+	    background-color:$l-bg;
+		
+		@at-root [data-theme-version="dark"] & {
+            background-color: $d-bg;
+        }
+	}
+
+	&.shadow-hover tbody tr:hover{
+	    background-color:$white;
+		box-shadow: 0 0px 30px rgba($primary, 0.15);
+		@at-root [data-theme-version="dark"] & {
+            background-color: $d-bg;
+        }
+	}
+	&.tr-rounded{
+		tr{
+			td,th{
+				&:first-child{
+					border-radius:$radius 0 0 $radius;
+				}
+				&:last-child{
+					border-radius:0 $radius $radius 0;
+				}
+			}
+		}
+	}
+	&.bg-primary-hover{
+		th,td{
+			border:none;
+			font-weight:500;
+		}
+		td{
+			color:$black;
+		}
+		th{
+			color:#6C6C6C;
+		}
+		tr:hover{
+			td,th{
+				background:rgba($primary,0.1);
+				color:$primary!important;
+			}
+		}	
+	}	
+	&.bg-secondary-hover{
+		th,td{
+			border:none;
+			font-weight:500;
+		}
+		td{
+			color:$black;
+		}
+		th{
+			color:#6C6C6C;
+		}
+		tr:hover{
+			td,th{
+				background:rgba($secondary,0.1);
+				color:$secondary!important;
+			}
+		}	
+	}	
+	&.bg-info-hover{
+		th,td{
+			border:none;
+			font-weight:500;
+		}
+		td{
+			color:$black;
+		}
+		th{
+			color:#6C6C6C;
+		}
+		tr:hover{
+			td,th{
+				background:rgba($info,0.1);
+				color:$info!important;
+			}
+		}	
+	}	
+	&.bg-warning-hover{
+		th,td{
+			border:none;
+			font-weight:500;
+		}
+		td{
+			color:$black;
+		}
+		th{
+			color:#6C6C6C;
+		}
+		tr:hover{
+			td,th{
+				background:rgba($warning,0.1);
+				color:$warning!important;
+			}
+		}	
+	}	
+	&.border-no{
+		td{
+			border:0;
+		}
+	}
+	&.short-one{
+		tr{
+			td,th{
+				&:first-child{
+					width:60px!important;
+				}
+			}
+		}
+	}
+    thead th {
+        border-bottom-width: 1px;
+        text-transform: uppercase;
+        color: #000 ;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-color: $border;
+        @at-root [data-theme-version="dark"] & {
+            border-color: $d-border;
+			color:$white;
+        }
+    }
+    tbody  tr td {
+        vertical-align: middle;
+        border-color: $border;
+        @at-root [data-theme-version="dark"] & {
+            border-color: $d-border;
+        }
+    }
+	
+    &:not(.table-bordered) {
+        thead th {
+            border-top: none;
+        }
+    }
+
+    .thead-primary th {
+        background-color: $primary;
+        color: $white;
+    }
+	.thead-info th {
+        background-color: $info;
+        color: $white;
+    }
+	.thead-warning th {
+        background-color: $warning;
+        color: $white;
+    }
+	.thead-danger th {
+        background-color: $danger;
+        color: $white;
+    }
+	.thead-success th {
+        background-color: $success;
+        color: $white;
+    }
+
+    &.primary-table-bordered {
+        border: 1px solid $border;
+		@at-root [data-theme-version="dark"] & {
+            border-color: $d-border;
+        }
+    }
+
+    &.primary-table-bg-hover {
+        thead th {
+            background-color: darken($color: $primary, $amount: 5%);
+            color: $white;
+            border-bottom: none;
+        }
+
+        tbody tr {
+            background-color: $primary;
+            color: $white;
+            transition: all .1s ease;
+
+            &:hover {
+                background-color: lighten($color: $primary, $amount: 5%);
+            }
+
+            &:not(:last-child) {
+                td, th {
+                    border-bottom: 1px solid darken($color: $primary, $amount: 5%);
+                }
+            }
+        }
+    }
+
+    &-responsive {
+        &-tiny {
+			min-width: 18.75rem;
+        }
+
+        &-sm {
+			min-width: 30rem !important;
+        }
+
+        &-md {
+			min-width: 36rem !important;
+        }
+
+        &-lg {
+            min-width: 60.9375rem !important;
+        }
+
+        &-xl {
+            min-width: 70.9375rem !important;
+        }
+    }
+}
+.table-primary, 
+.table-primary > th, 
+.table-primary > td {
+	background-color: $primary-light;
+	color: $primary;
+	@at-root [data-theme-version="dark"] & {
+        background-color: $primary-opacity;
+    }
+}
+.table-success, 
+.table-success > th, 
+.table-success > td {
+	background-color: $success-light;
+	color: $success;
+	@at-root [data-theme-version="dark"] & {
+        background-color: $success-opacity;
+    }
+}
+.table-info, 
+.table-info > th, 
+.table-info > td {
+	background-color: $info-light;
+	color: $info;
+	@at-root [data-theme-version="dark"] & {
+        background-color: $info-opacity;
+    }
+}
+.table-warning, 
+.table-warning > th, 
+.table-warning > td {
+	background-color: $warning-light;
+	color: $warning;
+	@at-root [data-theme-version="dark"] & {
+        background-color: $warning-opacity;
+    }
+}
+.table-danger, 
+.table-danger > th, 
+.table-danger > td {
+	background-color: $danger-light;
+	color: $danger;
+	@at-root [data-theme-version="dark"] & {
+        background-color: $danger-opacity;
+    }
+}
+.table-active, 
+.table-active > th, 
+.table-active > td {
+    background-color: $l-bg;
+	@at-root [data-theme-version="dark"] & {
+        background-color: $d-bg;
+    }
+}
+
+
+
+.card-table{
+	th, td{
+        &:first-child{
+			padding-#{$dz-pos-left}: 30px;
+			@include respond('laptop') {
+				padding-#{$dz-pos-left}: 15px;
+			}
+		}
+		&:last-child{
+			padding-#{$dz-pos-right}:30px;
+			@include respond('laptop') {
+				padding-#{$dz-pos-right}: 15px;
+			}
+		}
+    }
+}
+.table{
+	&.primary-table-bg-hover{
+		th{
+			
+			background-color:var(--primary)!important;	
+			color:$white;
+		}
+		td{
+			background-color:var(--primary)!important;
+			color:$white;
+		}
+	} 
+} 
+.table.primary-table-bg-hover thead th{
+	background-color:#d95b00!important;
+	color:$white;
+} 
+
+.table{
+	tr{
+		&:last-child{
+			th{
+				border-bottom:0;
+			}
+			td{
+				border-bottom:0;
+			}
+		}
+	}
+}

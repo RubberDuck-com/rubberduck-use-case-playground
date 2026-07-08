@@ -1,0 +1,46 @@
+#image {
+  max-width: 100%;
+}
+
+.docs-options {
+  .dropdown-menu {
+    padding: 1.5rem;
+  }
+}
+
+.docs-preview {
+  margin-bottom: 3rem;
+
+  .img-preview {
+    float: $dz-pos-left;
+    margin-#{$dz-pos-right}: .5rem;
+    margin-bottom: .5rem;
+    overflow: hidden;
+    max-width: 100% !important;
+
+    &>img {
+      max-width: 100% !important;
+    }
+
+    &.preview-lg {
+      width: 16rem;
+      height: 9rem;
+    }
+
+    &.preview-md {
+      width: 8rem;
+      height: 4.5rem;
+    }
+
+    &.preview-sm {
+      width: 4rem;
+      height: 2.25rem;
+    }
+
+    &.preview-xs {
+      width: 2rem;
+      height: 1.125rem;
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+$strong:#646c9a;
+$border: rgba(238, 238, 238, 1);
+$shadow: 0px 0px 40px 0px rgba(82,63,105,0.1);
+$body-bg: #ededed;
+
+///////////////
+// Solid Color
+///////////////
+$white: #fff;
+$black: #000;
+$charade: #23252F;
+$light: #ebebeb;
+/////////////////////////
+// Dark Version Color
+/////////////////////////
+$d-ctd: #ddd;
+$d-ctl: #828690;
+$d-border: #3E3E3E;
+$d-bg: #0E0803;
+$dark-card: #2B2623;
+$dark_bg_lighter: #1E2A4A;
+
+/////////////////////////
+// Primary Light
+/////////////////////////
+$primary-light: lighten($primary, 40%);
+$secondary-light: lighten($secondary, 40%);
+$success-light: lighten($success, 45%);
+$warning-light: lighten($warning, 34%);
+$danger-light: lighten($danger, 38%);
+$info-light: lighten($info, 37%);
+$dark-light: lighten($dark, 50%);
+
+/////////////////////////
+// Opacity 
+/////////////////////////
+$primary-opacity: rgba($primary, 0.2);
+$secondary-opacity: rgba($secondary, 0.5);
+$success-opacity: rgba($success, 0.1);
+$warning-opacity: rgba($warning, 0.1);
+$danger-opacity: rgba($danger, 0.15);
+$info-opacity: rgba($info, 0.1);
+$dark-opacity: rgba($dark, 0.35);
+
+////////////////////////
+// Light Version Color
+////////////////////////
+$l-ctd: #464a53;
+$l-ctl: #828690;
+$l-border: #eaeaea;
+$l-bg: #f2f4fa;
+$heading: #333;
+
+///////////////////
+// Material Colors
+///////////////////
+$dusty-gray: #999999;
+$gallery: #EEEEEE;
+$gray: #898989;
+$input-border-color: $border;
+
+
+///////////////////
+// Social Colors
+///////////////////
+$facebook: #3b5998;
+$twitter: #1da1f2;
+$youtube: #FF0000;
+$google-plus: #db4439;
+$linkedin: #007bb6;
+$instagram: #c32aa3;
+$pinterest: #bd081c;
+$google: #4285f4;
+$snapchat: #fffc00;
+$whatsapp: #25d366;
+$tumblr: #35465d;
+$reddit: #ff4500;
+$spotify: #1ed760;
+$yahoo: #430297;
+$dribbble: #ea4c89;
+$skype: #00aff0;
+$quora: #aa2200;
+$riverBed: #4C585C;
+$vimeo: #1ab7ea;
+
+
+///////////////////
+// Misc Colors
+///////////////////
+$iron: #DDDFE1;
+$grey: #D2D6DE;
+$pale-sky: #6a707e;
+$athensGray: #F0F0F2;
+$sky: #2290FF;
+
+
+$color_pallate_1: $white;
+$color_pallate_2: #6610f2;
+$color_pallate_3: $primary;
+$color_pallate_4: #e83e8c;
+$color_pallate_5: #dc3545;
+$color_pallate_6:  #fd7e14;
+$color_pallate_7: #ffc107;
+$color_pallate_8: #28a745;
+$color_pallate_9:  #20c997;
+$color_pallate_10:  #17a2b8;
+$color_pallate_11: #6c757d;
+$color_pallate_12:#343a40 ;
+$color_pallate_13: #2a2a2a;
+$color_pallate_14: #4885ed;
+$color_pallate_15: #4cb32b;
+
+//utility variables
+$radius: 2px; 
+
+
+
+

@@ -1,0 +1,132 @@
+.vertical-card__menu {
+    &:hover {
+        box-shadow: none;
+    }
+
+    &--image {
+        text-align: center;
+
+        img {
+            width: 100%;
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+        }
+    }
+
+    &--status {
+        &.closed {
+            background: $danger;
+
+            &:after {
+                border-top: 10px solid $danger;
+            }
+
+            .ribbon-curve {
+                border-top: 11px solid $danger;
+                border-bottom: 10px solid $danger;
+            }
+        }
+    }
+
+    &--desc {
+
+        p {
+            margin-bottom: 0.625rem;
+        }
+    }
+
+    &--price {
+        font-size: 1.25rem;
+        margin: 0;
+        font-weight: 700;
+    }
+
+    &--rating {
+        font-size: 0.75rem;
+    }
+
+    &--title {
+        font-weight: 700;
+    }
+
+    &--button {
+        button {
+            font-size: 0.75rem;
+        }
+    }
+
+    &--location {
+    }
+
+    .card-footer {
+        padding: 15px 20px;
+        background-color: $border;
+        border-top: none;
+        @include custommq($min: 1200px, $max: 1440px) {
+            padding: 15px;
+        }
+        span{
+            color: $dark;
+            margin-#{$dz-pos-right}: 0.3125rem;
+        }
+    }
+}
+
+.horizontal-card__menu {
+    box-shadow: 0 0 7px rgba(173, 173, 173, 0.32);
+    display: flex;
+    flex-direction: row;
+
+    @include media-breakpoint-down(xs) {
+        display: block;
+    }
+
+    .card-body {
+        padding: 0;
+        padding: 20px 30px;
+    }
+    &--image {
+        flex-basis: 30%;
+        max-width: 30%;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+
+        @include media-breakpoint-down(xs) {
+            max-width: unset;
+            flex-basis: 100%;
+        }
+    }
+
+    &--title {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 0.3125rem;
+    }
+
+    &--fav {
+        margin-#{$dz-pos-right}: 0.5rem;
+    }
+
+    &--price {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    &--rating {
+        font-size: 0.625rem;
+    }
+
+    &--footer {
+        margin-top: 10px;
+    }
+}
+
+.prev_price {
+    text-decoration: line-through;
+    font-size: 80%;
+    opacity: 0.5;
+}

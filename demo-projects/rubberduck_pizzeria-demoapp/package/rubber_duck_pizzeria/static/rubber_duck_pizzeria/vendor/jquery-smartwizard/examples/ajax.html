@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>jQuery Smart Wizard - The awesome jQuery step wizard plugin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Include SmartWizard CSS -->
+    <link href="./css/smart_wizard_all.css" rel="stylesheet" type="text/css" />
+
+    <!-- Demo Page Style - You don't need -->
+    <style>
+    body {
+      padding-right: 5%;
+      padding-left: 5%;
+    }
+    </style>
+
+</head>
+<body>
+
+    <br />
+    <p>
+      <label>Theme:</label>
+      <select id="theme_selector">
+        <option value="default" selected>Default</option>
+        <option value="arrows">Arrows</option>
+        <option value="dots">Dots</option>
+        <option value="progress">Progress</option>
+      </select>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="checkbox" id="is_justified" value="1" checked />
+      <label for="is_justified">Justified</label>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <label>Animation:</label>
+      <select id="animation">
+            <option value="none">None</option>
+            <option value="fade">Fade</option>
+            <option value="slide-horizontal" selected>Slide Horizontal</option>
+            <option value="slide-vertical">Slide Vertical</option>
+            <option value="slide-swing">Slide Swing</option>
+      </select>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <label>Go To:</label>
+      <select id="got_to_step">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+      </select>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <label>External Buttons:</label>
+      <button class="btn btn-secondary" id="prev-btn" type="button">Go Previous</button>
+      <button class="btn btn-secondary" id="next-btn" type="button">Go Next</button>
+      <button class="btn btn-danger" id="reset-btn" type="button">Reset Wizard</button>
+    </p>
+    <br />
+
+
+    <!-- SmartWizard html -->
+    <div id="smartwizard">
+
+        <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#step-1" data-repo="jquery-smarttab">
+                <strong>SmartTab</strong><br />repository details from GitHub
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#step-2" data-repo="smartwizard">
+                <strong>SmartWizard</strong><br />repository details from GitHub
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#step-3" data-repo="jquery-smartcart">
+                <strong>SmartCart</strong><br />repository details from GitHub
+              </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+            </div>
+            <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+            </div>
+            <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+            </div>
+            <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+            </div>
+        </div>
+    </div>
+
+    <br /> &nbsp;
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
+    <!-- Include SmartWizard JavaScript source -->
+    <script type="text/javascript" src="./js/jquery.smartWizard.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            // Toolbar extra buttons
+            var btnFinish = $('<button></button>').text('Finish')
+                                             .addClass('btn btn-info')
+                                             .on('click', function(){ alert('Finish Clicked'); });
+            var btnCancel = $('<button></button>').text('Cancel')
+                                             .addClass('btn btn-danger')
+                                             .on('click', function(){ $('#smartwizard').smartWizard("reset"); });
+
+            // Step show event
+            $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection, stepPosition) {
+                $("#prev-btn").removeClass('disabled');
+                $("#next-btn").removeClass('disabled');
+                if(stepPosition === 'first') {
+                    $("#prev-btn").addClass('disabled');
+                } else if(stepPosition === 'last') {
+                    $("#next-btn").addClass('disabled');
+                } else {
+                    $("#prev-btn").removeClass('disabled');
+                    $("#next-btn").removeClass('disabled');
+                }
+            });
+
+            $("#smartwizard").on("stepContent", function(e, anchorObject, stepIndex, stepDirection) {
+
+                var repo    = anchorObject.data('repo');
+                var ajaxURL = "https://api.npms.io/v2/package/" + repo;
+                // Return a promise object
+                return new Promise((resolve, reject) => {
+
+                  // Ajax call to fetch your content
+                  $.ajax({
+                      method  : "GET",
+                      url     : ajaxURL,
+                      beforeSend: function( xhr ) {
+                          // Show the loader
+                          $('#smartwizard').smartWizard("loader", "show");
+                      }
+                  }).done(function( res ) {
+                      // console.log(res);
+
+                      var html = '<h2>Ajax data about ' + repo + ' loaded from GitHub</h2>';
+                      html += '<br>URL: <strong>' + ajaxURL + '</strong>';
+                      html += '<br>Name: <strong>' + res.collected.metadata.name + '</strong>';
+                      html += '<br>Description: ' + res.collected.metadata.description;
+                      html += '<br>Homepage: <a href="' + res.collected.github.homepage + '" >'+ res.collected.github.homepage +'</a>';
+                      html += '<br>Keywords: ' + res.collected.metadata.keywords.join(', ');
+
+                      // html += '<br>Clone URL: ' + res.clone_url;
+                      html += '<br>Stars: ' + res.collected.github.starsCount;
+                      html += '<br>Forks: ' + res.collected.github.forksCount;
+                      html += '<br>Watchers: ' + res.collected.github.subscribersCount;
+                      html += '<br>Open Issues: ' + res.collected.github.issues.openCount + '/' + res.collected.github.issues.count;
+
+                      html += '<br><br>Popularity: ' + parseInt(res.score.detail.popularity * 100);
+                      html += '<br>Quality: ' + parseInt(res.score.detail.quality * 100);
+                      html += '<br>Maintenance: ' + parseInt(res.score.detail.maintenance * 100);
+
+                      // Resolve the Promise with the tab content
+                      resolve(html);
+
+                      // Hide the loader
+                      $('#smartwizard').smartWizard("loader", "hide");
+                  }).fail(function(err) {
+
+                      // Reject the Promise with error message to show as tab content
+                      reject( "An error loading the resource" );
+
+                      // Hide the loader
+                      $('#smartwizard').smartWizard("loader", "hide");
+                  });
+
+                });
+            });
+
+            // Smart Wizard
+            $('#smartwizard').smartWizard({
+                selected: 0,
+                transition: {
+                    animation: 'slide-horizontal', // Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing
+                },
+                toolbarSettings: {
+                    toolbarPosition: 'both', // both bottom
+                    toolbarExtraButtons: [btnFinish, btnCancel]
+                }
+            });
+
+            // External Button Events
+            $("#reset-btn").on("click", function() {
+                // Reset wizard
+                $('#smartwizard').smartWizard("reset");
+                return true;
+            });
+
+            $("#prev-btn").on("click", function() {
+                // Navigate previous
+                $('#smartwizard').smartWizard("prev");
+                return true;
+            });
+
+            $("#next-btn").on("click", function() {
+                // Navigate next
+                $('#smartwizard').smartWizard("next");
+                return true;
+            });
+
+
+            // Demo Button Events
+            $("#got_to_step").on("change", function() {
+                // Go to step
+                var step_index = $(this).val() - 1;
+                $('#smartwizard').smartWizard("goToStep", step_index);
+                return true;
+            });
+
+            $("#is_justified").on("click", function() {
+                // Change Justify
+                var options = {
+                  justified: $(this).prop("checked")
+                };
+
+                $('#smartwizard').smartWizard("setOptions", options);
+                return true;
+            });
+
+            $("#animation").on("change", function() {
+                // Change theme
+                var options = {
+                  transition: {
+                      animation: $(this).val()
+                  },
+                };
+                $('#smartwizard').smartWizard("setOptions", options);
+                return true;
+            });
+
+            $("#theme_selector").on("change", function() {
+                // Change theme
+                var options = {
+                  theme: $(this).val()
+                };
+                $('#smartwizard').smartWizard("setOptions", options);
+                return true;
+            });
+
+        });
+    </script>
+</body>
+</html>

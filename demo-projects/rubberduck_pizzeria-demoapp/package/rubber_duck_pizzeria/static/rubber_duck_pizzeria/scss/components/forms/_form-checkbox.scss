@@ -1,0 +1,255 @@
+@import "../../abstracts/variable";
+
+.form-check-label{
+    margin-#{$dz-pos-left}: 0.3125rem;
+    margin-top: 0.1875rem;
+}
+
+
+.form-check-inline {
+    .form-check-input {
+        margin-#{$dz-pos-right}: 0.625rem;
+    }
+}
+.form-check-input{
+	top:0.125rem;
+	border-width:0.125rem;
+	width: 1.25rem;
+	height: 1.25rem;
+	border-color: #e7e7e7;
+	background-color:transparent;
+}
+.rtl .form-check-input{
+	&:before,
+	&:after{
+		#{$dz-pos-right}: -1.5rem !important;
+		#{$dz-pos-left}: inherit;
+	}
+}
+.form-control {
+    line-height: normal;
+}
+.form-check {
+    line-height: normal;
+    padding-#{$dz-pos-left}: 1.5em;
+}
+.form-check .form-check-input {
+    float: $dz-pos-left;
+    margin-#{$dz-pos-left}: -1.5em;
+}
+// Toggle Switch
+.toggle-switch{
+	padding-#{$dz-pos-left}:3.125rem;
+	line-height: 1.25;
+	display:inline-block;
+	color:$black;
+	font-weight: 600;
+	@include respond('phone') {
+		padding-#{$dz-pos-left}:2rem;
+	}
+	.form-check-input{
+		border: 0;
+		cursor:pointer;
+		background: #d8d8d8;
+		width: 40px;
+		border-radius: 1.25rem !important;
+		height: 16px;
+		position:relative;
+		#{$dz-pos-left}: -0.3125rem;
+		@include transitionFast;
+		background-image:none;
+		&:focus{
+			background-image:none!important;
+		}
+		&:checked{
+			background:$primary-opacity;
+			background-image:none!important;
+			&:after{
+				#{$dz-pos-left}:1.25rem;
+				background:$primary;
+			}
+		}
+		&:focus{
+			box-shadow:none;
+		}
+		&:after{
+			width: 1.5rem;
+			background:#959595;
+			height: 1.5rem;
+			content:"";
+			position:absolute;
+			border-radius: 1.5rem;
+			top: -4px;
+			#{$dz-pos-left}: 0;
+			box-shadow:none;
+			@include transitionFast;
+		}
+	}
+	&.text-end{
+		padding-#{$dz-pos-right}:0rem;
+		padding-#{$dz-pos-left}:0;
+		.form-check-input{
+			#{$dz-pos-left}: auto;
+			margin-#{$dz-pos-left}: 0;
+			float:#{$dz-pos-right};
+			#{$dz-pos-right}: 0rem;
+		}
+		.form-check-label{
+			margin-#{$dz-pos-right}: 0.9375rem;
+			margin-#{$dz-pos-left}:0;
+		}
+	}
+	.form-check-label{
+		cursor:pointer;
+	}
+}
+
+
+// CheckBox
+.form-check-input:focus ~ .form-check-input::before{
+	box-shadow:none !important;
+}
+.form-check-input::before{
+    background-color: transparent;
+    border-color: $light;
+	border-width: 0.125rem;
+	border-radius: 2px !important;
+		
+	@at-root [data-theme-version="dark"] & {
+		background-color: transparent;
+		border-color: $d-border;
+	}
+}
+.check-xs{
+	.form-check-input{
+		width: 1.125rem;
+		height: 1.125rem;
+	}
+}
+.check-lg{
+	.form-check-input{
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+}
+.check-xl{
+	.form-check-input{
+		width: 1.75rem;
+		height: 1.75rem;
+	}
+}
+.checkbox{
+	&-info{
+		.form-check-input{
+			&:focus{
+				border-color: $info;
+				outline: 0;
+				box-shadow: 0 0 0 0.25rem rgba($info , 0.25);
+			}
+			&:checked{
+				background-color: $info;
+				border-color: $info;
+				
+			}
+		}
+	}
+	&-danger {
+		.form-check-input{
+			&:focus{
+				border-color: $danger;
+				outline: 0;
+				box-shadow: 0 0 0 0.25rem rgba($danger , 0.25);
+			}
+			&:checked{
+				background-color: $danger;
+				border-color: $danger;
+				
+			}
+		}
+	}
+	&-success{
+		.form-check-input{
+			&:focus{
+				border-color: $success;
+				outline: 0;
+				box-shadow: 0 0 0 0.25rem rgba($success , 0.25);
+			}
+			&:checked{
+				background-color: $success;
+				border-color: $success;
+				
+			}
+		}
+	}
+	&-warning{
+		.form-check-input{
+			&:focus{
+				border-color: $warning;
+				outline: 0;
+				box-shadow: 0 0 0 0.25rem rgba($warning , 0.25);
+			}
+			&:checked{
+				background-color: $warning;
+				border-color: $warning;
+				
+			}
+		}
+	}
+	&-secondary{
+		.form-check-input{
+			&:focus{
+				border-color: $secondary;
+				outline: 0;
+				box-shadow: 0 0 0 0.25rem rgba($secondary , 0.25);
+			}
+			&:checked{
+				background-color: $secondary;
+				border-color: $secondary;
+				
+			}
+		}
+	}
+}
+
+//Check Switch
+.check-switch{
+	padding-left: 2.5rem;
+	.form-check-label{
+		line-height: 1.875rem;
+		font-weight: 500;
+		span{
+			line-height: 1;
+		}
+		&:after,&:before{
+			height:1.5rem;
+			width:1.5rem;
+			#{$dz-pos-left}: -2rem;
+			border-radius: 3rem!important;
+			border-color:rgba($primary,0.3);
+		}
+	}
+	.form-check-input:checked ~ .form-check-label::after{
+		background-image:url('../images/svg/check.svg');
+	}
+	.form-check-input:checked ~ .form-check-label::before{
+		background:$white;
+	}
+}
+
+
+.form-switch .form-check-input{
+	width: 2.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

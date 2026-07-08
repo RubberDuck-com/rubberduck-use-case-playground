@@ -1,0 +1,213 @@
+{% extends 'rubber_duck_pizzeria/elements/layouts/admin.html' %}
+      
+{% block additional_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename=  'rubber_duck_pizzeria/vendor/chartist/css/chartist.min.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename=  'rubber_duck_pizzeria/vendor/datatables/css/jquery.dataTables.min.css')}}">
+{% endblock %}
+		
+{% block content %}
+
+<!--**********************************
+    Content body start
+***********************************-->
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+                    <span>CMS</span>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">CMS</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Blog</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="filter cm-content-box box-primary">
+                    <div class="content-title">
+                        <div class="cpa">
+                        <i class="fa-solid fa-filter me-2"></i>Filter    	
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:void(0);" class="expand SlideToolHeader"><i class="fa fa-angle-down"></i></a>
+                        </div>
+                    </div>
+                    <div class="cm-content-body form excerpt">
+                        <div class="card-body pb-2">
+                            <div class="row">
+                                <div class="col-xl-3 col-xxl-6 col-sm-6 mb-3">
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+                                </div>
+                                <div class="col-xl-3 col-xxl-6 col-sm-6 mb-3">
+                                    <select class="default-select dashboard-select-2 w-100">
+                                        <option selected>Select Status</option>
+                                        <option value="1">Published</option>
+                                        <option value="2">Draft</option>
+                                        <option value="3">Trash</option>
+                                        <option value="4">Private</option>
+                                        <option value="5">Pending</option>
+                                    </select> 
+                                </div>
+                                <div class="col-xl-3 col-xxl-6 col-sm-6 mb-3">
+                                        <input class="form-control" type="text" id="datepicker">
+                                </div>
+                                <div class="col-xl-3 col-xxl-6 col-sm-6 mb-3">
+                                    <button class="btn btn-primary" title="Click here to Search" type="button"><i class="fa-solid fa-filter me-1"></i>Filter</button>
+                                    <button class="btn btn-danger light" title="Click here to remove filter" type="button">Remove Filter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <ul class="d-flex align-items-center flex-wrap">
+                        <li><a href="/add-blog')}}" class="btn btn-primary ">Add Blog</a></li>
+                        <li><a href="/blog-category" class="btn btn-primary mx-1">Blog Category</a></li>
+                        <li><a href="/blog-category" class="btn btn-primary mt-sm-0 mt-1">Add Blog Category</a></li>
+                    </ul>
+                </div>
+                <div class="filter cm-content-box box-primary">
+                    <div class="content-title">
+                        <div class="cpa">
+                            <i class="fa-solid fa-file-lines me-1"></i>Blogs List
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:void(0);" class="expand SlideToolHeader"><i class="fa fa-angle-down"></i></a>
+                        </div>
+                    </div>
+                    <div class="cm-content-body form excerpt">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-condensed flip-content">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-black">S.No</th>
+                                            <th class="text-black">Title</th>
+                                            <th class="text-black">Status</th>
+                                            <th class="text-black">Modified</th>
+                                            <th class="text-black text-end">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Title of first blog post entry</td>
+                                            <td>Published</td>
+                                            <td>09 Jan, 2026</td>
+                                            <td class="text-end">
+                                                <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                                
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Why Go For A VFX Course?</td>
+                                            <td>Published</td>
+                                            <td>13 May, 2026</td>
+                                            <td class="text-end">
+                                                <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Reasons To Choose Animation Courses</td>
+                                            <td>Published</td>
+                                            <td>13 Apr, 2026</td>
+                                            <td class="text-end">
+                                                <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Blue Screen Vs. Green Screen For VFX</td>
+                                            <td>Published</td>
+                                            <td>13 June, 2026</td>
+                                            <td class="text-end">
+                                                <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>All About Animation</td>
+                                            <td>Published</td>
+                                            <td>13 Apr, 2026</td>
+                                            <td class="text-end">
+                                                <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </td>
+                                            
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                                <div class="d-flex align-items-center justify-content-lg-between justify-content-center flex-wrap pt-3">
+                                    <small>Page 1 of 5, showing 2 records out of 8 total, starting on record 1, ending on 2</small>
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination my-2 my-md-0">
+                                        <li class="page-item"><a class="page-link" href="javascript:void(0);"><i class="fa-solid fa-angle-left"></i></a></li>
+                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                                        <li class="page-item"><a class="page-link " href="javascript:void(0);"><i class="fa-solid fa-angle-right"></i></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
+{% endblock %}
+
+{% block additional_js %}
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/bootstrap-datepicker-master/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/js/dashboard/cms.js')}}"></script>
+<script>
+    $(function () {
+            $("#datepicker").datepicker({ 
+                autoclose: true, 
+                todayHighlight: true
+            }).datepicker('update', new Date());
+    
+    });
+</script>
+{% endblock %}

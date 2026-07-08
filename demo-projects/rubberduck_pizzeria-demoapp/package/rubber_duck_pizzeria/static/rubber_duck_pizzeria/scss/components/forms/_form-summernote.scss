@@ -1,0 +1,30 @@
+
+
+.note-icon-caret,
+.note-popover {
+    display: none;
+}
+
+
+.note-editor.note-frame .panel-heading {
+    padding      : .6rem 1rem 1rem;
+	z-index: 1;
+}
+
+.note-editor.note-frame {
+    border-color: $border;
+}
+
+.note-editor.note-frame .note-editing-area .note-editable {
+    background-color: $white;
+    @at-root [data-theme-version="dark"] & {
+        background-color: $d-bg;
+    }
+}
+
+.note-editor.note-frame .note-statusbar {
+    background-color: $white;
+}
+
+
+

@@ -79,6 +79,21 @@ Windows shortcut:
 
 ---
 
+## Demo projects hub
+
+Optional RubberDuck-styled launcher for extra demos (e.g. Rubber Duck Pizzeria):
+
+```bash
+cd demo-projects
+# Windows: double-click start-hub.bat
+# Linux/macOS:
+chmod +x start-hub.sh && ./start-hub.sh
+```
+
+Then open http://127.0.0.1:5055/ — pick a project, Launch (live console + health checks), or Generate prompts (UC-01…UC-10). See [demo-projects/README.md](demo-projects/README.md).
+
+---
+
 ## MCP setup
 
 [SETUP.md](SETUP.md) — connect Codebase Intelligence + Semantic Intelligence in Cursor.

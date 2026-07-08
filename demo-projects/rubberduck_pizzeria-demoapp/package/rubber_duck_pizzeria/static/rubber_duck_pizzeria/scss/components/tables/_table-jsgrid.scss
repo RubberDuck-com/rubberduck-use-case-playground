@@ -1,0 +1,25 @@
+.jsgrid-table{
+
+    .jsgrid-header-row{
+
+        & > .jsgrid-header-cell{
+            color: $dark;
+        }
+    }
+
+    & > tbody > tr > td{
+        padding: 1.2em;
+    }
+
+    .jsgrid-insert-row, .jsgrid-edit-row{
+
+        input, select{
+            border: 1px solid #DDDFE1;
+        }
+    }
+}
+
+.jsgrid .jsgrid-button{
+    border: 0 !important;
+    margin-#{$dz-pos-left}: 10px;
+}

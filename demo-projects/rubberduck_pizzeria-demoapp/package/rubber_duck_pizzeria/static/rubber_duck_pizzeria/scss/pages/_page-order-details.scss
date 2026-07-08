@@ -1,0 +1,179 @@
+.patient-map-area{
+	position:relative;
+	border-radius: 12px;
+    overflow: hidden;
+	a{
+		position:absolute;
+		bottom:30px;
+		#{$dz-pos-left}:30px;
+	}
+	i{
+		background: #3e4954;
+		position: absolute;
+		top: 30px;
+		#{$dz-pos-right}: 30px;
+		width: 56px;
+		height: 56px;
+		text-align: center;
+		line-height: 56px;
+		font-size: 24px;
+		color: #fff;
+		border-radius: 56px;
+	}
+	img
+	{
+		width:100%;
+	}
+}
+.iconbox{
+    position: relative;
+    padding-#{$dz-pos-left}: 70px;
+	i{
+		background:#f9f7fa;
+		width:56px;
+		height:56px;
+		line-height:56px;
+		border-radius:56px;
+		text-align:center;
+		font-size:32px;
+		color:$primary;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	p{
+		margin: 0;
+		color: #484848;
+		font-size: 18px;
+		line-height: 1.3;
+		font-weight: 500;
+	}
+	small{
+		margin-bottom: 5px;
+		font-size: 16px;
+		display: block;
+	}
+}
+.widget-timeline-icon{
+	padding:50px;
+	@include respond('laptop') {
+		padding:30px;
+	}
+	@include respond('phone') {
+		overflow:scroll;
+		padding:15px;
+	}
+	.timeline{
+		display:flex;
+		@include respond('phone') {
+			display:block;
+			margin-#{$dz-pos-left}: 10px;
+		}
+	}
+	li{
+		position: relative;
+		border-top: 6px solid $primary;
+		@include respond('phone') {
+			border-top: 0;
+			border-#{$dz-pos-left}: 6px solid $primary;
+		}
+		a{
+			padding: 25px 50px 0px 0px;
+			display:block;
+			@include respond('laptop') {
+				padding: 15px 25px 0px 0px;
+			}
+			@include respond('phone') {
+				padding: 0px 0px 30px 30px;
+			}
+		}
+		
+		.icon{
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			font-size: 24px;
+			color: #fff;
+			text-align: center;
+			line-height: 56px;
+			border-radius: 56px;
+			#{$dz-pos-left}:-2px;
+			top: -14px;
+			@include respond('phone') {
+				#{$dz-pos-left}: -12px;
+				top: -4px;
+			}
+		}
+		&:last-child{
+			border-color:transparent;
+			@include respond('phone') {
+				border-#{$dz-pos-left}: 6px solid transparent;
+			}
+		}
+	}
+}
+.assigned-doctor{
+	position:relative;
+	.owl-item img{
+		width:90px;
+	}
+	.owl-next,
+	.owl-prev{
+		position: absolute;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		border-radius: 0.75rem;
+		top: 50%;
+		background: $white;
+		color: $primary;
+		font-size: 18px;
+		margin-top: -30px;
+		text-align: center;
+		@include transitionMedium;
+		cursor:pointer;
+		box-shadow:0 13px 25px 0 rgba(0,0,0,0.13);
+		@include respond('phone') {
+			width: 45px;
+			height: 45px;
+			line-height: 45px;
+		}	
+		&:hover{
+			background: #450b5a;
+			color: #fff;
+			
+		}
+	}
+	.owl-next{
+		#{$dz-pos-left}:-45px;
+		@include respond('phone') {
+			#{$dz-pos-left}:-25px;
+		}	
+	}
+	.owl-prev{
+		#{$dz-pos-left}:-45px;
+		@include respond('phone') {
+			#{$dz-pos-left}:-25px;
+		}	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

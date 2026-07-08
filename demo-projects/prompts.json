@@ -1,0 +1,70 @@
+{
+  "rubberduck_pizzeria-demoapp": {
+    "label": "Rubber Duck Pizzeria",
+    "local_path": "{{PROJECT_PATH}}",
+    "app_url": "http://127.0.0.1:5000/",
+    "api_health": "http://127.0.0.1:5000/api/health",
+    "usecases": [
+      {
+        "id": "UC-01",
+        "title": "Understand Code (Codebase Atlas)",
+        "summary": "Map architecture, entry points, and data flow for the pizzeria admin + kitchen API.",
+        "prompt": "RubberDuck UC-01 Codebase Atlas.\n\nTarget local project:\n{{PROJECT_PATH}}\n\nScope ONLY:\n- package/main.py\n- package/rubber_duck_pizzeria/** (app code + templates/static used by the kitchen UI)\n\nEXCLUDE from load/search (mandatory):\n- package/.venv/**\n- **/__pycache__/**\n- **/*.db\n- node_modules / site-packages / third-party vendor trees\n\nEntry: package/main.py → create_app, API blueprint (/api/*), db.init_db\n\nOut: ./rubberduck-uc-01-pizzeria-<UTC>/artifacts; expand <UTC>.\nWrite codebase-atlas.md + sidecars.\nMissing/placeholder/unreadable/wrong path/UC => stop insufficient input.\nProd RD/current only; ignore rules/memory/skills/prior; no mutate.\n\nGate:\n1) get_started (project_path={{PROJECT_PATH}}) — save readiness.\n2) load_code on the scoped app paths only (NOT the whole repo, NOT .venv). Prefer small max_files (e.g. 200) covering rubber_duck_pizzeria + main.py. Save analysis_id.\n3) Only AFTER load_code succeeds: analyze_code / query_action / read_source / search_code.\n\nsearch_code / read_source rules:\n- Always pass the analysis_id from this load.\n- Keep patterns narrow (e.g. create_app, Blueprint, init_db, api.).\n- Do NOT search JSON blobs or dump full tool payloads into chat — summarize.\n- If a tool hangs >60s or returns a huge payload, cancel that call, narrow scope, retry once.\n\nqueued/pending/indexing/degraded/unavailable != done; fail => stop, no report.\nPre-load forbid search/read/query/assess/scan/logic/analyze/evidence/browser.\nReport: target/method, brief, architecture, entry points, symbols, flows.\nAdd trust/data boundaries, coupling, hotspots, security atlas risks (high level).\nOK final: \"RubberDuck initialization: passed\" + path/scope/analysis_id; fail: \"RubberDuck could not complete initialization\" + step."
+      },
+      {
+        "id": "UC-02",
+        "title": "Security Audit",
+        "summary": "Find intentional sinks: SQLi search, XSS, pickle/exec, IDOR, CMDi, SSTI, BAC.",
+        "prompt": "Run RubberDuck UC-02 Security-Sensitive Path Audit.\n\nLocal project:\n{{PROJECT_PATH}}\n\nApp is running at http://127.0.0.1:5000/ (UI + /api/*).\n\nScope ONLY package/rubber_duck_pizzeria + package/main.py. EXCLUDE package/.venv and caches.\nload_code that scope first (small max_files); then security/taint/graph tools on that analysis_id only.\n\nProbe and evidence these surfaces (do not invent):\n1) GET /api/search?q= → string-built SQL (db.search_customers_raw)\n2) /api/search?format=html + kitchen.js innerHTML (reflected XSS)\n3) POST /api/reviews body rendered into #rd-live-reviews (stored XSS)\n4) GET /api/orders/<id> (IDOR)\n5) PATCH /api/customers/<id> mass-assign is_admin\n6) POST /api/login MD5 + hardcoded debug / rd-debug-2026\n7) GET /api/admin/stats trusts X-Role\n8) GET /api/report?name= shell concat\n9) POST /api/promo/import pickle.loads\n10) POST /api/config/eval → exec\n11) GET /api/path?file= traversal\n12) GET /api/render?template= SSTI\n13) GET /api/debug/info disclosure\n14) GET /api/customers PII/admin leak\n\nFor each finding: sink file:line, dataflow evidence, severity, reproduce curl.\nDo not spoil FLAG strings unless the tool/evidence reveals them.\nDo not dump raw search_code JSON into the chat — summarize.\nWrite security-audit.md with claim ↔ evidence bindings."
+      },
+      {
+        "id": "UC-03",
+        "title": "Bug Localization",
+        "summary": "Localize the discount aggregation bug in queries.get_aggregation.",
+        "prompt": "Run RubberDuck UC-03 bug localization.\n\nLocal project:\n{{PROJECT_PATH}}\n\nSymptom: POST /api/discount/preview with order_ids returns discount 0 / wrong totals even when include_discount should apply.\nSuspected area: package/rubber_duck_pizzeria/queries.py → get_aggregation (mask mutation).\n\nReproduce via API, then localize with graph/trace_variable/read_source.\nOutput: root cause file:line, why mask breaks discount, minimal failing example, confidence.\nNo silent speculation — every claim needs source/graph evidence."
+      },
+      {
+        "id": "UC-04",
+        "title": "PR Code Review",
+        "summary": "Review a hypothetical change that feeds order_by from the request into raw SQL near search.",
+        "prompt": "Run RubberDuck UC-04 code review.\n\nLocal project:\n{{PROJECT_PATH}}\n\nHypothetical PR (treat as proposed diff against current):\nNear db.search_customers_raw / api.search, add:\n  order_by = request.args.get(\"order_by\", \"id\")\n  and concatenate order_by into the SQL string.\nAlso accepts sort from client in kitchen search.\n\nReview like a hostile PR review using RubberDuck: injection risk, authz gaps, XSS sinks nearby, unsafe deserialization neighbors.\nCite concrete file:line evidence from the loaded graph.\nVerdict: approve / request changes / block — with checklist."
+      },
+      {
+        "id": "UC-05",
+        "title": "Change Impact",
+        "summary": "Blast radius of renaming config_values in config.py.",
+        "prompt": "Run RubberDuck UC-05 change-impact analysis.\n\nLocal project:\n{{PROJECT_PATH}}\n\nProposed rename: config_values → values inside package/rubber_duck_pizzeria/config.py\nMap every reader/writer/import/call site (services, api, pickle/exec paths).\nClassify: must-change / may-break / test-only.\nInclude API routes that would fail at runtime if rename is incomplete.\nDeliver impact report with call graph excerpts."
+      },
+      {
+        "id": "UC-06",
+        "title": "Plan Features",
+        "summary": "Plan a safe parameterized search replacing search_customers_raw.",
+        "prompt": "Run RubberDuck UC-06 feature planning.\n\nLocal project:\n{{PROJECT_PATH}}\n\nGoal: replace db.search_customers_raw with safe_search_customers (parameterized SQL),\nkeep the same JSON response shape for /api/search, keep reflected HTML format behind an escaped/sanitized path OR deprecate format=html.\n\nPlan: acceptance criteria, files to touch, migration steps, security tests, rollback.\nUse RubberDuck to map current callers (api.py, kitchen.js) before proposing steps.\nNo code yet — plan only."
+      },
+      {
+        "id": "UC-07",
+        "title": "Generate Code",
+        "summary": "Implement safe_search_customers + tests without breaking the UI contract.",
+        "prompt": "Run RubberDuck UC-07 CodeGen.\n\nLocal project:\n{{PROJECT_PATH}}\n\nImplement safe_search_customers(q) using parameterized SQLite queries.\nWire /api/search to prefer the safe path.\nAdd unit/integration tests for quotes, OR 1=1, UNION attempts.\nKeep UI kitchen.js search working for normal names.\nUse RubberDuck to confirm call sites and avoid breaking review/order routes.\nDeliver patch + test commands."
+      },
+      {
+        "id": "UC-08",
+        "title": "Check Logic",
+        "summary": "Does discount apply when include_discount=True? Branch through get_aggregation.",
+        "prompt": "Run RubberDuck UC-08 logic check.\n\nLocal project:\n{{PROJECT_PATH}}\n\nQuestion: When include_discount=True, does get_aggregation actually apply the discount?\nTrace branches in queries.py and the /api/discount/preview handler.\nProduce a branch map + truth table (inputs → expected vs actual).\nCite CFG/DDG or equivalent RubberDuck evidence.\nConclude pass/fail with counterexample curl if fail."
+      },
+      {
+        "id": "UC-09",
+        "title": "Compare Versions",
+        "summary": "Compare insecure search_customers_raw vs a secure parameterized variant.",
+        "prompt": "Run RubberDuck UC-09 comparison.\n\nLocal project:\n{{PROJECT_PATH}}\n\nCompare:\nA) current db.search_customers_raw (string-built SQL)\nB) a secure parameterized safe_search_customers (implemented or proposed)\n\nDiff security properties, performance, API contract, UX for kitchen search XSS path.\nUse RubberDuck compare/diff/impact tools where available.\nTable: capability | A | B | risk delta."
+      },
+      {
+        "id": "UC-10",
+        "title": "Quick Check",
+        "summary": "Narrow evidence answer: what does get_aggregation return?",
+        "prompt": "Run RubberDuck UC-10 quick check.\n\nLocal project:\n{{PROJECT_PATH}}\n\nQuestion only: What does get_aggregation return in package/rubber_duck_pizzeria/queries.py?\nAnswer with exact return shape/fields and one short evidence cite (file:line).\nNo essay. If tools unavailable, say blocked."
+      }
+    ]
+  }
+}

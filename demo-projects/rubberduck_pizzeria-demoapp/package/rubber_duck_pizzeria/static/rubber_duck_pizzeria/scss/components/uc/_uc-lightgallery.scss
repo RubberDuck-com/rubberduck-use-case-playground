@@ -1,0 +1,40 @@
+
+.lg-actions .lg-next, 
+.lg-actions .lg-prev, 
+.lg-sub-html, 
+.lg-toolbar{
+    background-color: rgba(30, 30, 30, .6);
+}
+.lg-outer{
+	.lg-toogle-thumb, 
+	.lg-thumb-outer,
+	.lg-img-wrap, 
+	.lg-item{
+		background-color: transparent;
+	}
+}
+.lg-thumb-outer.lg-grab,
+.lg-toogle-thumb.lg-icon{
+	background-color: rgba(30, 30, 30, .6);
+}
+.lg-backdrop {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+.lg-outer .lg-toogle-thumb, 
+.lg-actions .lg-next, 
+.lg-actions .lg-prev, 
+.lg-toolbar .lg-icon,
+#lg-counter{
+    color: $white;
+}
+.lg-outer{
+	.lg-thumb-item{
+		&.active,
+		&:hover{
+			border-color: $primary;			
+		}
+	}
+}
+.lightimg{
+	cursor: pointer;
+}

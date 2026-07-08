@@ -1,0 +1,91 @@
+@media (min-width: 992px) {
+    [data-container="wide-boxed"] {
+        #main-wrapper {
+            max-width: 1480px;
+            margin: 0 auto;
+			box-shadow: 0 0 30px 0 rgba(0,0,0,0.1);
+			text-align: $dz-pos-right;
+				
+        }
+    }
+}
+
+    
+    
+@include custommq($min: 1350px) {
+    [data-layout="vertical"][data-sidebar-style="overlay"][data-container="wide-boxed"][data-header-position="fixed"] {
+        .header {
+            width: 1480px;
+        }
+    }
+}
+
+@include custommq($min: 1200px, $max: 1349px) {
+    [data-layout="vertical"][data-sidebar-style="overlay"][data-container="wide-boxed"][data-header-position="fixed"] {
+        .header {
+            width: 1480px;
+        }
+    }
+}
+
+
+[data-header-position="fixed"][data-layout="horizontal"][data-container="wide-boxed"] {
+    .deznav {
+        max-width: 1480px;
+    }
+}
+
+[data-layout="horizontal"][data-container="wide-boxed"][data-header-position="fixed"] {
+    .header {
+        width: 1480px;
+    }
+}
+
+[data-layout="horizontal"][data-container="wide-boxed"][data-header-position="fixed"][data-sidebar-style="mini"] {
+    .header {
+        width: 1480px;
+    }
+}
+
+
+[data-container="wide-boxed"] {
+    .metismenu.fixed {
+        left: auto;
+        max-width: 1480px;
+    }
+
+    .page-titles {
+        margin-bottom: 3rem;
+        padding: 15px 15px;
+    }
+
+    .content-body .container-fluid {
+        padding: 40px;
+    }
+}
+
+[data-container="wide-boxed"][data-layout="vertical"] {
+    .page-titles {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+[data-layout="vertical"][data-container="wide-boxed"][data-sidebar-position="fixed"][data-header-position="static"][data-sidebar-style="overlay"] {
+    .nav-header {
+        position: absolute;
+    }
+
+    .menu-toggle {
+        .deznav {
+            position: absolute;
+        }
+    }
+}
+
+[data-container="wide-boxed"][data-sidebar-position="fixed"][data-layout="horizontal"] {
+    .deznav.fixed {
+        left: auto;
+        max-width: 1480px;
+    }
+}

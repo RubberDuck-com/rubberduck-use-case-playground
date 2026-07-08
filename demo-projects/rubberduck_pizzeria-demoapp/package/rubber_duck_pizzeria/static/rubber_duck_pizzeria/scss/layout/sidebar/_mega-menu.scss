@@ -1,0 +1,413 @@
+[data-sidebar-style="full"][data-layout="vertical"] .menu-toggle, 
+[data-sidebar-style="mini"][data-layout="vertical"] {
+
+    .deznav {
+        .metismenu {
+            &>li {
+                &.mega-menu {
+
+                    &> ul.collapse:not(.in) {
+                        height: 252px !important;
+                    }
+
+                    &:hover {
+                        &>a {
+                            width: calc(70vw + 3.75rem);
+                        }
+
+                        &>ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            flex-direction: column;
+                            max-height: 13.75rem;
+                            width: 70vw;
+
+                            ul a {
+                                width: 101%;
+                            }
+                        }
+                    }
+
+                    &-xl {
+                        &:hover {
+                            &>a {
+                                width: calc(70vw + 3rem);
+                            }
+
+                            &>ul {
+                                max-height: 200px;
+                                width: 70vw;
+
+                                ul a {
+                                    width: 101%;
+                                }
+                            }
+                        }
+                    }
+
+                    &-lg {
+
+                        &:hover {
+                            &>a {
+                                width: calc(55vw + 3rem);
+                            }
+
+                            &>ul {
+                                max-height:200px;
+                                width: 55vw;
+
+                                ul a {
+                                    width: 101%;
+                                }
+                            }
+                        }
+                    }
+
+                    &-md {
+                        &:hover {
+                            &>a {
+                                width: calc(45vw + 3);
+                            }
+                            &>ul {
+                                max-height: 18.75rem;
+                                width: 45vw;
+
+                                ul a {
+                                    width: 101%;
+                                }
+                            }
+                        }
+                    }
+
+                    &-sm {
+                        &:hover {
+                            &>a {
+                                width: calc(30vw + 3);
+                            }
+                            &>ul {
+                                max-height: 18.125rem;
+                                width: 30vw;
+
+                                ul a {
+                                    width: 101%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+[data-sidebar-style="mini"][data-layout="vertical"][data-container="boxed"] {
+    .deznav {
+        .metismenu {
+
+            &>li {
+                &.mega-menu {
+
+                    &:hover {
+                        &>a {
+                            width: calc(60vw + 3.75rem);
+                        }
+                        &>ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            flex-direction: column;
+                            max-height: 25rem;
+                            width: 60vw;
+
+                            ul a {
+                                width: 101%;
+                            }
+                        }
+                    }
+
+                    &-xl {
+                        &:hover {
+                            &>a {
+                                width: calc(60vw + 3.75rem);
+                            }
+                            &>ul {
+                                max-height: 25.625rem;
+                                width: 60vw;
+                            }
+                        }
+                    }
+
+                    &-lg {
+
+                        &:hover {
+                            &>a {
+                                width: calc(50vw + 3.75rem);
+                            }
+
+                            &>ul {
+                                max-height: 16.25rem;
+                                width: 50vw;
+                            }
+                        }
+                    }
+
+                    &-md {
+                        &:hover {
+                            &>a {
+                                width: calc(40vw + 3.75rem);
+                            }
+                            &>ul {
+                                max-height: 18.75rem;
+                                width: 40vw;
+                            }
+                        }
+                    }
+
+                    &-sm {
+                        &:hover {
+                            &>a {
+                                width: calc(22vw + 3.75rem);
+                            }
+                            &>ul {
+                                max-height: 18.125rem;
+                                width: 22vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+[data-layout="horizontal"] {
+
+    .deznav {
+        .metismenu {
+            &>li {
+                &.mega-menu {
+                    &:not(:last-child) {
+                        position: static;
+                    }
+                    ul {
+                        #{$dz-pos-left}: 0;
+                        #{$dz-pos-right}: 0;
+                        li {
+                            
+                            @at-root [data-theme-version="dark"]#{&} {
+                                border-color: $d-border;
+                            }
+                            
+                            @at-root [data-sibebarbg="color_2"]#{&} {
+                                border-color: darken($color_pallate_2, 20%);
+                            }
+                            
+                            @at-root [data-sibebarbg="color_3"]#{&} {
+                                border-color: darken($color_pallate_3, 20%);
+                            }
+                            
+                            @at-root [data-sibebarbg="color_4"]#{&} {
+                                border-color: darken($color_pallate_4, 20%);
+                            }
+                            
+                            @at-root [data-sibebarbg="color_5"]#{&} {
+                                border-color: darken($color_pallate_5, 20%);
+                            }
+                            
+                            @at-root [data-sibebarbg="color_6"]#{&} {
+                                border-color: darken($color_pallate_6, 20%);
+                            }
+                            
+                            @at-root [data-sibebarbg="color_7"]#{&} {
+                                border-color: darken($color_pallate_7, 20%);
+                            }
+                            
+                            @at-root [data-sibebarbg="color_8"]#{&} {
+                                border-color: darken($color_pallate_8, 20%);
+                            }
+                            
+                            @at-root [data-sibebarbg="color_9"]#{&} {
+                                border-color: darken($color_pallate_9, 20%);
+                            }
+                            
+                            @at-root [data-sibebarbg="color_10"]#{&} {
+                                border-color: darken($color_pallate_10, 20%);
+                            }
+
+                            a {
+                                transition: all .4s ease-in-out;
+
+                                &:hover {
+                                    border-radius: 0.25rem;
+                                }
+                            }
+                        }
+                    }
+                    &:hover {
+                        &>ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            flex-direction: column;
+                            max-height: 13.75rem;
+                            width: 70vw;
+                            z-index: 99;
+
+                            &::after {
+                                content: "";
+                                height: 100%;
+                                width: 1px;
+                                position: absolute;
+                                background-color: $white;
+                                right: 2.8125rem;
+                                top: 0;
+
+                                @at-root [data-theme-version="dark"]#{&} {
+                                    background-color: lighten($color: $d-bg, $amount: 3.2%);
+                                }
+                                
+                                @at-root [data-sibebarbg="color_2"]#{&} {
+                                    background-color: darken($color_pallate_2, 10%);
+                                }
+                                
+                                @at-root [data-sibebarbg="color_3"]#{&} {
+                                    background-color: darken($color_pallate_3, 10%);
+                                }
+                                
+                                @at-root [data-sibebarbg="color_4"]#{&} {
+                                    background-color: darken($color_pallate_4, 10%);
+                                }
+                                
+                                @at-root [data-sibebarbg="color_5"]#{&} {
+                                    background-color: darken($color_pallate_5, 10%);
+                                }
+                                
+                                @at-root [data-sibebarbg="color_6"]#{&} {
+                                    background-color: darken($color_pallate_6, 10%);
+                                }
+                                
+                                @at-root [data-sibebarbg="color_7"]#{&} {
+                                    background-color: darken($color_pallate_7, 10%);
+                                }
+                                
+                                @at-root [data-sibebarbg="color_8"]#{&} {
+                                    background-color: darken($color_pallate_8, 10%);
+                                }
+                                
+                                @at-root [data-sibebarbg="color_9"]#{&} {
+                                    background-color: darken($color_pallate_9, 10%);
+                                }
+                                
+                                @at-root [data-sibebarbg="color_10"]#{&} {
+                                    background-color: darken($color_pallate_10, 10%);
+                                }
+                            }
+                            ul a {
+                                width: 101%;
+                            }
+                        }
+                    }
+                    &-xl {
+                        &:hover {
+                            &>ul {
+                                max-height: 210px;
+                                width: 70vw;
+                            }
+                        }
+                    }
+                    &-lg {
+
+                        &:hover {
+
+                            &>ul {
+								max-height: 210px;
+								width: 700px;
+								height: 210px !important;
+								
+                                @include custommq($min: 1200px, $max: 1500px) {
+                                    width: 700px;
+                                }
+                            }
+                        }
+                    }
+                    &-md {
+                        &:hover {
+                            &>ul {
+                                max-height: 20rem;
+                                width: 54vw;
+
+                                @include custommq($min: 1200px, $max: 1500px) {
+                                    width: 60vw;
+                                }
+                            }
+                        }
+                    }
+                    &-sm {
+                        &:hover {
+                            &>ul {
+                                max-height: 20rem;
+                                width: 25vw;
+
+                                @include custommq($min: 1200px, $max: 1500px) {
+                                    width: 35vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+[data-layout="horizontal"][data-container="boxed"] {
+    .deznav {
+        .metismenu {
+            &>li {
+                &.mega-menu {
+                    &:hover {
+                        &>ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            flex-direction: column;
+                        }
+                    }
+                    &-xl {
+                        &:hover {
+                            &>ul {
+                                max-height: 21.875rem;
+                                width: 100%;
+                            }
+                        }
+                    }
+                    &-lg {
+
+                        &:hover {
+
+                            &>ul {
+                                max-height: 21.875rem;
+                                width: 55vw;
+                            }
+                        }
+                    }
+                    &-md {
+                        &:hover {
+                            &>ul {
+                                max-height: 18.75rem;
+                                width: 45vw;
+                            }
+                        }
+                    }
+                    &-sm {
+                        &:hover {
+                            &>ul {
+                                max-height: 18.125rem;
+                                width: 50vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

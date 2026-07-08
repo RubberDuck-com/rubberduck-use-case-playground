@@ -1,0 +1,113 @@
+.header-left {
+    height: 100%;
+    display: flex;
+    align-items: center;
+	.dashboard_bar {
+		font-size: 30px;
+		font-weight: 600;
+		color:$black;
+		@include custommq($max: 1440px) {
+			font-size: 24px;
+		}
+		@include respond('tab-land') {
+			font-size: 24px;
+		}
+		@include respond('phone-land') {
+			display:none;
+		}
+	}
+	
+    input {
+        background: $body-bg !important;
+        min-width: 170px;
+        min-height: 40px;
+        border-color: transparent;
+        color: $dark!important;
+        border-top-#{$dz-pos-right}-radius: 0.375rem;
+        border-bottom-#{$dz-pos-right}-radius: 0.375rem;
+        box-shadow: none;
+        
+        @at-root [direction="rtl"] & {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        &:focus,
+        &:active,
+        &.active {
+            border-color: transparent;
+            box-shadow: none;
+        }
+        &::-webkit-input-placeholder {
+            color: $dark;
+        }
+        &:-ms-input-placeholder {
+            color: $dark;
+        }
+        &::placeholder {
+            color: $dark;
+        }
+    }
+    .search_bar {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        .dropdown-menu {
+            box-shadow: none;
+        }
+        .search_icon {
+            background: $body-bg !important;
+            height: 40px;
+            padding: 8px 0 8px 15px !important;
+            border-top-#{$dz-pos-left}-radius: 0.375rem;
+            border-bottom-#{$dz-pos-left}-radius: 0.375rem;
+            i {
+                font-size: 24px;
+                color: $dark;
+				line-height: 1;
+            }
+			@include respond('phone-land') {
+				border-radius: 4px;
+				padding: 8px 10px !important;
+			}
+        }
+        @include custommq($max: 767px) {
+            position: static;
+            .dropdown-menu {
+                width: 300px;
+				#{$dz-pos-left}: -15vw;
+				box-shadow: 0px 5px 10px 0 rgba(0,0,0,0.1);
+				border-radius: 4px !important;
+				@include respond('phone') {
+					width: 250px;
+					#{$dz-pos-left}: -25vw;
+				}	
+				.form-control{
+					border-radius: 4px !important;
+					width:100%;
+				}
+                @at-root [direction="rtl"] & {
+                    right: -98px;
+                }
+            }
+        }
+        .dropdown-menu,
+        .dropdown-menu.show {
+            border: 0px;
+            background-color: transparent;
+            border-top-right-radius: 5rem;
+            border-bottom-right-radius: 5rem;
+            @include custommq($min: 768px) {
+                #{$dz-pos-left}: 34px;
+                top: 0;
+                transform: translateY(50%);
+                display: block;
+            }
+        }
+    }
+}
+
+[data-sidebar-style="compact"] {
+    .header-left {
+        margin-#{$dz-pos-left}: 0;
+    }
+}

@@ -1,0 +1,220 @@
+.photo-content{
+    position: relative;
+    .cover-photo{
+        background: url(../images/profile/cover.jpg);
+        background-size: cover;
+        background-position: center;
+        min-height: 250px;
+        width: 100%;
+
+    }
+
+}
+.profile .profile-photo {
+	max-width: 100px;
+	position: relative;
+	z-index: 1;
+	margin-top: -4.5rem;
+	margin-#{$dz-pos-right}: 0.625rem;
+	
+	@include respond('phone') {
+		width: 80px;
+		margin-#{$dz-pos-left}: auto;
+		margin-#{$dz-pos-right}: auto;
+		margin-bottom:20px;
+		margin-top: -2.5rem;
+	}
+}
+
+.profile-info{
+    padding: 15px 20px;
+	@include respond('phone') {
+		padding: 0 0 20px;
+		text-align:center;
+	}
+    h4 {
+        color: $l-ctd!important;
+    }
+
+    h4.text-primary {
+        color: $primary!important;
+    }
+
+    p {
+        color: $l-ctl;
+    }
+
+    .prf-col{
+        min-width: 250px;
+        padding: 10px 50px 0;
+    }
+}
+.profile-interest{
+    .row{
+        margin: 0 -.70px;
+        .int-col{
+            padding: 0 .70px;
+            .interest-cat{
+                margin-bottom: 1.40px;
+                position: relative;
+                display: block;
+                &:after{
+                    background: $black;
+                    bottom: 0;
+                    content: "";
+                    #{$dz-pos-left}: 0;
+                    opacity: 0.5;
+                    position: absolute;
+                    #{$dz-pos-right}: 0;
+                    top: 0;
+                    z-index: 0;
+                }
+                p{
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    padding: 5px;
+                    #{$dz-pos-left}: 0;
+                    margin: 0;
+                    z-index: 1;
+                    color:white;
+                    font-size: 1.20px;
+                }
+            }
+            
+        }
+    }
+}
+.profile-tab{
+    .nav-item{
+        .nav-link{
+            font-size: 16px;
+            margin-#{$dz-pos-right}: 30px;
+            transition: all 0.5s ease-in-out;
+            border: none;
+            border-bottom: .20px solid transparent;
+            color: $l-ctl;
+
+            &:hover, &.active{
+                border: 0;
+                background: transparent;
+                background: transparent;
+                border-bottom: .20px solid $primary;
+                color: $primary;
+            }
+			@include respond ('phone'){
+				margin-#{$dz-pos-right}:0px;
+			}
+        }
+        
+    }
+}
+.profile-info{
+	display:flex;
+	@include respond('phone') {
+		display:block;
+	}
+	.profile-details {
+		display: flex;
+		width: 100%;
+		@include respond('phone') {
+			display:block;
+			.dropdown{
+				position: absolute;
+				top: 30px;
+				#{$dz-pos-right}: 30px;
+			}
+		}
+	}
+}
+
+.post-input{
+    margin-bottom: 30px;
+    .form-control{
+        height: 75px;
+        font-weight: 400;
+        margin: 15px 0;
+    }
+	.btn-social{
+		font-size: 20px;
+		height: 55px;
+		margin-bottom: 5px;
+		display:inline-block;
+		padding: 0;
+		text-align:center;
+		border-radius:$radius;
+		color:$white;
+		width: 55px;
+		line-height: 54px;
+		&.facebook{
+			background-color: #3B5998;
+		}
+		&.google-plus{
+			background-color: #DE4E43;
+		}
+		&.linkedin{
+			background-color: #007BB6;
+		}
+		&.instagram{
+			background-color: #8A5A4E;
+		}
+		&.twitter{
+			background-color: #1EA1F3;
+		}
+		&.youtube{
+			background-color: #CE201F;
+		}
+		&.whatsapp{
+			background-color: #01C854;
+		}
+		i{
+			margin:0!important;
+		}
+	}
+    
+}  
+.profile-uoloaded-post{
+    
+    img{
+        margin-bottom: 20px;
+    }
+    a{
+        h4{
+            margin-bottom: 10px;
+            color: $l-ctd;
+        }
+    }
+}
+.post-details{
+	blockquote {
+		padding-top: 16px;
+		padding-#{$dz-pos-right}: 20px;
+		padding-bottom: 16px;
+		padding-#{$dz-pos-left}: 80px;
+		font-size: 18px;
+		font-style: italic;
+		margin: 30px 0;
+		color: #555;
+		border-#{$dz-pos-left}: none;
+		line-height: 30px;
+		position: relative;
+		background: #f6f6f6;
+		clear: both;
+		border-#{$dz-pos-left}: 4px solid $primary;
+	
+		&:before {
+			content: '\f10d';
+			font-family: FontAwesome;
+			color: $primary;
+			font-size: 35px;
+			position: absolute;
+			#{$dz-pos-left}: 20px;
+			top: 20px;
+			font-style: normal;
+		}
+		[data-theme-version="dark"] &{
+			background: $d-bg;
+		}
+	}
+}

@@ -1,0 +1,77 @@
+{% extends 'rubber_duck_pizzeria/elements/layouts/admin.html' %}
+      
+{% block additional_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename=  'rubber_duck_pizzeria/vendor/lightgallery/dist/css/lightgallery.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename=  'rubber_duck_pizzeria/vendor/lightgallery/dist/css/lg-thumbnail.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename=  'rubber_duck_pizzeria/vendor/lightgallery/dist/css/lg-zoom.css')}}">
+{% endblock %}
+        
+{% block content %}
+<!--**********************************
+	Content body start
+***********************************-->
+<div class="content-body">
+	<div class="container-fluid">
+		<div class="row page-titles mx-0">
+			<div class="col-sm-6 p-md-0">
+				<div class="welcome-text">
+					<h4>Hi, welcome back!</h4>
+					<span>lightGallery</span>
+				</div>
+			</div>
+			<div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="javascript:void(0)">Plugins</a></li>
+					<li class="breadcrumb-item active"><a href="javascript:void(0)">Light Gallery</a></li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="card-title">Light Gallery</h4>
+					</div>
+					<div class="card-body pb-1">
+						<div id="lightgallery" class="row">
+							<a href="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img1.jpg')}}" data-src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img1.jpg')}}" class=" lg-item col-lg-3 col-md-6 mb-4">
+								<img src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img1.jpg')}}" style="width:100%;" alt="/">
+							</a>
+							<a href="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img2.jpg')}}" data-src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img2.jpg')}}" class="lg-item col-lg-3 col-md-6 mb-4">
+								<img src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img2.jpg')}}" style="width:100%;" alt="/">
+							</a>
+							<a href="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img3.jpg')}}" data-src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img3.jpg')}}" class="lg-item col-lg-3 col-md-6 mb-4">
+								<img src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img3.jpg')}}" style="width:100%;" alt="/">
+							</a>
+							<a href="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img4.jpg')}}" data-src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img4.jpg')}}" class="lg-item col-lg-3 col-md-6 mb-4">
+								<img src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img4.jpg')}}" style="width:100%;" alt="/">
+							</a>
+							<a href="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img5.jpg')}}" data-src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img5.jpg')}}" class="lg-item col-lg-3 col-md-6 mb-4">
+								<img src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img5.jpg')}}" style="width:100%;" alt="/">
+							</a>
+							<a href="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img6.jpg')}}" data-src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img6.jpg')}}" class="lg-item col-lg-3 col-md-6 mb-4">
+								<img src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img6.jpg')}}" style="width:100%;" alt="/">
+							</a>
+							<a href="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img7.jpg')}}" data-src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img7.jpg')}}" class="lg-item col-lg-3 col-md-6 mb-4">
+								<img src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img7.jpg')}}" style="width:100%;" alt="/">
+							</a>
+							<a href="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img8.jpg')}}" data-src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img8.jpg')}}" class="lg-item col-lg-3 col-md-6 mb-4">
+								<img src="{{ url_for('static', filename='rubber_duck_pizzeria/images/big/img8.jpg')}}" style="width:100%;" alt="/">
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- /# card -->
+			</div>
+		</div>
+	</div>
+</div>
+<!--**********************************
+	Content body end
+***********************************-->
+{% endblock %}
+{% block additional_js %}
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/lightgallery/dist/lightgallery.min.js')}}"></script>  
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/lightgallery/dist/plugins/thumbnail/lg-thumbnail.min.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/lightgallery/dist/plugins/zoom/lg-zoom.min.js')}}"></script>
+{% endblock %}

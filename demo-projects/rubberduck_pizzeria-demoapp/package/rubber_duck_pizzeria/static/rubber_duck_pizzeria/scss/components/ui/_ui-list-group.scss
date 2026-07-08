@@ -1,0 +1,68 @@
+.list-group-item {
+    background-color: rgba(255,255,255,0);
+    border: 1px solid $border;
+	padding: 1rem 1.5rem;
+    @at-root [data-theme-version="dark"] & {
+        border-color: $d-border;
+    }
+	&:first-child{
+		border-top-left-radius: $radius;
+		border-top-right-radius: $radius;
+	}
+	&:last-child{
+		border-bottom-left-radius: $radius;
+		border-bottom-right-radius: $radius;
+	}
+	&.active{
+		z-index:1;
+	}
+}
+
+.list-group-item.disabled, .list-group-item:disabled {
+    color: #fff;
+    background-color: $secondary;
+    border-color: $secondary;
+}
+[class*="bg-"]{
+	.list-group-item{
+		border-color:rgba($white, 0.05);
+		color: #fff;
+	}
+}
+.bg-warning{
+	.list-group-item{
+		border-color:rgba($black, 0.05);
+	}
+}
+
+.contextual-list{
+	.list-group{
+		.list-group-item{
+			background-color:none;
+			&-primary{
+				background-color:rgba($primary, 0.50);
+			}
+			&-secondary{
+				background-color:rgba($secondary, 0.50);
+			}
+			&-info{
+				background-color:rgba($info, 0.50);
+			}
+			&-danger{
+				background-color:rgba($danger, 0.50);
+			}
+			&-success{
+				background-color:rgba($success, 0.50);
+			}
+			&-warning{
+				background-color:rgba($warning, 0.50);
+			}
+			&-light{
+				background-color:rgba($light, 0.50);
+			}
+			&-dark{
+				background-color:rgba($dark, 0.50);
+			}
+		}
+	}
+}

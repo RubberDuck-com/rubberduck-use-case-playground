@@ -1,0 +1,86 @@
+[data-sidebar-style="overlay"] {
+    .deznav {
+        #{$dz-pos-left}: -100%;
+        @include transitionMedium;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		@include respond ('phone-land'){
+			box-shadow: none;
+		}
+		.metismenu{
+			& > li {
+				padding: 0 30px;
+				& > a {
+					font-size: 16px;
+					padding: 20px 20px;
+					color: #7f7184;
+					border-radius: 0;
+					-webkit-transition: all 0.5s;
+					-ms-transition: all 0.5s;
+					transition: all 0.5s;
+					i{
+						height:auto;
+						width:auto;
+						line-height:1;
+					}
+				}
+				&:hover > a,
+				&.mm-active > a {
+					background: $primary;
+					color:$white;
+					box-shadow:0 12px 15px 0 rgba($primary, 0.13);
+					i{
+						color:$white;
+					}
+				}
+				@include respond ('phone'){
+					padding:0px 15px;
+				}
+				
+			}
+			ul a{
+			    padding-top: .5rem;
+				padding-bottom: .5rem;
+				position: relative;
+				font-size: 15px;
+				padding-#{$dz-pos-left}: 3.5rem;
+			}
+		}
+    }
+    .content-body {
+        margin-#{$dz-pos-left}: 0;
+    }
+    .nav-header {
+        position: absolute;
+        .hamburger.is-active {
+            #{$dz-pos-left}: 0;
+            .line {
+                background-color: $primary;
+            }
+        }
+    }
+    .menu-toggle {
+        .nav-header {
+            position: absolute;
+            #{$dz-pos-left}: auto;
+        }
+        .deznav {
+            #{$dz-pos-left}: 0;
+            
+        }
+    }
+    .footer {
+        padding-#{$dz-pos-left}: 0;
+    }
+}
+
+[data-sidebar-style="overlay"][data-header-position="fixed"] {
+    .nav-header {
+        position: fixed;
+    }
+}
+
+[data-sidebar-position="fixed"][data-header-position="fixed"] {
+    .nav-header {
+        position: fixed;
+    }
+}

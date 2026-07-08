@@ -1,0 +1,82 @@
+.popover{
+    border: 2px solid $secondary;
+    min-width: 210px;
+	border-radius:0;
+    box-shadow: 0 0 30px 0 rgba(0,0,0,0.1);
+	@at-root [data-theme-version="dark"] & {
+        background-color: $d-bg;
+    }
+    &-header{
+        background: $secondary;
+        color: $white;
+        font-weight: 300;
+
+        &::before{
+            border-bottom: 0 !important;
+        }
+    }
+
+    &-body{
+        font-size: 0.75rem;
+    }
+	.popover-header{
+		border-radius:0;
+		@at-root [data-theme-version="dark"] & {
+			border-color: $dark-card;
+		}
+    }
+	@include respond ('phone-land'){
+		z-index:1;
+	}
+}
+
+
+.bootstrap-popover-wrapper{
+    .bootstrap-popover{
+        margin-#{$dz-pos-right}: 0.5rem;
+		&:last-child{
+			margin-#{$dz-pos-right}: 0;
+		}
+    }
+    .bootstrap-popover{
+        margin-bottom: .5rem;
+
+        button:hover,button:focus{
+            background: $primary;
+            color: $white;
+            box-shadow: none;
+        }
+    }
+}
+.bootstrap-popover-wrapper{
+    .bootstrap-popover{
+		@at-root [direction="rtl"] &{
+			&:last-child{
+				margin-#{$dz-pos-right}:0.5rem;
+			}
+		}
+	}
+}
+.bs-popover-top .arrow::after, .bs-popover-auto[x-placement^="top"] .arrow::after {
+    bottom: 0px;
+    border-top-color: $secondary;
+}
+
+.bs-popover-left .arrow::after, .bs-popover-auto[x-placement^="left"] .arrow::after {
+    right: 0px;
+    border-left-color: $secondary;
+}
+
+.bs-popover-right .arrow::after, .bs-popover-auto[x-placement^="right"] .arrow::after {
+    left: 0px;
+    border-right-color: $secondary;
+}
+
+.bs-popover-bottom .arrow::after, .bs-popover-auto[x-placement^="bottom"] .arrow::after {
+    top: 0px;
+    border-bottom-color: $secondary;
+}
+
+.note-popover{
+    display: none;
+}

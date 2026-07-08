@@ -1,0 +1,221 @@
+@font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+.fimanager:before {
+    display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.flaticon-001-arrow-down:before { content: "\f100"; }
+.flaticon-002-arrow-down:before { content: "\f101"; }
+.flaticon-003-arrow-up:before { content: "\f102"; }
+.flaticon-004-arrow-up:before { content: "\f103"; }
+.flaticon-005-back-arrow:before { content: "\f104"; }
+.flaticon-006-brightness:before { content: "\f105"; }
+.flaticon-007-bulleye:before { content: "\f106"; }
+.flaticon-008-check:before { content: "\f107"; }
+.flaticon-009-check:before { content: "\f108"; }
+.flaticon-010-check:before { content: "\f109"; }
+.flaticon-011-check:before { content: "\f10a"; }
+.flaticon-012-checkmark:before { content: "\f10b"; }
+.flaticon-013-checkmark:before { content: "\f10c"; }
+.flaticon-014-checkmark:before { content: "\f10d"; }
+.flaticon-015-chevron:before { content: "\f10e"; }
+.flaticon-016-double-chevron:before { content: "\f10f"; }
+.flaticon-017-clipboard:before { content: "\f110"; }
+.flaticon-018-clock:before { content: "\f111"; }
+.flaticon-019-close:before { content: "\f112"; }
+.flaticon-020-close:before { content: "\f113"; }
+.flaticon-021-command:before { content: "\f114"; }
+.flaticon-022-copy:before { content: "\f115"; }
+.flaticon-023-cut:before { content: "\f116"; }
+.flaticon-024-dashboard:before { content: "\f117"; }
+.flaticon-025-dashboard:before { content: "\f118"; }
+.flaticon-026-delete:before { content: "\f119"; }
+.flaticon-027-dot:before { content: "\f11a"; }
+.flaticon-028-download:before { content: "\f11b"; }
+.flaticon-029-ellipsis:before { content: "\f11c"; }
+.flaticon-030-ellipsis:before { content: "\f11d"; }
+.flaticon-031-ellipsis:before { content: "\f11e"; }
+.flaticon-032-ellipsis:before { content: "\f11f"; }
+.flaticon-033-feather:before { content: "\f120"; }
+.flaticon-034-filter:before { content: "\f121"; }
+.flaticon-035-flag:before { content: "\f122"; }
+.flaticon-036-floppy-disk:before { content: "\f123"; }
+.flaticon-037-funnel:before { content: "\f124"; }
+.flaticon-038-gauge:before { content: "\f125"; }
+.flaticon-039-goal:before { content: "\f126"; }
+.flaticon-040-graph:before { content: "\f127"; }
+.flaticon-041-graph:before { content: "\f128"; }
+.flaticon-042-menu:before { content: "\f129"; }
+.flaticon-043-menu:before { content: "\f12a"; }
+.flaticon-044-menu:before { content: "\f12b"; }
+.flaticon-045-heart:before { content: "\f12c"; }
+.flaticon-046-home:before { content: "\f12d"; }
+.flaticon-047-home:before { content: "\f12e"; }
+.flaticon-048-home:before { content: "\f12f"; }
+.flaticon-049-home:before { content: "\f130"; }
+.flaticon-050-info:before { content: "\f131"; }
+.flaticon-051-info:before { content: "\f132"; }
+.flaticon-052-inside:before { content: "\f133"; }
+.flaticon-053-lifebuoy:before { content: "\f134"; }
+.flaticon-054-maximize:before { content: "\f135"; }
+.flaticon-055-minimize:before { content: "\f136"; }
+.flaticon-056-minus:before { content: "\f137"; }
+.flaticon-057-minus:before { content: "\f138"; }
+.flaticon-058-minus:before { content: "\f139"; }
+.flaticon-059-minus:before { content: "\f13a"; }
+.flaticon-060-on:before { content: "\f13b"; }
+.flaticon-061-outside:before { content: "\f13c"; }
+.flaticon-062-pencil:before { content: "\f13d"; }
+.flaticon-063-pencil:before { content: "\f13e"; }
+.flaticon-064-pin:before { content: "\f13f"; }
+.flaticon-065-pin:before { content: "\f140"; }
+.flaticon-066-plus:before { content: "\f141"; }
+.flaticon-067-plus:before { content: "\f142"; }
+.flaticon-068-plus:before { content: "\f143"; }
+.flaticon-069-plus:before { content: "\f144"; }
+.flaticon-070-power:before { content: "\f145"; }
+.flaticon-071-print:before { content: "\f146"; }
+.flaticon-072-printer:before { content: "\f147"; }
+.flaticon-073-question:before { content: "\f148"; }
+.flaticon-074-question:before { content: "\f149"; }
+.flaticon-075-reload:before { content: "\f14a"; }
+.flaticon-076-remove:before { content: "\f14b"; }
+.flaticon-077-remove:before { content: "\f14c"; }
+.flaticon-078-remove:before { content: "\f14d"; }
+.flaticon-079-search:before { content: "\f14e"; }
+.flaticon-080-search:before { content: "\f14f"; }
+.flaticon-081-search:before { content: "\f150"; }
+.flaticon-082-share:before { content: "\f151"; }
+.flaticon-083-share:before { content: "\f152"; }
+.flaticon-084-share:before { content: "\f153"; }
+.flaticon-085-signal:before { content: "\f154"; }
+.flaticon-086-star:before { content: "\f155"; }
+.flaticon-087-stop:before { content: "\f156"; }
+.flaticon-088-time:before { content: "\f157"; }
+.flaticon-089-trash:before { content: "\f158"; }
+.flaticon-090-upload:before { content: "\f159"; }
+.flaticon-091-warning:before { content: "\f15a"; }
+.flaticon-092-warning:before { content: "\f15b"; }
+.flaticon-093-waving:before { content: "\f15c"; }
+
+$font-Flaticon-001-arrow-down: "\f100";
+$font-Flaticon-002-arrow-down: "\f101";
+$font-Flaticon-003-arrow-up: "\f102";
+$font-Flaticon-004-arrow-up: "\f103";
+$font-Flaticon-005-back-arrow: "\f104";
+$font-Flaticon-006-brightness: "\f105";
+$font-Flaticon-007-bulleye: "\f106";
+$font-Flaticon-008-check: "\f107";
+$font-Flaticon-009-check: "\f108";
+$font-Flaticon-010-check: "\f109";
+$font-Flaticon-011-check: "\f10a";
+$font-Flaticon-012-checkmark: "\f10b";
+$font-Flaticon-013-checkmark: "\f10c";
+$font-Flaticon-014-checkmark: "\f10d";
+$font-Flaticon-015-chevron: "\f10e";
+$font-Flaticon-016-double-chevron: "\f10f";
+$font-Flaticon-017-clipboard: "\f110";
+$font-Flaticon-018-clock: "\f111";
+$font-Flaticon-019-close: "\f112";
+$font-Flaticon-020-close: "\f113";
+$font-Flaticon-021-command: "\f114";
+$font-Flaticon-022-copy: "\f115";
+$font-Flaticon-023-cut: "\f116";
+$font-Flaticon-024-dashboard: "\f117";
+$font-Flaticon-025-dashboard: "\f118";
+$font-Flaticon-026-delete: "\f119";
+$font-Flaticon-027-dot: "\f11a";
+$font-Flaticon-028-download: "\f11b";
+$font-Flaticon-029-ellipsis: "\f11c";
+$font-Flaticon-030-ellipsis: "\f11d";
+$font-Flaticon-031-ellipsis: "\f11e";
+$font-Flaticon-032-ellipsis: "\f11f";
+$font-Flaticon-033-feather: "\f120";
+$font-Flaticon-034-filter: "\f121";
+$font-Flaticon-035-flag: "\f122";
+$font-Flaticon-036-floppy-disk: "\f123";
+$font-Flaticon-037-funnel: "\f124";
+$font-Flaticon-038-gauge: "\f125";
+$font-Flaticon-039-goal: "\f126";
+$font-Flaticon-040-graph: "\f127";
+$font-Flaticon-041-graph: "\f128";
+$font-Flaticon-042-menu: "\f129";
+$font-Flaticon-043-menu: "\f12a";
+$font-Flaticon-044-menu: "\f12b";
+$font-Flaticon-045-heart: "\f12c";
+$font-Flaticon-046-home: "\f12d";
+$font-Flaticon-047-home: "\f12e";
+$font-Flaticon-048-home: "\f12f";
+$font-Flaticon-049-home: "\f130";
+$font-Flaticon-050-info: "\f131";
+$font-Flaticon-051-info: "\f132";
+$font-Flaticon-052-inside: "\f133";
+$font-Flaticon-053-lifebuoy: "\f134";
+$font-Flaticon-054-maximize: "\f135";
+$font-Flaticon-055-minimize: "\f136";
+$font-Flaticon-056-minus: "\f137";
+$font-Flaticon-057-minus: "\f138";
+$font-Flaticon-058-minus: "\f139";
+$font-Flaticon-059-minus: "\f13a";
+$font-Flaticon-060-on: "\f13b";
+$font-Flaticon-061-outside: "\f13c";
+$font-Flaticon-062-pencil: "\f13d";
+$font-Flaticon-063-pencil: "\f13e";
+$font-Flaticon-064-pin: "\f13f";
+$font-Flaticon-065-pin: "\f140";
+$font-Flaticon-066-plus: "\f141";
+$font-Flaticon-067-plus: "\f142";
+$font-Flaticon-068-plus: "\f143";
+$font-Flaticon-069-plus: "\f144";
+$font-Flaticon-070-power: "\f145";
+$font-Flaticon-071-print: "\f146";
+$font-Flaticon-072-printer: "\f147";
+$font-Flaticon-073-question: "\f148";
+$font-Flaticon-074-question: "\f149";
+$font-Flaticon-075-reload: "\f14a";
+$font-Flaticon-076-remove: "\f14b";
+$font-Flaticon-077-remove: "\f14c";
+$font-Flaticon-078-remove: "\f14d";
+$font-Flaticon-079-search: "\f14e";
+$font-Flaticon-080-search: "\f14f";
+$font-Flaticon-081-search: "\f150";
+$font-Flaticon-082-share: "\f151";
+$font-Flaticon-083-share: "\f152";
+$font-Flaticon-084-share: "\f153";
+$font-Flaticon-085-signal: "\f154";
+$font-Flaticon-086-star: "\f155";
+$font-Flaticon-087-stop: "\f156";
+$font-Flaticon-088-time: "\f157";
+$font-Flaticon-089-trash: "\f158";
+$font-Flaticon-090-upload: "\f159";
+$font-Flaticon-091-warning: "\f15a";
+$font-Flaticon-092-warning: "\f15b";
+$font-Flaticon-093-waving: "\f15c";

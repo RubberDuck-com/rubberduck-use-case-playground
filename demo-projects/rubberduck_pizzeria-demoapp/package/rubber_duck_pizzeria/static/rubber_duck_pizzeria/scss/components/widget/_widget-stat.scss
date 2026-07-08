@@ -1,0 +1,201 @@
+.widget-stat {
+    .media {
+        padding: 0px 0;
+        align-items: center;
+        &>span {
+            height: 85px;
+            width: 85px;
+            border-radius: 50px;
+            padding: 10px 12px;
+            font-size: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $l-ctd;
+            min-width:85px;
+        }
+        @include custommq($min: 576px) {}
+        .media-body {
+            p {
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 14px;
+            }
+            h3{
+				font-size: 40px;
+				font-weight: 600;
+				margin: 0;
+				line-height: 1.2;
+			}
+            h4 {
+                font-size: 24px;
+                display: inline-block;
+				vertical-align: middle;
+            }
+            span {
+                margin-#{$dz-pos-left}: 5px;
+                
+            }
+        }
+    }
+	&[class*="bg-"] .media > span{
+		background-color:rgba(255,255,255,0.25);
+		color:$white;
+	}
+	&[class*="bg-"] .progress{
+		background-color:rgba(255,255,255,0.25) !important;
+	}
+	
+}
+
+.dez-widget-1{
+    .card {
+        background: #FFE7DB;
+        .card-body {
+            p {
+                color: #f87533;
+            }
+        }
+    }
+	.progress {
+	
+	}
+	.icon{
+		float: right;
+		width: 50px;
+		height: 50px;
+		display: flex;
+		align-items:center;
+		justify-content:center;
+		border-radius: 6px;
+		font-size: 28px;
+	}
+}
+.bgl-primary{
+    background: $primary-light;
+    border-color: $primary-light;
+	@at-root [data-theme-version="dark"] & {
+		background-color: $primary-opacity;
+		border-color: $primary-opacity;
+	}
+}
+.bgl-secondary{
+    background: $secondary-light;
+    border-color: $secondary-light;
+	@at-root [data-theme-version="dark"] & {
+		background-color: $secondary-opacity;
+		border-color: $secondary-opacity;
+	}
+
+}
+.bgl-success{
+    background: $success-light;
+    border-color: $success-light;
+	@at-root [data-theme-version="dark"] & {
+		background-color: $success-opacity;
+		border-color: $success-opacity;
+	}
+	&:hover{
+		background-color: $success-light !important;
+	}
+}
+.bgl-warning{
+    background: $warning-light;
+    border-color: $warning-light;
+	@at-root [data-theme-version="dark"] & {
+		background-color: $warning-opacity;
+		border-color: $warning-opacity;
+	}
+	&:hover{
+		background-color: $warning-light !important;
+	}
+}
+.bgl-danger{
+    background: $danger-light;
+    border-color: $danger-light;
+	@at-root [data-theme-version="dark"] & {
+		background-color: $danger-opacity;
+		border-color: $danger-opacity;
+	}
+	&:hover{
+		background-color: $danger-light !important;
+	}
+}
+.bgl-info{
+    background: $info-light;
+    border-color: $info-light;
+	@at-root [data-theme-version="dark"] & {
+		background-color: $info-opacity;
+		border-color: $info-opacity;
+	}
+	&:hover{
+		background-color: $info-light !important;
+	}
+}
+.bg-primary-light{
+    background: rgba($primary-light, 0.5);
+	@at-root [data-theme-version="dark"] & {
+		background-color: rgba($primary, 0.05);
+	}
+}
+.bg-secondary-light{
+   background: rgba($secondary-light, 0.5);
+   @at-root [data-theme-version="dark"] & {
+		background-color: rgba($secondary, 0.05);
+	}
+}
+.bg-success-light{
+   background:  rgba($success-light, 0.5);
+   @at-root [data-theme-version="dark"] & {
+		background-color: rgba($success, 0.05);
+	}
+}
+.bg-warning-light{
+   background:  rgba($warning-light, 0.5);
+   @at-root [data-theme-version="dark"] & {
+		background-color: rgba($warning, 0.05);
+	}
+}
+.bg-danger-light{
+   background:  rgba($danger-light, 0.5);
+	@at-root [data-theme-version="dark"] & {
+		background-color: rgba($danger, 0.05);
+	}
+}
+.bg-info-light{
+    background:  rgba($info-light, 0.5);
+	@at-root [data-theme-version="dark"] & {
+		background-color: rgba($info, 0.05);
+	}
+}
+
+
+.bgl-dark{
+    background: $dark-light;
+    border-color: $dark-light;
+}
+.bgl-light{
+    background: $light;
+    border-color: $light;
+	&:hover{
+		background-color: $light !important;
+	}
+}
+.overlay-box{
+	position:relative;
+	z-index:1;
+	&:after{
+		content:"";
+		width:100%;
+		height:100%;
+		#{$dz-pos-left}:0;
+		top:0;;
+		position:absolute;
+		opacity:0.85;
+		background:$primary;
+		z-index: -1;
+	}
+}
+.rating-bar{
+    font-size: 13px;
+}

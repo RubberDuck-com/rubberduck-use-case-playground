@@ -1,0 +1,80 @@
+[data-theme-version="dark"] {
+    
+    .header {
+        background-color: $dark-card;
+    }
+
+    .header-left {
+        input {
+            background: $d-bg !important;
+            border-color: transparent ;
+            color: $white !important;
+
+            &:focus {
+                box-shadow: none;
+                border-color: $primary;
+            }
+
+            &::placeholder {
+                color: $white;
+            }
+        }
+		.search_icon{
+		    background: $d-bg !important;
+			
+			i{
+				color: $white;
+			}
+		}
+    }
+
+    .header-right {
+		.right-sidebar a{
+			color:$primary;
+			border-color:$d-border;
+		}
+		.header-profile > a.nav-link .header-info strong{
+			color:$white;
+		}
+		.notification_dropdown .nav-link{
+			background: transparent;
+		}
+        .dropdown {
+            .nav-link {
+				color: $white;
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+		.nav-link {
+		
+		}	
+        .notification_dropdown {
+            .dropdown-item {
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+	.search-area {
+		.input-group-append .input-group-text{
+			background: $d-bg;
+		}
+		.form-control{
+			&:focus,&:hover,&:active{
+				background: $d-bg;
+			}
+		}
+	}
+	.pulse-css{
+		border-color:$dark-card;
+	}
+	.nav-header .hamburger .line{
+		background:$white!important;
+	}
+	.menu-toggle .nav-header .nav-control .hamburger .line {
+		background-color: $white !important;
+	}
+}

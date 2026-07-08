@@ -1,0 +1,102 @@
+.js-switch {
+
+    & + .switchery {
+        border-radius: 50px;
+        margin-#{$dz-pos-right}: 4rem;
+
+        @include media-breakpoint-down(sm) {
+            margin-#{$dz-pos-right}: 1rem;
+        }
+
+        &>small {
+            top: 2px;
+        }
+    }
+
+    &.js-switch-lg  {
+        & + .switchery {
+            height: 2rem;
+            width: 4.5rem;
+
+            &>small {
+                width: 1.75rem;
+                height: 1.75rem;
+            }
+        }
+    }
+
+    &.js-switch-md  {
+        & + .switchery {
+            height: 1.5rem;
+            width: 3.5rem;
+
+            &>small {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+        }
+    }
+
+    &.js-switch-sm  {
+        & + .switchery {
+            height: 1rem;
+            width: 2.2rem;
+
+            &>small {
+                width: 0.875rem;
+                height: 0.875rem;
+                top: 1px;
+            }
+        }
+    }
+
+    &-square {
+
+        & + .switchery {
+            border-radius: 0;
+    
+            &>small {
+                border-radius: 0;
+                top: 2px;
+            }
+        }
+
+        &.js-switch-lg  {
+            & + .switchery {
+                height: 2rem;
+                width: 4.5rem;
+    
+                &>small {
+                    width: 1.75rem;
+                    height: 1.75rem;
+                }
+            }
+        }
+
+        &.js-switch-md  {
+            & + .switchery {
+                height: 1.5rem;
+                width: 3.5rem;
+    
+                &>small {
+                    width: 1.25rem;
+                    height: 1.25rem;
+                }
+            }
+        }
+
+        &.js-switch-sm  {
+            & + .switchery {
+                height: 1rem;
+                width: 2.2rem;
+    
+                &>small {
+                    width: 0.875rem;
+                    height: 0.875rem;
+                    top: 1px;
+                }
+            }
+        }
+    }
+    
+}

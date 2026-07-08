@@ -1,0 +1,24 @@
+$grid-columns: 12;
+
+
+@mixin make-col($size, $columns: $grid-columns) {
+    flex: 0 0 percentage($size / $columns);
+    max-width: percentage($size / $columns);
+}
+
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+    @for $i from 1 through $grid-columns {
+        .col-xxl-#{$i} {
+            flex: 0 0 percentage($i / $grid-columns);
+            max-width: percentage($i / $grid-columns);
+        }
+    }
+	.mb-xxl-4{
+		margin-bottom: 1.5rem !important;
+	}
+    
+}
+
+
+

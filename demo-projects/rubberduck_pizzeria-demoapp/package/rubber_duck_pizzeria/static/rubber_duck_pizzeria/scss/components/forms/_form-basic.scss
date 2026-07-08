@@ -1,0 +1,266 @@
+
+.form-control{
+	padding:0.3125rem 1.25rem;
+}
+.form-control{
+    background: $white;
+    border: 1px solid $border;
+    color: $dark;
+	height: 56px;
+	border-radius:0;
+	@include respond('laptop') {
+		height: 41px;
+	}
+    &:hover,&:focus,&.active{
+        box-shadow: none;
+        background: $white;
+        color: $dark;
+    }
+	&.solid{
+		background:$body-bg;
+		border-color:#ececec;
+		color:#000;
+		&[type="file"]{
+			padding: 6px 10px;
+		}
+	}
+	&.form-control-lg{
+		height:4.5rem;
+		.dropdown-toggle{
+			line-height: 3.75rem;
+
+		}
+	}
+	&.form-control-sm{
+		height:2.5rem;
+		.dropdown-toggle{
+			line-height: 2rem;
+			padding:0.25rem 1.563rem;
+		}
+	}
+}
+.input-group-sm{
+	.form-control{
+		height:2.5rem;
+	}
+}
+.input-group-lg{
+	.form-control{
+		height:4.5rem;
+	}
+}
+.input-group-lg > .form-control, 
+.input-group-lg > .form-select, 
+.input-group-lg > .input-group-text,
+.input-group-lg > .btn{
+	border-radius:0;
+}
+.input-group-sm > .form-control, 
+.input-group-sm > .form-select, 
+.input-group-sm > .input-group-text,
+.input-group-sm > .btn{
+	border-radius:0;
+}
+.input-rounded {
+    border-radius: 100px;
+}
+
+
+[data-theme-version="light"],
+[data-theme-version="dark"] {
+	.input-primary{
+		.form-control{
+			border-color:$primary;
+		}	
+		.input-group-text{
+			background-color:$primary;
+			color:$white;
+		}
+	}
+	.input-danger{
+		.form-control{
+			border-color:$danger;
+		}	
+		.input-group-text{
+			background-color:$danger;
+			color:$white;
+		}
+	}
+	.input-info{
+		.form-control{
+			border-color:$info;
+		}	
+		.input-group-text{
+			background-color:$info;
+			color:$white;
+		}
+	}
+	.input-success{
+		.form-control{
+			border-color:$success;
+		}	
+		.input-group-text{
+			background-color:$success;
+			color:$white;
+		}
+	}
+	.input-warning{
+		.form-control{
+			border-color:$warning;
+		}	
+		.input-group-text{
+			background-color:$warning;
+			color:$white;
+		}
+	}
+}
+[data-theme-version="light"],
+[data-theme-version="dark"] {
+	.input-primary-o{
+		.form-control{
+			border-color:$primary;
+		}	
+		.input-group-text{
+			background-color:transparent;
+			border-color:$primary;
+			color:$primary;
+		}
+	}
+	.input-danger-o{
+		.form-control{
+			border-color:$danger;
+		}	
+		.input-group-text{
+			background-color:transparent;
+			border-color:$danger;
+			color:$danger;
+		}
+	}
+	.input-info-o{
+		.form-control{
+			border-color:$info;
+		}	
+		.input-group-text{
+			background-color:transparent;
+			border-color:$info;
+			color:$info;
+		}
+	}
+	.input-success-o{
+		.form-control{
+			border-color:$success;
+		}	
+		.input-group-text{
+			background-color:transparent;
+			border-color:$success;
+			color:$success;
+		}
+	}
+	.input-warning-o{
+		.form-control{
+			border-color:$warning;
+		}	
+		.input-group-text{
+			background-color:transparent;
+			border-color:$warning;
+			color:$warning;
+		}
+	}
+}
+
+.input-group-text{
+    background: #eee;
+    border: 1px solid transparent;
+    min-width: 50px;
+    display: flex;
+	border-radius:0;
+    justify-content: center;
+	padding: 0.532rem 0.75rem;
+    i{
+        font-size: 16px;
+    }
+}
+.custom-file-label{
+    height: 40px;
+	padding: 0.5rem 0.75rem;
+}
+.input-group-prepend .btn,
+.input-group-append .btn {
+    z-index: 0;
+}
+.custom-select{
+    background: none;
+    border-color: $border;
+    color: $dark;
+    &:focus{
+        box-shadow: none;
+        border-color: $primary;
+        color: $primary;
+    }
+}
+.custom-file-label{
+	border-radius:$radius;
+    &:after{
+		border-radius:$radius;
+        background: #656C73;
+        border: 1px solid $border;
+        color: $white;
+		@at-root [data-theme-version="dark"] & {
+			background: $d-border;
+			border-color: $d-border;
+			color: $body-color;
+		}
+    }
+}
+
+.custom_file_input {
+    .input-group-prepend, 
+    .input-group-append {
+    }
+
+    .custom-file-label::after {
+        height: 100%;
+    }
+}
+
+
+.form-control:disabled,
+ .form-control[readonly] {
+    background: $white;
+    opacity: 1;
+}
+
+.custom-file-label{
+    background: $white;
+    border-color: $border;
+	@at-root [data-theme-version="dark"] & {
+        background: $d-bg;
+		border-color: $d-border;
+    }
+}
+
+.form-control[type="file"]{
+    line-height: 44px;
+    padding-#{$dz-pos-left}: 12px;
+	@include respond ('laptop'){
+	
+		line-height:29px;
+	}
+}
+.form-control-sm[type="file"]{
+    line-height: 32px;
+    padding: 4px;
+    padding-#{$dz-pos-left}: 8px;
+}
+.form-control-lg[type="file"]{
+	line-height:57px;
+	padding-#{$dz-pos-left}:10px;
+}
+.form-label{
+	font-weight:500;
+	color: var(--bs-heading-color);
+	font-size:15px;
+	@at-root [data-theme-version="dark"] & {
+		color: #a7a0a0;
+	}
+}

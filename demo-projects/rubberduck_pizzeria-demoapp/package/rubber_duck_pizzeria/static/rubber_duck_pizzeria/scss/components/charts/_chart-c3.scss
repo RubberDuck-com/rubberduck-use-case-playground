@@ -1,0 +1,13 @@
+
+.c3{
+    height: 250px;
+}
+.c3-legend-item {
+    fill: #9fabb1;
+ }
+
+ .c3 .c3-axis-x path, 
+ .c3 .c3-axis-x line, 
+ .c3 .c3-axis-y path, 
+.c3 .c3-axis-y line, 
+.tick text { stroke: $white; }

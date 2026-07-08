@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="admin dashboard, admin template, administration, analytics, bootstrap, cafe admin, elegant, food, health, kitchen, modern, responsive admin dashboard, restaurant dashboard">
+	<meta name="author" content="RubberDuck Team">
+	<meta name="robots" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Boost your Restaurant business with Rubber Duck Pizzeria. Our professionally designed admin templates cater specifically to the needs of Food, admin and cafe business, offering visually stunning and functional designs. Choose from a variety of Rubber Duck Pizzeria website templates that are perfect for showcasing your menu, promoting your services, and attracting Factory  customers. Rubber Duck Pizzeria is a demo restaurant admin app built by the RubberDuck team to test RubberDuck’s 10 MCP use cases.">
+	<meta property="og:title" content="Rubber Duck Pizzeria - Admin Dashboard">
+	<meta property="og:description" content="Boost your Restaurant business with Rubber Duck Pizzeria. Our professionally designed admin templates cater specifically to the needs of Food, admin and cafe business, offering visually stunning and functional designs. Choose from a variety of Rubber Duck Pizzeria website templates that are perfect for showcasing your menu, promoting your services, and attracting Factory  customers. Rubber Duck Pizzeria is a demo restaurant admin app built by the RubberDuck team to test RubberDuck’s 10 MCP use cases.">
+	<meta property="og:image" content="/static/rubber_duck_pizzeria/images/logo.png">
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- PAGE TITLE HERE -->
+	<title>Rubber Duck Pizzeria - Admin Dashboard</title>
+	
+	<!-- FAVICONS ICON -->
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='rubber_duck_pizzeria/images/favicon.png')}}" />
+    {% block additional_css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename=  'rubber_duck_pizzeria/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename=  'rubber_duck_pizzeria/css/style.css')}}">
+</head>
+
+<body class="vh-100">      
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="form-input-content text-center error-page">
+                        <h1 class="error-text font-w700">503</h1>
+                        <h4><i class="fa fa-times-circle text-danger"></i> Service Unavailable</h4>
+                        <p>Sorry, we are under maintenance!</p>
+						<div>
+                            <a class="btn btn-primary" href="/index">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--**********************************
+	Scripts
+***********************************-->
+<!-- Required vendors -->
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/global/global.min.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+{% block additional_js %}
+{% endblock %}
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/js/custom.min.js')}}"></script>
+<script src="{{ url_for('static', filename='rubber_duck_pizzeria/js/deznav-init.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+#visitor_graph {
+    height: 253px !important;
+}
+
+#user_rating_graph {
+    height: 280px !important;
+}
+
+
+#activity {
+    height: 370px !important;
+}
+
+#visitorOnline{
+    height: 72px !important;
+}
+#trendMeter{
+    height: 72px !important;
+}
+#widget-revenue1,
+#widget-revenue2,
+#widget-revenue3{
+    height: 117px !important;
+}
+#widget-profit1,
+#widget-profit2,
+#widget-profit3{
+    height: 160px !important;
+}
+
+#comparison-rate{
+    height: 230px!important;
+}
+#session_day{
+    height: 175px!important;
+    width: auto!important;
+    margin: 0 auto;
+}
+
+#walet-status {
+    height: 140px!important;
+}
+#bar1 {
+    height: 150px!important;
+}
+#sold-product {
+    height: 230px!important;
+}
+
+
+#chart-venue-expenses,
+#chart-online-sale,
+#chart-gross-sale{
+    height: 150px !important;
+}
+
+
+#areaChart_3{
+    height: 100% !important;
+    width: 100% !important;
+}
+.chart-point{
+	display:flex;
+	align-items: center;
+	
+	.check-point-area{
+		width:100px;
+		height: 100px;
+		margin-top: -10px;
+		margin-#{$dz-pos-left}: -10px;
+	}
+	.chart-point-list{
+		margin:0;
+		padding-#{$dz-pos-left}: 5px;
+			
+		li{
+			list-style:none;
+			font-size: 13px;
+			padding: 2px 0;
+			
+			i{
+				margin-#{$dz-pos-right}: 5px;
+				font-size: 11px;
+				position: relative;
+				top: -1px;
+			}
+		}
+	}
+}
+
+
+

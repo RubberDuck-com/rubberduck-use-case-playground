@@ -1,0 +1,84 @@
+/*
+    Table of Contents
+
+    Name                 : uena
+    Author               : DexignZone
+    Author Portfolio     : https://themeforest.net/user/dexignzone/portfolio
+    
+
+
+    Table of Sass Contents
+
+    1. Abstracts
+        _bs-custom
+        _inheritance
+        _maps
+        _mixin
+        _variable
+
+    2. bootstrap 
+        -Here goes all official bootstrap scss files
+
+    3. Global/Base
+        _color
+        _custom-grid
+        _fonts
+        _helper
+        _reset
+
+    4. layout
+        +footer
+        +header
+        +rtl
+        +sidebar
+        +tables
+        +theme
+        +version-dark
+
+    5. Conponents
+        +app
+        +charts
+        +forms
+        +map
+        +uc
+        +ui
+        +widget
+
+    6. Page
+        _index-1
+        _page-error
+        _page-register
+        _page-signin
+        _page-user-lock
+        _page-user-lock
+
+*/
+
+// Abstracts
+@import "./abstracts/abstracts";
+
+//Importing the RTL-specific variables file//
+//@import "bs_rtl.scss";
+
+//bootstrap library scss files
+@import "./../vendor/bootstrap/scss/bootstrap.scss";
+
+// Global
+@import "./base/base";
+
+@import "./preloader";
+
+// Components
+@import "./layout/layout";
+
+// Components
+@import "./components/components";
+
+// All pages
+@import "./pages/pages";
+
+// Version Color
+@import "./layout/version-dark/main";
+
+// Set the default direction to Right-to-Left//
+//@import "./layout/rtl/rtl";

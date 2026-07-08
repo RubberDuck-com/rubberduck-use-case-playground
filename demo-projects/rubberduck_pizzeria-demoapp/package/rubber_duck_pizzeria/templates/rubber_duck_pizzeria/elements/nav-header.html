@@ -1,0 +1,29 @@
+<div class="nav-header">
+    <a href="/index" class="brand-logo">
+        <img class="logo-abbr" src="{{ url_for('static', filename='rubber_duck_pizzeria/images/logo.png') }}" data-rd-logo="{{ url_for('static', filename='rubber_duck_pizzeria/images/logo.png') }}" alt="Rubber Duck Pizzeria" width="58" height="58" style="object-fit:contain;background:transparent;" />
+        <div class="brand-title rd-brand-title">Rubber Duck<br>Pizzeria</div>
+    </a>
+    <div class="nav-control">
+        <div class="hamburger">
+            <span class="line"></span><span class="line"></span><span class="line"></span>
+        </div>
+    </div>
+</div>
+<style>
+  .nav-header .brand-logo .rd-brand-title,
+  .nav-header .brand-logo .brand-title.rd-brand-title {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    max-width: 200px !important;
+    margin-left: 12px !important;
+    margin-top: 0 !important;
+    white-space: normal !important;
+    font-weight: 700;
+  }
+  .nav-header .brand-logo .logo-abbr {
+    min-width: 70px !important;
+    width: 70px !important;
+    height: 70px !important;
+    background: transparent !important;
+  }
+</style>

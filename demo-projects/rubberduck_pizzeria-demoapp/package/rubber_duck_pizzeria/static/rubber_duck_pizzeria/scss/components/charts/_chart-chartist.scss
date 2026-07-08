@@ -1,0 +1,128 @@
+
+
+
+.ct-golden-section:before {
+    float: none;
+  }
+  .ct-chart {
+    max-height: 15.7rem;
+  }
+  .ct-chart .ct-label {
+    fill: #a3afb7;
+    color: #a3afb7;
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+  .ct-grid {
+    stroke: rgba(49, 58, 70, 0.1);
+  }
+  .ct-chart.simple-pie-chart-chartist .ct-label {
+    color: #ffffff;
+    fill: #ffffff;
+    font-size: 0.625rem;
+  }
+  .ct-chart .ct-series.ct-series-a .ct-bar,
+  .ct-chart .ct-series.ct-series-a .ct-line,
+  .ct-chart .ct-series.ct-series-a .ct-point,
+  .ct-chart .ct-series.ct-series-a .ct-slice-donut {
+    stroke: $primary;
+  }
+  .ct-chart .ct-series.ct-series-b .ct-bar,
+  .ct-chart .ct-series.ct-series-b .ct-line,
+  .ct-chart .ct-series.ct-series-b .ct-point,
+  .ct-chart .ct-series.ct-series-b .ct-slice-donut {
+    stroke: $success;
+  }
+  .ct-chart .ct-series.ct-series-c .ct-bar,
+  .ct-chart .ct-series.ct-series-c .ct-line,
+  .ct-chart .ct-series.ct-series-c .ct-point,
+  .ct-chart .ct-series.ct-series-c .ct-slice-donut {
+    stroke: $warning;
+  }
+  .ct-chart .ct-series.ct-series-d .ct-bar,
+  .ct-chart .ct-series.ct-series-d .ct-line,
+  .ct-chart .ct-series.ct-series-d .ct-point,
+  .ct-chart .ct-series.ct-series-d .ct-slice-donut {
+    stroke: $danger;
+  }
+  .ct-chart .ct-series.ct-series-e .ct-bar,
+  .ct-chart .ct-series.ct-series-e .ct-line,
+  .ct-chart .ct-series.ct-series-e .ct-point,
+  .ct-chart .ct-series.ct-series-e .ct-slice-donut {
+    stroke: $info;
+  }
+  .ct-chart .ct-series.ct-series-f .ct-bar,
+  .ct-chart .ct-series.ct-series-f .ct-line,
+  .ct-chart .ct-series.ct-series-f .ct-point,
+  .ct-chart .ct-series.ct-series-f .ct-slice-donut {
+    stroke: $dark;
+  }
+  .ct-chart .ct-series.ct-series-g .ct-bar,
+  .ct-chart .ct-series.ct-series-g .ct-line,
+  .ct-chart .ct-series.ct-series-g .ct-point,
+  .ct-chart .ct-series.ct-series-g .ct-slice-donut {
+    stroke: #8d6e63;
+  }
+  .ct-series-a .ct-area,
+  .ct-series-a .ct-slice-pie {
+    fill: $secondary;
+  }
+  .ct-series-b .ct-area,
+  .ct-series-b .ct-slice-pie {
+    fill: #00A2FF;
+  }
+  .ct-series-c .ct-area,
+  .ct-series-c .ct-slice-pie {
+    fill: #ff9800;
+  }
+  .ct-series-d .ct-area,
+  .ct-series-d .ct-slice-pie {
+    fill: #ff9800;
+  }
+  .chartist-tooltip {
+    position: absolute;
+    display: inline-block;
+    opacity: 0;
+    min-width: 0.625rem;
+    padding: 2px 0.625rem;
+    border-radius: 3px;
+    background: #313a46;
+    color: #ffffff;
+    text-align: center;
+    pointer-events: none;
+    z-index: 1;
+    -webkit-transition: opacity .2s linear;
+    -moz-transition: opacity .2s linear;
+    -o-transition: opacity .2s linear;
+    transition: opacity .2s linear;
+  }
+  .chartist-tooltip.tooltip-show {
+    opacity: 1;
+  }
+
+
+
+
+
+  #donught_graph {
+    .ct-series.ct-series-a .ct-slice-donut {
+      stroke: #3FC6D4;
+    }
+    
+    .ct-series.ct-series-b .ct-slice-donut {
+      stroke: #333333;
+    }
+
+    .ct-series.ct-series-c .ct-slice-donut {
+      stroke: #F63465;
+    }
+  }
+
+
+#pie-chart .ct-label{
+	@include respond ('phone-land'){
+		color: #fff;
+		fill: #fff;
+	}
+}
+  

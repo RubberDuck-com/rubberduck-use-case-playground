@@ -11,3 +11,10 @@ venv/
 *.log
 .rubberduck/
 sampledocs/_build/
+
+# Demo-projects hub runtime (regenerated on launch)
+demo-projects/**/.venv/
+demo-projects/**/__pycache__/
+demo-projects/**/*.db
+demo-projects/**/*.db-journal
+demo-projects/**/.pytest_cache/

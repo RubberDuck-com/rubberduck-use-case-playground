@@ -1,0 +1,93 @@
+[data-theme-version="dark"] {
+
+    &[data-sidebar-style="mini"] {
+		.deznav .metismenu li > ul{
+			background-color: $d-bg;
+		}
+	}
+	
+	.fixed-content-box{
+		background-color: $dark-card;
+		.head-name{
+			background:$dark-card;
+			color: $white;
+			border-color:$d-border; 
+		}
+		& + .header + .deznav{
+			background-color: $d-bg;
+		}
+	}
+	
+    .deznav {
+        background-color: $dark-card;
+		
+        .metismenu {
+    
+    
+            &>li {
+		
+                &>a {
+                    color: darken($color: $white, $amount: 30%);
+                }
+    
+                &:hover, 
+                &:focus, 
+                &.mm-active {
+    
+                    &>a {
+                        color: $white;
+                        &::after {
+                            border-color: $white;
+                        }
+						i{
+							color:$white!important;
+						}
+                    }
+                }
+    
+                &.mm-active {
+					
+                    ul {
+						
+                        ul {
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+    
+            ul  {
+                
+				&:after{
+					background-color:$d-border;
+				}
+				
+                a {
+    
+                    &:hover,
+                    &:focus, 
+                    &.mm-active {
+                        color: $white;
+                    } 
+					&:before{
+						background-color: $white;
+					}
+					
+                }
+            }
+            
+            a {
+                color: darken($color: $white, $amount: 30%);
+            }
+    
+            .has-arrow {
+                &:after {
+                    border-color: $white;
+                }
+            }
+        }
+    }
+    
+    
+
+}

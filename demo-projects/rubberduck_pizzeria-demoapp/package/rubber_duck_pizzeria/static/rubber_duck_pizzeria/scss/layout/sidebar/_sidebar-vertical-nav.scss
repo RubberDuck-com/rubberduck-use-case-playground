@@ -1,0 +1,34 @@
+[data-sidebar-position="fixed"][data-layout="vertical"] {
+    .nav-header {
+        position: fixed;
+        border-top-#{$dz-pos-left}-radius: 0px;
+        border-top-#{$dz-pos-right}-radius: 0px;
+    }
+    .deznav {
+        position: fixed;
+        .deznav-scroll {
+            border-top-#{$dz-pos-left}-radius: 0px;
+            border-top-#{$dz-pos-right}-radius: 0px;
+		}
+		border-bottom-#{$dz-pos-left}-radius: 0;
+		border-bottom-#{$dz-pos-right}-radius: 0;
+    }
+    .menu-toggle {
+        .deznav {
+            position: fixed;
+        }
+    }
+}
+
+[data-sidebar-style="icon-hover"][data-layout="vertical"][data-container="wide-boxed"],
+[data-sidebar-style="icon-hover"][data-layout="vertical"][data-container="boxed"],
+[data-header-position="fixed"][data-sidebar-position="fixed"][data-sidebar-style="icon-hover"][data-layout="vertical"][data-container="wide-boxed"],
+[data-header-position="fixed"][data-sidebar-position="fixed"][data-sidebar-style="icon-hover"][data-layout="vertical"][data-container="boxed"],
+[data-sidebar-style="overlay"][data-layout="vertical"][data-container="wide-boxed"],
+[data-sidebar-style="overlay"][data-layout="vertical"][data-container="boxed"],
+[data-header-position="fixed"][data-sidebar-position="fixed"][data-sidebar-style="overlay"][data-layout="vertical"][data-container="wide-boxed"],
+[data-header-position="fixed"][data-sidebar-position="fixed"][data-sidebar-style="overlay"][data-layout="vertical"][data-container="boxed"] {
+    .deznav {
+        position: absolute;
+    }
+}

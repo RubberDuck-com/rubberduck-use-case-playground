@@ -1,0 +1,18 @@
+.bootstrap-touchspin .input-group-btn-vertical>.btn {
+    height: 51%;
+
+    &.bootstrap-touchspin-up {
+        top: 0;
+    }
+}
+
+.bootstrap-touchspin {
+    button.btn {
+        border: none;
+    }
+
+    .input-group-text {
+        background-color: $info;
+        border-color: $info;
+    }
+}

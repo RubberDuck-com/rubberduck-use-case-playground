@@ -1,0 +1,110 @@
+@import "../../abstracts/variable";
+
+.noUi-target {
+    border-color: transparent; 
+    border-radius: 0;
+}
+
+.noUi-connect {
+    background-color: $primary;
+
+    &s {
+        background-color: $grey;
+    }
+
+    &.c-1-color {
+        background-color: $success;
+    }
+
+    &.c-2-color {
+        background-color: $info;
+    }
+
+    &.c-3-color {
+        background-color: $primary;
+    }
+
+    &.c-4-color {
+        background-color: $warning;
+    }
+}
+
+.noUi-vertical {
+    width: 0.375rem;
+}
+
+.noUi-horizontal {
+    height: 0.375rem;
+    margin-bottom: 10px;
+}
+
+.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+    height: 12px;
+    width: 12px;
+    border-radius: 50px;
+    box-shadow: none;
+    border: none;
+    background-color: $primary;
+
+    &::after, &::before {
+        display: none;
+    }
+}
+.noUi-vertical .noUi-handle {
+	right: -4px;
+    bottom: -11px;
+}
+.noUi-horizontal .noUi-handle {
+    top: -4px;
+	cursor:pointer;
+}
+[direction="rtl"]{
+	.noUi-horizontal .noUi-handle {
+		right:-11px;
+	}
+}
+html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
+    right: -6px;
+}
+#slider-toggle {
+	height: 50px;
+}
+#slider-toggle.off .noUi-handle {
+	border-color: $primary;
+}
+.colorpicker-slider {
+    .sliders.noUi-target {
+        &#red, &#green, &#blue {
+            margin: 10px;
+            display: inline-block;
+            height: 200px;
+        }
+
+        &#red .noUi-connect {
+            background: #c0392b;
+        }
+
+        &#green .noUi-connect {
+            background: #27ae60;
+        }
+
+        &#blue .noUi-connect {
+            background: #2980b9;
+        }
+    }
+    #result {
+        margin: 60px 26px;
+        height: 100px;
+        width: 100px;
+        display: inline-block;
+        vertical-align: top;
+        color: rgb(127, 127, 127);
+        background: rgb(127, 127, 127);
+        border: 1px solid #fff;
+        box-shadow: 0 0 10px;
+    }
+}
+
+.slider-vertical {
+    height: 18rem;
+}

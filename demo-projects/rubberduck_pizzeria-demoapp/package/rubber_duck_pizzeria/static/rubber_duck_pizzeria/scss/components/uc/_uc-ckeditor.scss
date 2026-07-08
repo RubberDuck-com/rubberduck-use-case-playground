@@ -1,0 +1,99 @@
+
+.ck.ck-editor{
+	.ck.ck-button{
+		padding: 6px 8px;
+		background-color: #f7f6f6;
+		color: $primary;
+		font-weight: 900;
+		cursor:pointer;
+		@at-root [data-theme-version="dark"] & {
+			background-color:$primary-light;
+		}	
+	}
+	.ck.ck-toolbar{
+		background-color:#f7f7f7!important;
+		border: 0;
+		padding: 5px 10px;
+		@at-root [data-theme-version="dark"] & {
+			background-color:$black!important;
+		}	
+	}
+	.ck.ck-toolbar__separator{
+		display: none !important;
+	}
+	.ck-content{
+		background-color: #f7f7f7!important;
+		border-width: 1px 0 0;
+		border-color: #e7e5ef;
+		@at-root [data-theme-version="dark"] & {
+			background-color:$black !important;
+			color:$white;
+			border-color: $d-border;
+		}
+	}
+}
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-focused {
+	--ck-focus-ring: 1px solid #FACC15;
+	border: var(--ck-focus-ring);
+	text-align:$dz-pos-left;
+}
+.ck-editor__editable{
+	background-color:	var(--bs-card-bg)!important;	
+	text-align:$dz-pos-left;
+}
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred {
+    border-color: $border;
+	text-align:$dz-pos-left;
+	padding: 0.865rem var(--ck-spacing-standard);
+	@at-root [data-theme-version="dark"] & {
+		border-color: $d-border;
+	}
+}
+
+.custom-ekeditor .ck.ck-editor__main > .ck-editor__editable{
+	min-height: 150px;
+}
+.ck.ck-toolbar .ck-toolbar__items .ck.ck-toolbar__separator {
+    background: $border;
+}
+.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred {
+	min-height: 9.375rem;
+}
+button.ck.ck-button.ck-off:hover {
+    background-color: $border;
+}
+.ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused{
+	min-height: 9.375rem;
+}
+
+.editor-title{
+	.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline.ck-blurred,
+	.ck-focused{
+		width:57.313rem;
+		
+		@include respond ('laptop'){
+			width:100%;
+		}
+		@include respond ('phone-land'){
+			width:500px;
+		}
+		@include respond ('phone'){
+			width:100%;
+		}
+	}
+}
+
+.ck.ck-button.ck-on:not(.ck-disabled):hover, 
+a.ck.ck-button.ck-on:not(.ck-disabled):hover{
+	background:$primary !important;
+	color:$white;
+}
+
+.ck.ck-list__item .ck-button.ck-on{
+	color:$white !important;
+	background:$primary !important;
+}
+
+.ck.ck-toolbar>.ck-toolbar__items{
+	justify-content:$dz-pos-left;
+}

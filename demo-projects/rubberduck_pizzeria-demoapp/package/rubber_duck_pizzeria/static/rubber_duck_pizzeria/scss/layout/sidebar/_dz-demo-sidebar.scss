@@ -1,0 +1,141 @@
+
+.dz-demo-panel {
+    #{$dz-pos-right}: -380px;
+    position: fixed;
+    top: 0;
+    width: 380px;
+    background-color: $white;
+    height: 100vh;
+    transition: all .5s ease-in-out;
+	z-index: 9999;
+	.note-text{
+		position: absolute;
+		bottom: 0;
+		#{$dz-pos-left}: 0;
+		padding: 20px;
+		font-size: 12px;
+		background-color: #fff;
+	}
+    .dz-demo-trigger {
+        position: absolute;
+        z-index: 9;
+        top: 8.75rem;
+        #{$dz-pos-right}: 100%;
+        background-color: $secondary;
+        color: $white;
+        display: inline-block;
+        height: 3rem;
+        width: 3rem;
+        text-align: center;
+        font-size: 1.75rem;
+        line-height: 3rem;
+		
+		border-radius: 5px 0 0 5px;
+		box-shadow: -5px 3px 5px 0px rgba(119, 119, 119, 0.15);
+		
+        @include respond ('phone'){
+            height:35px;
+			width:35px;
+			line-height:35px;
+			font-size: 22px;
+        }
+    }
+	.dz-demo-close{
+		height:30px;
+		color:$white;
+		width:30px;
+		border-radius:$radius;
+		background:rgba($black,0.5);
+		line-height:30px;
+		text-align:center;
+	}
+    &.show {
+        #{$dz-pos-right}: 0;
+		box-shadow: 0px 0px 50px rgba(0 ,0 ,0 ,0.2);
+        z-index: 99999;
+		overflow:hidden;
+		.sidebar-right-trigger{
+			display:none;
+		}
+		.bg-close{
+			position:fixed;
+			z-index: -2;
+			cursor:pointer;
+			width:100%;
+			height:100%;
+			top:0;
+			#{$dz-pos-left}:0;
+			background:rgba($black,0.6);
+		}
+    }
+	.dz-demo-inner{
+		padding: 30px 30px;
+		scroll-behavior: smooth;
+		background: #fff;
+		overflow-y: scroll;
+	}
+	.dz-demo-content{
+		height: calc(100vh - 210px);
+	}
+	.dz-demo-header{
+		display:flex;
+		justify-content:space-between;
+		align-items:center;
+		margin-bottom: 20px;
+		h4{
+			margin-bottom:0;
+			color:$black;
+		}
+	}
+	.dz-demo-bx{
+		height:200px;
+		overflow:hidden;
+		border:5px solid #efefef;
+		box-shadow:0px 0px 5px rgba(0,0,0,0.1);
+		margin-bottom: 10px;
+		&.demo-active{
+			border-color:$secondary;
+			.overlay-layer{
+				opacity: 1;
+			}
+		}
+	}
+	.overlay-bx{
+		position:relative;
+		.overlay-layer{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			#{$dz-pos-left}: 0;
+			#{$dz-pos-right}: 0;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			background-color: rgba(0,0,0,.1);
+			-webkit-transition: all .3s ease;
+			transition: all .3s ease;
+			opacity: 0;
+		}
+		&:hover{
+			.overlay-layer{
+				-webkit-transition: all .3s ease;
+				transition: all .3s ease;
+				opacity: 1;
+			}
+		}
+	}
+	@include respond ('phone'){
+		width:300px;
+		right: -300px;
+		.dz-demo-bx{
+			height:150px;
+		}
+	}
+}
+

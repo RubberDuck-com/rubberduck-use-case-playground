@@ -1,0 +1,349 @@
+.chatbox{
+	width:340px;
+	height:100vh;
+	position:fixed;
+	#{$dz-pos-right}:-500px;
+	top:0;
+	z-index:999;
+	background:#fff;
+	box-shadow: 0px 0px 30px 0px rgba(82, 63, 105, 0.15) ;
+	@include transitionSlow;
+	@at-root [data-theme-version="dark"] & {
+		background:$dark-card;
+	}	
+	.chatbox-close{
+		position: absolute;
+		@include transitionFast;
+		width: 0;
+		height: 100%;
+		#{$dz-pos-right}: 340px;
+		background: #000;
+		z-index: 1;
+		opacity: 0.1;
+		cursor:pointer;
+	}
+	.card-fotter {
+		padding: 0.75rem 1rem;	
+	}
+	.card-body {
+		padding: 1rem;
+	}
+	&.active{
+		#{$dz-pos-right}:0;
+		
+		.chatbox-close{
+			width: 100vw;
+		}
+	}
+	.type_msg {
+		padding-top: 10px;
+	}
+	.nav{
+	    padding: 1rem 1rem 0 1rem;
+		background:rgba($primary,0.1);
+		border: 0;
+		justify-content: space-between;
+			
+		.nav-link{
+			color: $primary;
+			opacity: 0.7;
+			text-transform: uppercase;
+			&:hover,	
+			&.active{
+				background:transparent;
+				color: $primary;
+				opacity: 1;
+				border-color: $primary;
+			}
+		}
+	}
+	.img_cont{
+		width: 40px;
+		border-radius: 40px;
+		margin-#{$dz-pos-right}: 10px;
+		position: relative;
+		height: 40px;
+		background: #eee;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 600;
+		font-size: 14px;
+		min-width: 40px;
+		min-height: 40px;
+		.icon{
+			color:#fff;
+		}
+		&.primary{
+			background:$primary-light;
+			color:$primary;
+			@at-root [data-theme-version="dark"] & {
+				background:$primary-opacity;
+			}	
+		}
+		&.warning{
+			background:$warning-light;
+			color:$warning;
+			@at-root [data-theme-version="dark"] & {
+				background:$warning-opacity;
+			}	
+		}
+		&.success{
+			background:$success-light;
+			color:$success;
+			@at-root [data-theme-version="dark"] & {
+				background:$success-opacity;
+			}	
+		}
+		&.info{
+			background:$info-light;
+			color:$info;
+			@at-root [data-theme-version="dark"] & {
+				background:$info-opacity;
+			}	
+		}
+		
+		img{
+			width:100%;
+		}
+		.online_icon{
+			    background: $success;
+				position: absolute;
+				width: 12px;
+				height: 12px;
+				border-radius: 15px;
+				#{$dz-pos-right}: -1px;
+				bottom: 0px;
+				border: 2px solid #fff;
+			
+			&.offline{
+				background:$danger;
+			}
+		}
+	}
+	.card{
+		box-shadow:none;
+	}
+	.search{
+		height:40px;
+	}
+	.user_info{
+		span{
+			font-size: 15px;
+			color: #000;
+			display: block;
+			font-weight: 500;
+			line-height: 1;
+			margin-bottom: 5px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			display: block;
+			max-width: 170px;
+			@at-root [data-theme-version="dark"] & {
+				color: $white;
+			}
+		}	
+		p{
+			font-size:13px;
+			margin-bottom:0;
+			line-height: 1;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			display: block;
+			max-width: 170px;
+		}
+	}
+	.contacts{
+		li{
+			padding: 7px 1rem;
+			border-bottom: 1px solid #eee;
+			cursor: pointer;
+			@at-root [data-theme-version="dark"] & {
+				border-color: $d-border;
+			}
+			& > div{
+				display:flex;
+				align-items:center;
+			}
+			&:hover{
+				background:#f4f7ff;
+				@at-root [data-theme-version="dark"] & {
+					background-color: $d-bg;
+				}
+			}
+		}
+		.name-first-letter{
+			background: $body-bg;
+			padding: 4px 1rem;
+			font-weight: 700;
+			color: #000;
+			position: sticky;
+			top: 0;
+			z-index: 1;
+			
+			@at-root [data-theme-version="dark"] & {
+				color: $white;
+				background:$d-bg;
+			}
+		}
+	}
+	.contacts_body{
+		height: calc(100vh - 120px);
+	}
+	.card-header{
+		background:#f4f7ff;
+		padding: 15px 20px;
+		justify-content: center;
+		h6{
+			font-size:15px;
+		}
+		p{
+			line-height:1.2;
+			font-size:12px;
+			color: $body-color;
+		}
+	}
+	.chat-list-header{
+		justify-content: space-between;
+		background: #fff;
+		@at-root [data-theme-version="dark"] & {
+			background: $dark-card;
+		}					
+		a{
+			text-align: center;
+			width: 30px;
+			height: 30px;
+			background: $body-bg;
+			border-radius: 6px;
+			line-height: 30px;
+			display: block;
+			@at-root [data-theme-version="dark"] & {
+				background:$primary-opacity;
+				svg g [fill]{
+					fill:$white;
+				}
+			}	
+		}
+	}
+	.img_cont_msg {
+		width: 30px;
+		height: 30px;
+		display: block;
+		max-width: 30px;
+		min-width: 30px;
+		
+		img{
+			width:100%;
+		}
+	}
+	.msg_cotainer {
+		background: $primary;
+		margin-#{$dz-pos-left}: 10px;
+		border-radius: 0 $radius $radius $radius;
+		padding: 10px 15px;
+		color:#fff;
+		position:relative;
+		.msg_time{
+			display: block;
+			font-size: 11px;
+			color: #fff;
+			margin-top: 5px;
+			opacity: 0.5;
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			left: -10px;
+			border-right: 10px solid $primary;
+			border-bottom: 10px solid transparent;
+			border-top: 0px solid;
+			top: 0;
+		}
+	}
+	.msg_cotainer_send {
+		background: #fbfbfb;
+		padding: 10px 15px;
+		border-radius: 6px 0px 6px 6px;
+		margin-#{$dz-pos-right}: 10px;
+		color: #222;
+		position: relative;
+		text-align: $dz-pos-left;
+		
+		@at-root [data-theme-version="dark"] & {
+			background:$d-bg;
+			color:$white;
+		}	
+		
+		.msg_time_send {
+			display: block;
+			font-size: 11px;
+			text-align: $dz-pos-right;
+			margin-top: 5px;
+			opacity: 0.6;
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			#{$dz-pos-right}: -10px;
+			border-#{$dz-pos-left}: 10px solid #fbfbfb;
+			border-bottom: 10px solid transparent;
+			border-top: 0px solid;
+			top: 0;
+			@at-root [data-theme-version="dark"] & {
+				border-#{$dz-pos-left}: 10px solid $d-bg;
+			}	
+		}
+	}
+	.type_msg{
+		.form-control{
+			padding: 10px 0;
+			height: 50px;
+			border: 0;
+			resize: none;
+			&:focus{
+				z-index:0;
+			}
+		}
+		.btn{
+			font-size: 18px;
+			border-radius: 38px !important;
+			width: 38px;
+			height: 38px;
+			padding: 0;
+			margin-top: 6px;
+		}
+	} 
+	.video_cam{
+		margin-#{$dz-pos-left}:15px;
+		span{
+			width: 35px;
+			height: 35px;
+			background: #10ca93;
+			text-align: center;
+			line-height: 35px;
+			border-radius: 35px;
+			color: #fff;
+			margin-#{$dz-pos-right}: 5px;
+			align-self: center;
+			font-size: 16px;
+			padding: 0 3px;
+			display: inline-block;
+		}
+	}
+	.note_card{
+		.contacts li{
+			padding: 12px 1rem;
+		}
+	}
+}
+@include custommq($max: 576px) {
+	.chatbox{
+		width: 280px;
+		.chatbox-close{
+			#{$dz-pos-right}: 280px;
+		}
+	}
+}
+

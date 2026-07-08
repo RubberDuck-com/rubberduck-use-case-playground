@@ -1,0 +1,200 @@
+
+.event-chat-ryt{
+
+    .chat-area{
+        .chat-reciver, 
+        .chat-sender {
+            margin-bottom: 1.875rem;
+            padding: 0;
+            img{
+                border-radius: 30px;
+            }
+        }
+
+        .media {
+            position: relative;
+
+            &-body {
+
+                p {
+                    margin: 0;
+                    max-width: 100%;
+                    display: inline-block;
+                    position: relative;
+
+
+                    span {
+                        padding: 1rem;
+                        display: inline-block;
+                        top: 103%;
+                        position: relative;
+                        border: 1px solid $border;
+                    }
+                }
+            }
+        }
+    }
+
+    .chat-reciver{
+        padding: .5rem 1rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+
+        .media {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+			flex: 1;
+
+            .media-body {
+                margin-#{$dz-pos-right}: 2rem;
+                text-align: $dz-pos-right;
+
+
+                p {
+                    background: $white;
+                    margin-bottom: 0;
+                    border-radius: 5px 5px 0 5px;
+
+                    span {
+                        text-align: $dz-pos-left;
+                        border: 1px solid $border;
+                        
+                        &::after{
+                            content: "";
+                            width: 20px;
+                            height: 20px;
+                            border-bottom: 1px solid $border;
+                            border-#{$dz-pos-right}: 1px solid $border;
+                            position: absolute;
+                            #{$dz-pos-right}: 0;
+                            bottom: 0;
+                            background: $white;
+                            -webkit-transform: rotate(-45deg) translateX(15px);
+                              transform: rotate(-45deg) translateX(15px);
+
+                            @at-root [direction="rtl"] & {
+                                -webkit-transform: rotate(135deg) translateY(15px);
+                                transform: rotate(135deg) translateY(15px);
+                            }
+                        }
+                        
+                    }
+                    
+                    .time {
+                        position: absolute;
+                        font-size: 12px;
+                        color: $body-color;
+                        font-weight: 400;
+                        bottom: 0;
+                        #{$dz-pos-left}: -80px;
+                    }
+                }
+            }
+        }
+    }
+
+    .chat-sender{
+        text-align: $dz-pos-left;
+        padding: .5rem 1rem;
+        .media {
+            .media-body {
+                margin-#{$dz-pos-left}: 2rem;
+				text-align: $dz-pos-left;
+                p {
+                    background-color: $white;
+                    margin-bottom: 0;
+                    span {
+                        &::after {
+                            content: "";
+                            width: 20px;
+                            height: 20px;
+                            border-bottom: 1px solid $border;
+                            border-#{$dz-pos-left}: 1px solid $border;
+                            position: absolute;
+                            #{$dz-pos-left}: 0;
+                            bottom: 0;
+                            background: $white;
+                            -webkit-transform: rotate(45deg) translateX(-15px);
+                             transform: rotate(45deg) translateX(-15px);
+
+                            @at-root [direction="rtl"] & {
+                                -webkit-transform: rotate(-135deg) translateY(15px);
+                                transform: rotate(-135deg) translateY(15px);
+                            }
+                        }
+                    }
+
+                    .time {
+                        position: absolute;
+                        font-size: 10px;
+                        color: $body-color;
+                        font-weight: 400;
+                        bottom: 0;
+                        #{$dz-pos-right}: -5rem;
+                    }
+
+                }
+            }
+        }
+
+    }
+}
+
+.char-type{
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    form{
+        
+        .form-control{
+            height: 45px;
+            padding-left: 18px;
+            background: $body-bg;
+            border-#{$dz-pos-right}: 0;
+        }
+
+        .input-group{
+
+            &-append{
+                i{
+                    color: $gray;
+                    font-size: 18px;
+                }
+                .input-group-text{
+                    padding-#{$dz-pos-left}: .7rem;
+                    padding-#{$dz-pos-right}: .7rem;
+                    background: $body-bg;
+                    border-color: $border;
+                    border-#{$dz-pos-left}: 0;
+
+                    &:last-child{
+                        padding-#{$dz-pos-right}: 1.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.media-avatar{
+    padding: 25px 0;
+    border-bottom: 1px solid $border;
+    &:last-child{
+        border-bottom: 0px;
+    }
+    p{
+        margin-bottom: 0;
+    }
+    .avatar-status{
+        position: relative;
+        i{
+            position: absolute;
+            #{$dz-pos-right}: 0;
+            bottom: 0;
+        }
+    }
+}

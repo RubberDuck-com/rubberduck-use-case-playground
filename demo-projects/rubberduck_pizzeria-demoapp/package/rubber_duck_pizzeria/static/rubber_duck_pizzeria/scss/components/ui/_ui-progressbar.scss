@@ -1,0 +1,83 @@
+ // Variable.scss
+ .progress-bar {
+    background-color: $primary;
+ }
+ 
+ .progress-bar-primary {
+     background-color: $primary;
+ }
+ 
+ .progress-bar-success {
+     background-color: $success;
+ }
+ 
+ .progress-bar-info {
+     background-color: $info;
+ }
+ 
+ .progress-bar-danger {
+     background-color: $danger;
+ }
+ 
+ .progress-bar-warning {
+     background-color: $warning;
+ }
+ 
+ .progress-bar-pink {
+     background-color: $pink;
+ }
+ 
+.progress {
+    height: 6px;
+    //overflow: hidden;
+	@at-root [data-theme-version="dark"] & {
+		background-color: $d-bg;
+	}
+    &-bar{
+        border-radius: 0.5rem;
+    }
+}
+ 
+ .progress-vertical {
+     display: inline-block;
+     margin-bottom: 0;
+     margin-#{$dz-pos-right}: 2rem;
+     min-height: 17rem;
+     position: relative;
+
+     @include media-breakpoint-down(md) {
+        margin-#{$dz-pos-right}: 1rem;
+     }
+ }
+ 
+ .progress-vertical-bottom {
+     display: inline-block;
+     margin-bottom: 0;
+     margin-#{$dz-pos-right}: 2rem;
+     min-height: 17rem;
+     position: relative;
+     transform: rotate(180deg);
+     
+     @include media-breakpoint-down(md) {
+        margin-#{$dz-pos-right}: 1rem;
+     }
+ }
+ 
+ .progress-animated {
+     animation-duration: 5s;
+     animation-name: myanimation;
+     transition: all 5s ease 0s;
+ }
+ 
+ @keyframes myanimation {
+     0% {
+         width: 0;
+     }
+ }
+ 
+ @keyframes myanimation {
+     0% {
+         width: 0;
+     }
+ }
+ 

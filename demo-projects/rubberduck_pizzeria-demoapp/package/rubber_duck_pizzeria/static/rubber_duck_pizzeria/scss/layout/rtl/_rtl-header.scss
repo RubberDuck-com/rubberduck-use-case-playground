@@ -1,0 +1,132 @@
+[direction="rtl"] {
+    .header {
+        .nav-control{
+            right: 0.4375rem;
+            left: auto;
+        }
+    }
+	.header-right > li:not(:first-child) {
+		padding-left: 0;
+		padding-right: 1.25rem;
+		margin-right: 0 !important;
+		
+		@include respond('phone-land') {
+			padding-right: 0.5rem;
+		}
+	}
+	.header-right{
+		.search-area{
+			.input-group-append{
+				.input-group-text{
+					padding-right: auto;
+					padding-left: 20px;
+				}
+			}
+			.form-control{
+				padding-left: auto;
+				padding-right: 20px;
+			}
+		}
+		.header-profile{
+			&>a.nav-link {
+				margin-left: auto;
+				padding-left: auto;
+				margin-right: 15px;
+				padding-right: 30px;
+				border-right: 1px solid $border-color;	
+				border-left:0;
+				.header-info{
+					padding-right: 20px;
+					padding-left:auto;
+					text-align: right;
+					@include respond('laptop') {
+						padding-right: 10px;
+					}
+				}
+				@include respond ('laptop'){
+					margin-right: 10px;
+					padding-right: 20px;
+				}
+				@include respond ('phone'){
+					margin-right: 0px;
+					padding-right:0px;
+					border-right:0;
+				}
+			}
+		}
+	}
+	.header-left{
+		.search_bar{ 
+			.dropdown-menu,
+			.dropdown-menu.show{
+			    right: 40px !important;
+				@include respond('phone') {
+					right: -100px !important;
+				}
+			}
+			.search_icon{
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				border-top-right-radius: 5rem;
+				border-bottom-right-radius: 5rem;
+				@include respond('phone') {
+					border-radius: 5rem;
+				}
+			}
+		}
+		
+	}
+	
+    &[data-layout="horizontal"] {
+        .header {
+            padding: 0;
+            padding-right: 21.563rem;
+			
+			.header-content{
+				padding-right: 2.5rem;
+				padding-left: 2.5rem;
+			}
+        }
+		&[data-sidebar-style="full"] {
+			.nav-header .brand-logo{
+				padding-right: 2.5rem;
+			}
+		}
+    }
+	&[data-layout="horizontal"][data-sidebar-style="mini"] {
+		.header {
+			 padding-right: 7.75rem;
+		}
+	}
+    &[data-sidebar-style="mini"] {
+        .header {
+            padding-right: 6.25rem;
+        }
+    }
+
+    &[data-sidebar-style="compact"] {
+        .header {
+            padding: 0 0.9375rem;
+            padding-right: 11.25rem;
+        }
+		&[data-layout="horizontal"]{
+			.header{
+				padding:0;
+				padding-right: 21.563rem;
+			}
+		}
+    }
+	&[data-sidebar-style="modern"] {
+        .header {
+            padding: 0 0.9375rem;
+            padding-right: 10.625rem;
+        }
+		&[data-layout="horizontal"]{
+			.header{
+				padding:0;
+				padding-right: 16rem;
+			}
+		}
+    }
+}
+

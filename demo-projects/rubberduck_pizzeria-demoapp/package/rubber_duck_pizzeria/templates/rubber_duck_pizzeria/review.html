@@ -1,0 +1,80 @@
+{% extends 'rubber_duck_pizzeria/elements/layouts/admin.html' %}
+
+{% block additional_css %}
+{% endblock %}
+
+{% block content %}
+<div class="content-body">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card bg-transparent shadow-none">
+					<div class="card-header flex-wrap border-0 ps-0">
+						<div class="table-tabs mb-3">
+							<ul class="nav nav-tabs" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" data-bs-toggle="tab" href="#AllStatus">All Status</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-bs-toggle="tab" href="#Published">Published</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-bs-toggle="tab" href="#Deleted">Deleted</a>
+								</li>
+							</ul>
+						</div>
+						<div class="d-flex flex-wrap align-items-center">
+							<a href="javascript:void(0);" class="btn btn-outline-danger me-3 mb-3">DELETE</a>
+							<a href="javascript:void(0);" class="btn btn-success me-5 mb-3">PUBLISH</a>
+							<select class="form-control style-2 me-3 default-select mb-3">
+								<option>Filter</option>
+								<option>Date</option>
+							</select>
+							<select class="form-control style-2 default-select mb-3">
+								<option>Newest</option>
+								<option>Oldest</option>
+							</select>
+						</div>
+					</div>
+					<div class="card-body p-0">
+						<div class="mb-4 px-1">
+							<h5 class="text-black mb-3">Leave a kitchen review</h5>
+							<form id="rd-review-form" class="row g-2 align-items-center">
+								<div class="col-md-3">
+									<input class="form-control" name="customer_name" placeholder="Your name" required>
+								</div>
+								<div class="col-md-2">
+									<input class="form-control" name="rating" type="number" min="1" max="5" step="0.1" value="5">
+								</div>
+								<div class="col-md-5">
+									<input class="form-control" name="body" placeholder="Share feedback about your order..." required>
+								</div>
+								<div class="col-md-2">
+									<button class="btn btn-primary w-100" type="submit">Submit</button>
+								</div>
+							</form>
+						</div>
+						<div class="tab-content" id="Tab">
+							<div class="tab-pane fade active show" id="AllStatus">
+								<div class="row">
+									<div class="col-xl-12" id="rd-live-reviews">
+										<div class="p-4 text-muted">Loading reviews…</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="Published">
+								<div class="row">
+									<div class="col-xl-12" id="rd-live-reviews-published"></div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="Deleted">
+								<div class="p-4 text-muted">No deleted reviews.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

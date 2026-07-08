@@ -1,0 +1,123 @@
+#chart_widget_4 {
+    height: 255px !important;
+}
+
+#chart_widget_5 {
+    .ct-series-a .ct-line, 
+    .ct-series-a .ct-point {
+        stroke: #46ffc8;
+    }
+
+    .ct-line {
+        stroke-width: 1px;
+    }
+
+    .ct-point {
+        stroke-width: 2px;
+    }
+
+    .ct-series-a .ct-area {
+        fill: #20dea6;
+    }
+
+    .ct-area {
+        fill-opacity: 1;
+    }
+}
+
+#chart_widget_6 {
+    .ct-series-a .ct-line, 
+    .ct-series-a .ct-point {
+        stroke: $info;
+    }
+
+    .ct-line {
+        stroke-width: 2px;
+    }
+
+    .ct-point {
+        stroke-width: 5px;
+    }
+
+    .ct-series-a .ct-area {
+        fill: $info;
+    }
+
+    .ct-area {
+        fill-opacity: .5;
+    }
+}
+
+#chart_widget_8 {
+    height: 255px;
+
+    .ct-series-a .ct-line, 
+    .ct-series-a .ct-point {
+        stroke: $info;
+    }
+
+    .ct-line {
+        stroke-width: 2px;
+    }
+
+    .ct-point {
+        stroke-width: 5px;
+    }
+
+    .ct-series-a .ct-area {
+        fill: $info;
+    }
+
+    .ct-area {
+        fill-opacity: .5;
+    }
+}
+
+#chart_widget_9, #chart_widget_10 {
+    height: 250px !important;
+}
+
+#chart_widget_11, #chart_widget_12, #chart_widget_13 {
+    .ct-slice-donut {
+        stroke-width: 25px !important;
+    }
+}
+
+
+#chart_widget_11 {
+    height: 270px !important;
+}
+
+#chart_widget_17 {
+    height: 150px !important;
+}
+
+
+.chart_widget_tab_one {
+    .nav-link {
+        border: 1px solid #ddd;
+
+        &.active {
+            background-color: $primary;
+            border: 1px solid $primary;
+            color: $white;
+
+            &:hover {
+                border: 1px solid $primary;
+            }
+        }
+
+        &:hover {
+            border: 1px solid #ddd;
+        }
+    }
+}
+
+.ccc-widget {
+    &>div {
+        @at-root [data-theme-version="dark"] & {
+            background: $dark-card !important;
+            border-color: $d-border !important;
+        }
+    }
+}

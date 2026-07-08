@@ -1,0 +1,72 @@
+.new-arrival-content {
+    .item {
+        font-size: 12px;
+        color: $dark;
+    }
+    h4 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+		a{
+			color:$black;
+		}
+    }
+    .price {
+        font-weight: 600;
+		color: $primary;
+		font-size: 24px;
+		margin-bottom: 0;
+		float: right;
+		@include custommq($min: 1200px, $max: 1600PX) {
+			font-size: 15px;
+		}
+		@include respond ('phone'){
+			float:none;
+			margin-top:10px;
+			font-size: 15px;
+		}
+    }
+    p {
+        font-size: 14px;
+        color: $d-ctl;
+        margin-bottom: 6px;
+        line-height: 24px;
+    }
+    .text-content {
+        margin-top: 18px;
+    }
+}
+.new-arrival-content.text-center .price {
+	float: unset!important;
+}
+
+.success-icon {
+    color: $success;
+    font-size: 16px;
+}
+
+.comment-review {
+    margin-bottom: 15px;
+    display: table;
+    width: 100%;
+    .client-review {
+        color: $d-ctl;
+        padding-#{$dz-pos-right}: 20px;
+        text-decoration: underline !important;
+        font-size: 14px;
+    }
+    .span {
+        color: $d-ctl;
+        font-size: 14px;
+    }
+	@include respond ('phone'){
+		margin-bottom:0;
+	}
+}
+
+.star-rating li {
+    display: inline-block;
+    i {
+        color: gold;
+    }
+}

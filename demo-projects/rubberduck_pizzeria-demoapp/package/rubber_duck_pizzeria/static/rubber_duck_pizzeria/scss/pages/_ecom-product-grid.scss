@@ -1,0 +1,17 @@
+.new-arrival-product{
+	.new-arrivals-img-contnent{
+		overflow:hidden;
+		
+		img{
+			width:100%;
+			@include transitionMedium;
+		}
+	}
+	&:hover .new-arrivals-img-contnent img{
+		transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+	}
+}

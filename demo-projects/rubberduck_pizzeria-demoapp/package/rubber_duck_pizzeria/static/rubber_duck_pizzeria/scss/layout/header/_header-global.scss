@@ -1,0 +1,224 @@
+/////////////////
+// Header
+/////////////////
+.header {
+    height: 7.5rem;
+    z-index: 1;
+    position: relative;
+    padding: 0rem;
+    background:$white;
+    z-index: 3;
+    padding-#{$dz-pos-left}: 21.563rem;
+    transition: all .2s ease;
+	
+    .header-content {
+        height: 100%;
+        padding-#{$dz-pos-left}: 5.3125rem;
+        padding-#{$dz-pos-right}: 1.875rem;
+        align-items: center;
+        display: flex;
+        @include custommq($max: 767px) {
+            padding-#{$dz-pos-left}: 3.75rem;
+			padding-#{$dz-pos-right}: 0.938rem;
+        }
+		@include respond('phone'){
+			padding-#{$dz-pos-left}: 3.05rem;
+			@at-root [direction="rtl"] & {
+				padding-#{$dz-pos-left}: 1.05rem;
+            }
+		}
+    }
+    .navbar {
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        .navbar-collapse {
+            height: 100%;
+            width: 100%;
+        }
+    }
+	@include respond('tab-land'){
+		height:5rem;
+	}
+}
+
+@mixin circle($circleSize) {
+    width: $circleSize;
+    height: $circleSize;
+    border-radius: $circleSize/2;
+}
+
+svg.pulse-svg {
+    overflow: visible;
+    .first-circle {
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+        -webkit-animation: pulse-me 3s linear infinite;
+        animation: pulse-me 3s linear infinite;
+        fill: $primary;
+    }
+    .second-circle {
+        @extend .first-circle;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+    .third-circle {
+        @extend .first-circle;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+}
+
+
+/* pulse in CSS */
+
+.pulse-css {
+    @include circle(1rem);
+    border-radius: 3.5rem;
+    height: 20px;
+    position: absolute;
+    background: #fe8630;
+    #{$dz-pos-right}: 6px;
+    top: 5px;
+	border:4px solid $white;
+    width: 20px;
+    &:after,
+    &:before {
+        content: '';
+        @include circle(1rem);
+        position: absolute;
+        top: 0;
+        #{$dz-pos-right}: 0;
+        bottom: 0;
+        #{$dz-pos-left}: -.2rem;
+        background-color: #D8B9C3;
+        margin: auto;
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+        -webkit-animation: pulse-me 3s linear infinite;
+        animation: pulse-me 3s linear infinite;
+        @at-root [direction="rtl"] & {
+            #{$dz-pos-left}: auto;
+            #{$dz-pos-right}: -.2rem;
+        }
+    }
+	@include respond ('laptop'){
+		height:16px;
+		width:16px;
+	}
+}
+
+@-webkit-keyframes pulse-me {
+    0% {
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    70% {
+        opacity: 0.09;
+    }
+    100% {
+        -webkit-transform: scale(3);
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-me {
+    0% {
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    70% {
+        opacity: 0.09;
+    }
+    100% {
+        -webkit-transform: scale(3);
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+[data-sidebar-style="full"],
+[data-sidebar-style="overlay"] {
+    .header {
+        width: 100%;
+        @include custommq($max: 1350px) {
+            width: 100%;
+            padding-#{$dz-pos-left}: 17rem;
+        }
+        @include custommq($max: 1023px) {
+            width: 100%;
+            padding-#{$dz-pos-left}: 5rem;
+        }
+    }
+}
+
+[data-sidebar-style="mini"] {
+    .header {
+        width: 100%;
+        padding-#{$dz-pos-left}: 6.25rem;
+    }
+}
+
+[data-sidebar-style="compact"] {
+    .header {
+        width: 100%;
+        padding-#{$dz-pos-left}: 11.25rem;
+		.header-content{
+			padding-#{$dz-pos-left}: 1.875rem;
+		}
+    }
+}
+
+[data-header-position="fixed"] {
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+		z-index:4;
+		box-shadow:0 0 20px rgba(0,0,0,0.1);
+    }
+    .content-body {
+        padding-top: 7.5rem;
+		@include respond('tab-land'){
+			padding-top: 5rem;
+		}
+    }
+    .deznav {
+        margin-top: 0;
+    }
+}
+[data-sidebar-style="compact"][data-header-position="fixed"][data-container="boxed"][data-layout="vertical"] {
+    .header {
+        width: 1199px;
+    }
+}
+[data-sidebar-style="modern"] {
+    .header {
+		width: 100%;
+		padding-#{$dz-pos-left}: 10.625rem;
+    
+
+    }
+	&[data-layout="horizontal"] {
+		.nav-header .brand-logo{
+		    justify-content: start;
+		}
+		.header .header-content{
+            padding-#{$dz-pos-left}: 30px;
+			
+        }
+	}
+}

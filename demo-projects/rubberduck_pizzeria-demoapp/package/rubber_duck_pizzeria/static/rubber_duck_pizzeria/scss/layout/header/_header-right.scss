@@ -1,0 +1,362 @@
+.header-right {
+    height: 100%;
+	@include custommq($max: 1440px) {
+		margin-#{$dz-pos-left}:20px;
+	}
+	@include respond('laptop') {
+		margin-#{$dz-pos-left}:0px;
+	}
+    .nav-item {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .nav-link {
+            color: $l-ctd;
+            font-size: 18px;
+        }
+    }
+	.right-sidebar{
+		margin-#{$dz-pos-right}:-30px;
+		a{
+			height: 80px;
+			width: 80px;
+			text-align: center;
+			justify-content: center;
+			display: flex;
+			align-items: center;
+			border-#{$dz-pos-left}: 1px solid $light;
+		}
+	}
+    &>li {
+        &:not(:first-child) {
+            padding-#{$dz-pos-left}:1.25rem;
+			@include respond('tab-land') {
+				padding-#{$dz-pos-left}:0.5rem;
+			}
+			@include respond('phone') {
+				padding-#{$dz-pos-left}:0.2rem;
+			}
+        }
+    }
+    .notification_dropdown {
+        @include respond('phone-land') {
+            position: static;
+        }
+        .nav-link {
+            position: relative;
+            color: $primary;
+			background: $white;
+			border-radius: $radius;
+			padding: 15px;
+			line-height: 1;
+			@include respond('laptop') {
+				padding: 10px;
+			}
+			@include respond('phone') {
+				padding: 0.55rem;
+			}
+            i {
+                font-size: 24px;
+				@include respond('laptop') {
+					font-size: 18px;
+				}
+            }
+			svg{
+				@include respond('laptop') {
+					width:24px;
+					height:24px;
+				}
+			}
+            .badge {
+                position: absolute;
+                font-size: 0.625rem;
+                border-radius: 50%;
+                #{$dz-pos-right}: 0;
+                top: 0;
+                font-weight: normal;
+                height: 17px;
+                width: 17px;
+                line-height: 6px;
+                text-align: center;
+                padding: 5px;
+            }
+        }
+        .dropdown-item {
+            &:focus,
+            &:active {
+                a {
+                    color: $white;
+                }
+            }
+            a {
+                color: $dark;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .dropdown-menu {
+        border-width:0;
+        box-shadow: 0 0 37px rgba(8,21,66,0.05);
+        @at-root [data-theme-version="dark"] & {
+            box-shadow: none;
+        }
+    }
+    .header-profile {
+        &>a.nav-link {
+			padding:0;
+			display: flex;
+			align-items: center;
+			margin-#{$dz-pos-left}: 15px;
+			padding-#{$dz-pos-left}: 30px;
+			border-#{$dz-pos-left}: 1px solid $border-color;	
+            i {
+                font-weight: 700;
+            }
+			.header-info{
+				padding-#{$dz-pos-left}: 20px;
+				text-align: #{$dz-pos-left};
+				@include respond('laptop') {
+					padding-#{$dz-pos-left}: 10px;
+				}
+				@include respond('phone') {
+					display:none;
+				}
+				span{
+					font-size:20px!important;
+					color:$black;
+					display: block;
+					font-weight: 600;
+				}
+				strong{
+					color:$dark;
+				}
+				small{
+					display:block;
+					font-size: 13px;
+					color:$muted;
+					font-weight:400;
+					line-height: 1.2;
+				}
+			}
+			@include custommq($max: 1440px) {
+				margin-#{$dz-pos-left}: 10px;
+				padding-#{$dz-pos-left}: 20px;
+				.header-info{
+					span{
+						font-size:16px!important;
+					}
+				}
+			}
+			@include respond ('laptop'){
+				margin-#{$dz-pos-left}: 10px;
+				padding-#{$dz-pos-left}: 20px;
+				.header-info{
+					span{
+						font-size:16px!important;
+					}
+				}
+			}
+			@include respond ('phone'){
+				margin-#{$dz-pos-left}: 0px;
+				padding-#{$dz-pos-left}:0px;
+				border-#{$dz-pos-left}:0;
+			}
+        }
+        .dropdown-menu {
+            padding: 15px 0;
+            min-width: 12.5rem;
+            a {
+                &:hover,
+                &:focus,
+                &.active {
+                    color: $primary;
+                }
+            }
+        }
+        img {
+            width: 55px;
+            height: 55px;
+            border-radius: $radius;
+			@include respond('laptop') {
+				width: 39px;
+				height: 39px;
+			}
+        }
+        .dropdown-toggle {
+            i {
+                font-size: 1.25rem;
+            }
+            span {
+                @include respond('phone') {
+                    display: none;
+                }
+            }
+        }
+        .profile_title {
+            background: $primary;
+            color: $white;
+            padding: 10px 20px;
+            h5 {
+                color: $white;
+                margin-bottom: 3px;
+            }
+        }
+        .dropdown-item {
+            padding: 8px 24px;
+        }
+    }
+}
+.dz-theme-mode{
+	#icon-light{
+		display:none;
+	}
+	&.active{
+		#icon-dark{
+			display:none;
+		}
+		#icon-light{
+			display:block;
+		}
+	}
+}
+
+.dz-fullscreen{
+	#icon-minimize{
+		display:none;
+	}
+	&.active{
+		#icon-full{
+			display:none;
+		}
+		#icon-minimize{
+			display:inline-block;
+		}
+	}
+}
+.notification_dropdown ,
+.header-profile{
+    .dropdown-menu-end {
+        min-width: 310px;
+        padding: 0rem 0 1rem;
+        top: 100%;
+		box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 24px;
+		position: absolute;
+		background:$white;
+		inset: 0px 0px auto auto;
+		margin: 0px;
+		-webkit-transform: translateY(121px)!important;
+		transform: translateY(121px)!important;
+		transition: all .2s;
+		@include respond('tab-land') {
+			-webkit-transform: translateY(80px)!important;
+			transform: translateY(80px)!important;
+		}
+        .notification_title {
+            background: $primary;
+            color: $white;
+            padding: 10px 20px;
+            h5 {
+                color: $white;
+                margin-bottom: 3px;
+            }
+        }
+        .media {
+			width: 45px !important;
+			height: 45px !important;
+			font-size: 18px !important;
+            @at-root [data-theme-version="dark"] & {
+                border-color: $d-border;
+            }
+            &>span {
+                width: 35px;
+                height: 35px;
+                border-radius: 50px;
+                display: inline-block;
+                padding: 7px 9px;
+                margin-#{$dz-pos-right}: 10px;
+                margin-#{$dz-pos-left}: 0px;
+				
+                &.success {
+                    background: $success-light;
+                    color: $success;
+                }
+                &.primary {
+                    background: $primary-light;
+                    color: $primary;
+                }
+                &.danger {
+                    background: $danger-light;
+                    color: $danger;
+                }
+            }
+            .notify-time {
+                width: 100%!important;
+                margin-right: 0!important;
+                color: $l-ctl;
+            }
+            p {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                max-width: 200px;
+                margin-bottom: 0;
+                margin-top: 5px;
+				@include respond('phone') {
+				    max-width: 100px;
+				}
+            }
+        }
+        .all-notification {
+            display: block;
+            padding: 15px 30px 0;
+            color: $primary;
+            text-align: center;
+			border-top: 1px solid $light;
+			[data-theme-version="dark"] &{
+				border-color: $d-border;
+			}
+            i {
+                margin-#{$dz-pos-left}: 10px;
+            }
+        }
+    }
+}
+
+//search-area
+.search-area{
+	width:260px;
+	.input-group-text{
+		background:$body-bg;
+		border-radius:$radius;
+		i {
+			font-size: 22px;
+		}
+		[data-theme-version="dark"] &{
+			background:$d-bg;
+		}
+	}
+	.form-control{
+		border:0;
+		padding-#{$dz-pos-left}: 20px;
+		background:$body-bg;
+		&:hover,&:active,&:focus{
+			background:$body-bg;
+		}
+	}
+	@include respond ('laptop'){
+		width:200px;
+		.input-group-text{
+			padding:0;
+			i {
+				font-size: 18px;
+			}
+		}
+	}
+}
+[data-container="boxed"] {
+	.search-area{
+		display:none!important;
+	}
+}

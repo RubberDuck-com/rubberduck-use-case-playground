@@ -1,0 +1,47 @@
+.tooltip{
+
+    &-wrapper{
+
+        button:not(:last-child){
+            margin-#{$dz-pos-right}: 8px;
+        }
+
+        button:hover{
+            background: $primary;
+            color: $white;
+        }
+
+        button{
+            margin-bottom: .5rem;
+
+            &:focus{
+                box-shadow: none;
+            }
+        }
+    }
+
+    &-inner{
+        border-radius: 0;
+        background: #333333;
+        font-size: 12px;
+        font-weight: 300;
+        padding: 0.35rem 0.7rem;
+    }
+
+    
+}
+.bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before{
+    border-bottom-color: #333333;
+}
+
+.bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before{
+    border-right-color: #333333;
+}
+
+.bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before{
+    border-left-color: #333333;
+}
+
+.bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before{
+    border-top-color: #333333;
+}

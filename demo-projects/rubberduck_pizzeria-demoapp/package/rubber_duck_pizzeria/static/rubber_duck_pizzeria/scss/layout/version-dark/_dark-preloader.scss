@@ -1,0 +1,17 @@
+[data-theme-version="dark"] {
+    
+    #preloader {
+        background: $d-bg;
+    }
+    
+    .loader {
+        &__bar {
+            background: $primary;
+            box-shadow: 1px 1px 0 $d-border;
+        }
+        &__ball {
+            background: $primary;
+        }
+    }
+
+}

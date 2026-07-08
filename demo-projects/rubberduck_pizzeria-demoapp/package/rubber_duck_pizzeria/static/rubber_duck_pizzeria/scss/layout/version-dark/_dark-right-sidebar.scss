@@ -1,0 +1,17 @@
+[data-theme-version="dark"] {
+    .sidebar-right {
+        background-color: $d-bg;
+		border-radius: 0;
+			
+        .nav-tabs {
+            background-color: lighten($d-bg, 3.2%);
+            border-bottom: 1px solid $d-bg;
+
+            .nav-link {
+                &.active {
+                    background-color: rgba($primary,0.1);
+                }
+            }
+        }
+    }
+}
