@@ -25,8 +25,11 @@ from flask import Flask, Response, jsonify, request, send_from_directory
 
 ROOT = Path(__file__).resolve().parent
 PROMPTS_PATH = ROOT / "prompts.json"
-HUB_HOST = "127.0.0.1"
-HUB_PORT = 5055
+# Host/port are env-overridable so the hub can bind a reachable interface/port
+# in a container (e.g. the RubberDuck runtime-mcp pentest sandbox), while
+# defaulting to loopback:5055 for local use.
+HUB_HOST = os.environ.get("HUB_HOST", "127.0.0.1")
+HUB_PORT = int(os.environ.get("HUB_PORT") or os.environ.get("PORT") or "5055")
 
 app = Flask(__name__, static_folder=None)
 

@@ -1,0 +1,14 @@
+# Build/run config for nixpacks (buildpack) deploys — e.g. the RubberDuck
+# runtime-mcp pentest pipeline, which builds this repo with nixpacks when there
+# is no Dockerfile.
+#
+# Without this, nixpacks derives a start command from pyproject.toml's
+# [project].name and runs `python -m rubberduck-use-case-playground`, which is
+# not an importable module (the package it builds is `rubber_duck_pizzeria`,
+# and module names can't contain hyphens) — so the container exits immediately
+# with "No module named rubberduck-use-case-playground".
+#
+# The hub's real entrypoint is demo-projects/launcher.py. We also bind it to
+# 0.0.0.0 on a common port so it's reachable from outside the container.
+[start]
+cmd = "HUB_HOST=0.0.0.0 HUB_PORT=8000 python demo-projects/launcher.py"
