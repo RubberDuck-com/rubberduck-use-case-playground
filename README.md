@@ -59,7 +59,7 @@ Details live in the hub under **What to expect** for each UC.
 
 [SETUP.md](SETUP.md) — connect Codebase Intelligence + Semantic Intelligence in Cursor.
 
-Index the pizzeria demo (or the whole clone) once per session, then paste the prompt copied from the hub.
+Index the pizzeria demo once per session, then paste the prompt copied from the hub.
 
 ---
 
