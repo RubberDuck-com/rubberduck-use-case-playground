@@ -2,6 +2,12 @@
 
 Hands-on training for [RubberDuck](https://rubberduck.com): launch a real demo app, copy UC-01…UC-10 prompts, and run them in Cursor / Claude with RubberDuck MCP.
 
+<a href="https://trendshift.io/repositories/98700?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-98700" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/98700/daily?language=CSS" alt="RubberDuck-com%2Frubberduck-use-case-playground | Trendshift" width="250" height="55"/></a>
+
+<a href="https://trendshift.io/repositories/98700?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-98700" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/98700/weekly?language=CSS" alt="RubberDuck-com%2Frubberduck-use-case-playground | Trendshift" width="250" height="55"/></a>
+
+<a href="https://trendshift.io/repositories/98700?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-98700" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/98700/monthly?language=CSS" alt="RubberDuck-com%2Frubberduck-use-case-playground | Trendshift" width="250" height="55"/></a>
+
 ## 60-second start
 
 1. **Git clone**
