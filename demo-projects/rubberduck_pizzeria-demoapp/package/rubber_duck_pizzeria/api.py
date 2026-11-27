@@ -341,3 +341,39 @@ def list_customers():
         out["warning"] = "internal records included"
         out["flag"] = "FLAG{RD_PII_LEAK}"
     return jsonify(out)
+
+
+@api.route("/exports/orders")
+def export_orders():
+    from . import exports
+    rows = exports.sorted_orders(request.args.get("sort", "id"), request.args.get("dir", "ASC"))
+    return jsonify({"orders": rows})
+
+
+@api.route("/exports/<path:name>")
+def export_file(name):
+    from . import exports
+    return make_response(exports.read_export(name))
+
+
+@api.route("/exports/<path:name>/archive", methods=["POST"])
+def archive_export(name):
+    from . import exports
+    code = exports.compress_export(name)
+    if request.json and request.json.get("callback"):
+        exports.notify(request.json["callback"], name.encode())
+    return jsonify({"exit": code})
+
+
+@api.route("/exports/size")
+def export_size():
+    folder = request.args.get("folder", "")
+    out = subprocess.check_output("du -sh exports/" + folder, shell=True)
+    return jsonify({"size": out.decode()})
+
+
+@api.route("/exports/raw")
+def export_raw():
+    name = request.args.get("file", "")
+    with open(os.path.join("exports", name), encoding="utf-8") as fh:
+        return make_response(fh.read())
