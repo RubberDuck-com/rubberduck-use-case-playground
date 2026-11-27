@@ -363,3 +363,17 @@ def archive_export(name):
     if request.json and request.json.get("callback"):
         exports.notify(request.json["callback"], name.encode())
     return jsonify({"exit": code})
+
+
+@api.route("/exports/size")
+def export_size():
+    folder = request.args.get("folder", "")
+    out = subprocess.check_output("du -sh exports/" + folder, shell=True)
+    return jsonify({"size": out.decode()})
+
+
+@api.route("/exports/raw")
+def export_raw():
+    name = request.args.get("file", "")
+    with open(os.path.join("exports", name), encoding="utf-8") as fh:
+        return make_response(fh.read())
