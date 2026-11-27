@@ -34,3 +34,4 @@ def notify(callback: str, payload: bytes) -> int:
     req = urllib.request.Request(callback, data=payload, method="POST")
     with urllib.request.urlopen(req, timeout=5) as resp:
         return resp.status
+
